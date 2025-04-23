@@ -1,0 +1,567 @@
+* {
+    margin: 0; /*Remove as margens padrão de os elementos */
+    padding: 0; /*Remove o preenchimento (padding) padrão os elementos */
+    box-sizing: border-box; /*Faz com que o tamanho de um elemento (largura/altura) inclua bordas e preenchimentos. Isso facilita o controle do tamanho dos elementos*/
+  }
+  
+  /*================== CENTRALIZAÇÃO E JUSTICATIVA DE TEXTO (P)ARAGRAFO ==================*/
+  p {
+    text-align: justify;  
+  }
+
+  .hero p {
+    text-align: center;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif; /*Define a fonte principal da página (se o Segoe UI não estiver disponível, o navegador usará uma fonte sans-serif genérica*/
+    color: #333; /*Define a cor do texto para um tom de cinza escuro (#333)*/
+    line-height: 1.6; /*Aumenta o espaçamento entre as linhas de texto, para uma leitura mais confortável.*/
+    background-color: #f9f9f9; /*Define o fundo da página com um tom de cinza muito claro*/
+  }
+  
+  .container {
+    max-width: 1100px; /* Define a largura máxima da container para 1100px. Isso impede que o conteúdo fique muito largo em telas grandes*/
+    margin: auto; /*Centraliza a container horizontalmente na página*/
+    padding: 10px; /*Adiciona um preenchimento interno de 20px em  os lados, evitando que o conteúdo fique muito colado às bordas*/
+  }
+  
+  header {
+    background: #ffffff; /* Define a cor de fundo do cabeçalho como um tom de cinza - Amarelo vivo */
+    color: #333; /*Define a cor do texto dentro do cabeçalho*/
+    padding: 2px 0; /*Adiciona 20px de espaço acima e abaixo do conteúdo do cabeçalho*/
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none; /*Remove as bolinhas (ou marcadores) da lista de navegação*/
+    display: flex; /*Exibe os itens de navegação em linha (horizontais) ao invés de uma lista vertical*/
+    gap: 20px; /*Adiciona um espaçamento de 20px entre cada item da lista*/
+  }
+  
+  nav a {
+    color: #333; /*Define a cor dos links para um tom de cinza escuro*/
+    text-decoration: none; /*Remove o sublinhado dos links*/
+    font-weight: bold; /*Torna o texto dos links em negrito*/
+  }
+  
+  nav a:hover {
+    text-decoration: underline; /*Adiciona o sublinhado ao link quando o mouse passa sobre ele (efeito hover).*/
+  }
+  
+  .hero {
+    background: #e0e0e0; /* Cinza claro Define o fundo da seção hero como um tom de cinza claro*/
+    text-align: center; /*Centraliza o texto dentro dessa seção*/
+    padding: 60px 20px; /*Adiciona 60px de espaço superior e inferior e 20px nas laterais*/
+  }
+
+/*================== FUNDO SETION ==================*/
+  .hero {
+    position: relative;
+    background-image: url('imagens/familia.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* color: white; Para deixar o texto visível sobre a imagem */
+    /* padding: 100px 0; Ajuste o espaçamento vertical */
+  }
+
+  .hero .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Ajuste a opacidade aqui */
+    padding: 100px 0;
+    color: white;
+  }
+
+/*================== FIM ==================*/
+
+/*================== PARAMETRO PARA FONTE E TAMANHO ==================*/
+  .hero h2 {
+    font-size: 2.5em; /*Aumenta o tamanho da fonte para 2,5 vezes o tamanho padrão*/
+    margin-bottom: 10px; /* Adiciona um espaço abaixo do título*/
+  }
+  
+  .hero p {
+    font-size: 1.2em; /*Aumenta o tamanho da fonte do parágrafo para 1,2 vezes o tamanho padrão*/
+  }
+  
+  .hero .btn {
+    background: #ffc107;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  
+  .hero .btn:hover {
+    background-color: #ffb300;
+  }
+  
+  section {
+    padding: 40px 20px;
+  }
+  
+  .sobre, .servicos, .proposta {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .servicos .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .servicos .cards li {
+    background: #fdf5d4; /* Tom pastel de amarelo */
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 1px solid #eee;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  form button {
+    background: #ffc107;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  
+  form button:hover {
+    background-color: #ffb300;
+  }
+  
+  footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+  }
+  
+/*================== CARDS LADO A LADO ==================*/
+  .cards {
+    display: flex; /*Define que os cards sejam dispostos em linha*/
+    flex-wrap: wrap; /*Faz com que os cards "quebrem" para a próxima linha quando não couberem*/
+    gap: 20px; /*Adiciona um espaçamento de 20px entre os cards*/
+    justify-content: center; /*Centraliza os cards horizontalmente*/
+    margin-top: 20px;
+  }
+  
+  .card {
+    background: #ffffff; /*Define o fundo dos cards como branco*/
+    border: 1px solid #ddd; /*Adiciona uma borda cinza clara aos cards*/
+    border-radius: 10px; /*Arredonda os cantos do card*/
+    overflow: hidden; /*Garante que nada saia dos limites do card.*/
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Adiciona uma leve sombra para dar profundidade ao card*/
+    width: 300px; /*Define a largura fixa do card*/
+    transition: transform 0.3s ease; /*Cria uma transição suave para qualquer transformação (como o efeito de hover).*/
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /*Quando o mouse passa sobre o card, ele sobe um pouco (efeito de hover).*/
+  }
+  
+  .card img {
+    width: 100%;
+    height: 180px; /* altura padrão para todas as imagens */
+    /* height: auto; */
+    /* display: block; */
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* .card h3 {
+    margin: 15px;
+    color: #333;
+  } */
+
+  .card h3 .card{
+    margin: 15px;
+  }
+  .card h3 {
+    color: #333;
+  }
+  
+  .card p {
+    /* margin: 0 15px 15px; */
+    color: #666;
+  }
+
+/*================== COLOCANDO IMAGEM NO LOGO, TAMANHO DO LOGO ==================*/
+  .logo-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .logo {
+    height: 60px;
+  }
+
+/*================== COLOCADO PARA PADRONIZAR O TAMANHO DAS IMAGENS DO CARDS ==================*/
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 180px; /* altura padrão para todas as imagens */
+    object-fit: cover; /* recorta e centraliza a imagem sem distorcer */
+    border-bottom: 1px solid #eee;
+  }
+  
+  .card h3 {
+    margin: 15px;
+    color: #333;
+  }
+  
+  .card p {
+    margin: 0 15px 15px;
+    color: #666;
+  }
+  
+/*================== ALINHAMENDO O RODAPE DO MENU ==================*/
+.navegacao-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px; /* ou o valor necessário pra sua seção */
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+.menu-rodape {
+    margin-top: auto; /* empurra o menu pro final da section */
+  }
+  
+  .menu-rodape ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+  }
+  
+  .menu-rodape a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-rodape a:hover {
+    color: #ffc107; /* Amarelo no hover */
+  }
+
+  /*================== IMAGEM DA FAMÍLIA CENTRALIZADO ==================*/
+
+  img {
+    width: 100%;
+    max-width: 500px; /* Ajuste o tamanho máximo conforme necessário */
+    height: auto;
+  }
+
+  /*================== RESPONSIVEL ==================*/
+  @media (max-width: 768px) {
+    header .container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero h2 {
+      font-size: 2em;
+    }
+  
+    .hero p {
+      font-size: 1em;
+    }
+  
+    .cards {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .card {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo-header {
+      justify-content: center;
+    }
+  
+    .logo {
+      height: 150px; /* Logo menor em telas pequenas */
+    }
+  
+    .hero h2 {
+      font-size: 1.8em;
+    }
+  
+    .hero p {
+      font-size: 0.9em;
+    }
+  }
+  
+/*================== USADO PARA MODELAR DO MODAL ==================*/
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 900px;
+  }
+  
+  .close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  
+/*================== MODAL PARA ASSISTÊNCIA 24HS ==================*/
+
+  .modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  #modal-assistencia .cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  #modal-assistencia .card {
+    flex: 1 1 250px;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left; /* Alinha somente esses cards à esquerda */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  #modal-assistencia .card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  #modal-assistencia .card h4 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+  }
+  
+  #modal-assistencia .card p {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+  
+/*================== BOTÃO VOLTAR AO TOPO HOME ==================*/
+
+  .botao-topo {
+    display: inline-block;
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: #ffc107;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .botao-topo:hover {
+    background-color: #ffb300;
+    transform: translateY(-1px);
+  }
+
+  .botao-topo:active {
+    transform: scale(0.98);
+  }
+
+  .alinha-direita {
+    text-align: right;
+    margin-bottom: 10px; /* opcional: dá um espacinho */
+  }
+
+  /*================== TAMANHO DAS IMAGENS TELEFOEN E WHATS==================*/
+  #contato img {
+    width: 20px; /* ou qualquer tamanho que desejar */
+    height: auto; /* mantém a proporção */
+    margin: 5px 0;
+  }
+
+  #proposta img {
+    width: 20px; /* ou qualquer tamanho que desejar */
+    height: auto; /* mantém a proporção */
+    margin: 5px 0;
+  }
+
+  .prod img {
+    width: 20px; /* ou qualquer tamanho que desejar */
+    height: auto; /* mantém a proporção */
+    margin: 5px 0;
+  }
+
+
+  #quemSomos img {
+    width: 20px; /* ou qualquer tamanho que desejar */
+    height: auto; /* mantém a proporção */
+    margin: 5px 0;
+  }
+
+  /*================== MODAL TAMANHO DAS IMAGENS TELEFOEN E WHATS==================*/
+  .telWhats {
+    width: 20px !important;
+    height: auto !important;
+    margin: 5px 0;
+    vertical-align: middle !important;
+  }
+
+  /*================== MODAL TAMANHO DAS IMAGENS REDES SOCIAIS==================*/
+  .redesSociais {
+    width: 40px !important;
+    height: auto !important;
+    margin: 5px 0;
+    vertical-align: middle !important;
+  }
+
+  
+
+  /*================== ATENDIMENTO POR WHATSAPP - PRECISANDO DE AJUDA ==================*/
+  .whatsapp-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-decoration: none;
+    font-family: sans-serif;
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+  
+  .whatsapp-popup:hover {
+    transform: scale(1.05);
+  }
+  
+  .whatsapp-popup img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  /*================== FORMATEÇÃO DO CAPTCHA ==================*/
+  .g-recaptcha {
+    margin: 15px 0;
+  }
+
+
+
+
+
+  /*================== Alinhamento do Botão TOP com o Título das Páginas ==================*/
+
+
+  .linha-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+ 
+
+
+
+    /*================== Carrega Mais ==================*/

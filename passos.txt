@@ -1,0 +1,216 @@
+# 1. Preparar dados no javascript para enviar para um arquivo .php enviar_email.php
+# 2. Configurar composer no projeto do site
+# 3. Baixar biblioteca PHPMailer no projeto do site
+# 4. Criar arquivo que recebe o e-mail e envia um e-mail para você mesmo com os dados recebidos do cliente
+
+Ver como criar variável de ambiente no PHP
+https://www.youtube.com/watch?v=Dyofhlxs1Oc
+
+
+E-mail para envio automático do site do formulário Solicite um Cotação
+Usuário: isissegurossite@gmail.com
+Senha: *1S1ss3GUR0S
+
+
+
+
+
+Ver video reCAPTCHA no Google
+https://www.youtube.com/watch?v=CKoCRQPfvaY
+
+
+1. Criar a chave do reCAPTCHA no Google
+Acesse: https://www.google.com/recaptcha/admin/create
+
+Escolha o tipo: reCAPTCHA v2 ("Eu não sou um robô")
+
+Informe o nome do site e o domínio (por exemplo, seudominio.com)
+
+Salve a chave do site (site key) e a chave secreta (secret key)
+
+E adicione este botão dentro do formulário, logo antes do botão de envio:
+
+
+2. Atualizar seu HTML (index.html)
+
+<div class="g-recaptcha" data-sitekey="SUA_SITE_KEY_AQUI"></div>
+Substitua "SUA_SITE_KEY_AQUI" pela site key que o Google forneceu.
+
+
+4. Verificar o reCAPTCHA no PHP (enviar-email.php)
+
+$secretKey = 'SUA_SECRET_KEY_AQUI';
+
+
+
+
+
+--------------------------------------------
+chave de site
+6Ld5-BsrAAAAAFyvrSi7drbSU7bVzk4455KtH7_S
+
+reCAPTCHA v3 
+
+bookmark_border
+
+O reCAPTCHA v3 retorna uma pontuação para cada solicitação sem atrito do usuário. A pontuação tem como base as interações com o site e permite que você tome uma ação apropriada para ele. Registre chaves reCAPTCHA v3 no Admin Console do reCAPTCHA.
+
+Esta página explica como ativar e personalizar o reCAPTCHA v3 na sua página da Web.
+
+Posicionamento no site
+O reCAPTCHA v3 nunca interrompe os usuários, para que você possa executá-lo quando quiser, sem afetar e conversão em massa. O reCAPTCHA funciona melhor quando tem o máximo de contexto sobre as interações com o site, que vem de um comportamento legítimo e abusivo. Por isso, recomendamos incluindo a verificação reCAPTCHA em formulários ou ações, bem como em segundo plano em páginas para análise de dados em nuvem.
+
+Observação: os tokens reCAPTCHA expiram após dois minutos. Se você estiver protegendo uma ação com o reCAPTCHA, chame execute quando o usuário realizar a ação do que no carregamento da página.
+Você pode executar o reCAPTCHA em quantas ações desejar na mesma página.
+
+Vincular o desafio automaticamente a um botão
+O método mais fácil para usar o reCAPTCHA v3 na sua página é incluir o necessário do JavaScript e adicione alguns atributos ao seu botão HTML.
+
+Carregue a API JavaScript.
+
+
+ <script src="https://www.google.com/recaptcha/api.js"></script>
+Adicione uma função de callback para processar o token.
+
+
+ <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
+Adicione atributos ao botão HTML.
+
+
+<button class="g-recaptcha" 
+        data-sitekey="reCAPTCHA_site_key" 
+        data-callback='onSubmit' 
+        data-action='submit'>Submit</button>
+Invoque o desafio programaticamente
+Se você quiser ter mais controle sobre quando o reCAPTCHA é executado, use o Método execute no objeto grecaptcha. Para isso, você precisa adicionar um parâmetro render ao carregamento do script reCAPTCHA.
+
+Carregue a API JavaScript com a chave do site.
+
+
+<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+Chame grecaptcha.execute em cada ação que você quer proteger.
+
+
+   <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+          });
+        });
+      }
+  </script>
+Enviar o token imediatamente para seu back-end com a solicitação para verificar.
+
+Como interpretar a pontuação
+O reCAPTCHA v3 retorna uma pontuação (1,0 é muito provavelmente uma boa interação, 0,0 é muito provavelmente um bot). Com base na pontuação, você pode realizar ações variáveis no contexto do seu site. Todo site é mas abaixo estão alguns exemplos de como os sites usam a pontuação. Como nos exemplos abaixo, nos bastidores em vez de bloquear o tráfego para proteger melhor o site.
+
+Caso de uso	Recomendação
+homepage	Confira uma visão coesa do tráfego no Admin Console ao filtrar as raspagens de informação.
+login	Com pontuações baixas, exigem autenticação de dois fatores ou verificação de e-mail para evitar ataques de preenchimento de credenciais.
+social	Limite as solicitações de amizade não respondidas de usuários abusivos e envie comentários de risco para a moderação.
+E-commerce	Coloque vendas reais à frente dos bots e identifique transações arriscadas.
+O reCAPTCHA aprende com o tráfego real no seu site. Por isso, as pontuações em um teste ou logo após a implementação pode diferir da produção. Como o reCAPTCHA v3 nunca interromper o fluxo do usuário, primeiro execute o reCAPTCHA sem tomar medidas e, em seguida, decida específicos ao analisar o tráfego no Admin Console. De padrão, é possível usar um limite de 0,5.
+
+Ações
+O reCAPTCHA v3 introduz um novo conceito: ações. Quando você especifica um nome de ação em cada local em que o reCAPTCHA é executado, os seguintes novos recursos são ativados:
+
+Uma análise detalhada dos dados das dez principais ações no Admin Console
+Análise de risco adaptável com base no contexto da ação, porque anúncios abusivos podem variar.
+É importante ressaltar que, ao verificar a resposta reCAPTCHA, você deve confirmar se o nome da ação é o nome esperado.
+
+Observação: as ações podem conter somente caracteres alfanuméricos, barras e sublinhados. As ações não podem ser específicas do usuário.
+Resposta de verificação do site
+Faça a solicitação para verificar o token de resposta, assim como acontece com o reCAPTCHA v2 ou reCAPTCHA invisível.
+
+A resposta é um objeto JSON:
+
+
+{
+  "success": true|false,      // whether this request was a valid reCAPTCHA token for your site
+  "score": number             // the score for this request (0.0 - 1.0)
+  "action": string            // the action name for this request (important to verify)
+  "challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+  "hostname": string,         // the hostname of the site where the reCAPTCHA was solved
+  "error-codes": [...]        // optional
+}
+Dicas
+grecaptcha.ready() executa a função quando a biblioteca reCAPTCHA é carregada. Para evitar disputas com o api.js, inclua o api.js antes do scripts que chamam grecaptcha ou continuam a usar o callback onload definido com a API v2.
+Tente conectar a chamada execute a ações interessantes ou sensíveis, como Registrar, redefinir senha, comprar ou jogar.
+Use o https://www.google.com/recaptcha/api.js?trustedtypes=true para carregar código compatível com os Tipos confiáveis.
+Isso foi útil?
+
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a Licença de atribuição 4.0 do Creative Commons, e as amostras de código são licenciadas de acordo com a Licença Apache 2.0. Para mais detalhes, consulte as políticas do site do Google Developers. Java é uma marca registrada da Oracle e/ou afiliadas.
+
+Última atualização 2024-10-11 UTC.
+
+
+--------------------------------------------
+
+chave secreta
+6Ld5-BsrAAAAAFQCgxytk_8iwMb-EB5G8FTKJysK
+
+
+
+
+
+Como verificar a resposta do usuário 
+
+bookmark_border
+
+Esta página explica como verificar a resposta de um usuário a um desafio reCAPTCHA do back-end.
+
+Para usuários da Web, é possível conseguir o token de resposta do usuário de uma destas três maneiras:
+
+Parâmetro POST g-recaptcha-response quando o usuário envia o formulário no site
+grecaptcha.getResponse(opt_widget_id) após a conclusão do usuário o desafio reCAPTCHA
+Como um argumento de string para sua função de callback, se data-callback for especificado no atributo de tag g-recaptcha ou no parâmetro de callback no método grecaptcha.render.
+Para usuários da biblioteca Android, você pode chamar o método SafetyNetApi.RecaptchaTokenResult.getTokenResult() para obter o token de resposta se o status retornar bem-sucedido.
+
+Restrições de token
+Cada token de resposta do usuário reCAPTCHA é válido por dois minutos e só pode ser verificado uma vez para evitar ataques de repetição. Se você precisar de um novo token, execute novamente a verificação reCAPTCHA.
+
+Depois de receber o token de resposta, você precisa verificá-lo em dois minutos com o reCAPTCHA usando o a seguir para garantir que o token é válido.
+
+Solicitação de API
+URL: https://www.google.com/recaptcha/api/siteverify
+
+MÉTODO: POST
+
+Parâmetro POST	Descrição
+secret	Obrigatório. A chave compartilhada entre seu site e o reCAPTCHA.
+response	Obrigatório. O token de resposta do usuário fornecido pela integração do reCAPTCHA no lado do cliente no seu site.
+remoteip	Opcional. O endereço IP do usuário.
+Resposta da API
+A resposta é um objeto JSON:
+
+
+{
+  "success": true|false,
+  "challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+  "hostname": string,         // the hostname of the site where the reCAPTCHA was solved
+  "error-codes": [...]        // optional
+}
+Para o reCAPTCHA para Android:
+
+
+{
+  "success": true|false,
+  "challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+  "apk_package_name": string, // the package name of the app where the reCAPTCHA was solved
+  "error-codes": [...]        // optional
+}
+Referência do código de erro
+Código do erro	Descrição
+missing-input-secret	O parâmetro secreto está ausente.
+invalid-input-secret	O parâmetro secreto é inválido ou está incorreto.
+missing-input-response	O parâmetro de resposta está ausente.
+invalid-input-response	O parâmetro de resposta é inválido ou está incorreto.
+bad-request	A solicitação é inválida ou está incorreta.
+timeout-or-duplicate	A resposta não é mais válida: ou é muito antiga ou já foi usada.
+
