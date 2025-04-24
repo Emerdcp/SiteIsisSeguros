@@ -55,13 +55,17 @@
   </section>
   <hr>
   <!--================== PRODUTOS - CARDS ==================-->
-  <section id="produtos" class="produtos">
+  <section id="produtos" class="produtos secao-cards"><!--"secao-cards" para cards na laterais-->
     <div class="container">
       <div class="linha-topo">
         <h2><b>Nossos Produtos</b></h2>
         <!-- <a href="#home" class="botao-topo" class="alinha-direita">🔝 Inicio</a> -->
         <a href="#home" class="botao-topo" class="alinha-direita"><img src="imagens/topo.png" class="produtosBotao" alt="Início"></a>
-      </div>  
+      </div> 
+      
+      <button class="btn-scroll left" onclick="scrollCards('left')">&#8249;</button><!--button para cards na laterais-->  
+      <div class="cards-scroll" id="cardsContainer"> <!--Scroll para cards na laterais-->
+
       <div class="cards">
         <div class="card" data-produto="auto"> <!-- data-produto="auto" Para abrir o Modal.-->
           <img src="imagens/seguroAuto.jpg" alt="Seguro Auto" loading="lazy">
@@ -89,6 +93,10 @@
           <p>O Porto Seguro Empresa cuida do seu patrimônio com eficiência, segurança e economia.</p>
         </div>
       </div>
+
+    </div>
+    <button class="btn-scroll right" onclick="scrollCards('right')">&#8250;</button><!--button para cards na laterais-->  
+
   </section>
   <!--================== MODAL PARA ABRIR AS INFORMAÇÕES DOS CARDS ==================-->
   <div id="modal" class="modal">

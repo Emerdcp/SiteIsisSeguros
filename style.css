@@ -160,6 +160,79 @@
     padding: 15px;
   }
   
+
+
+ /*  Deletar ????????????? 
+
+/*================== CARDS LADO MOVENDO LATERAL ==================*/
+/* Estilo para rolagem lateral */
+.secao-cards {
+  position: relative;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.cards-scroll {
+  display: flex;
+  overflow-x: auto; /* permite a rolagem horizontal */
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap; /* Impede que os cards quebrem para a linha seguinte */
+}
+
+.card {
+  flex: 0 0 auto; /* Permite que o card tenha tamanho fixo e não se estique */
+  min-width: 250px;  /* Largura mínima dos cards */
+  height: 180px;
+  background-color: #f1f1f1;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  scroll-snap-align: start;  /* Faz o alinhamento do card quando parar de rolar */
+}
+
+.btn-scroll {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffffdd;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+.btn-scroll:hover {
+  background: #ffffff;
+}
+
+.btn-scroll.left {
+  left: 10px;
+}
+
+.btn-scroll.right {
+  right: 10px;
+}
+
+/* Esconde a barra de rolagem */
+.cards-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.cards-scroll {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+/* ------    Deletar ate aqui ????????????? */
+
+
 /*================== CARDS LADO A LADO ==================*/
   .cards {
     display: flex; /*Define que os cards sejam dispostos em linha*/

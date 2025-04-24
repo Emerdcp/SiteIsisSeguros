@@ -48,6 +48,23 @@ document.getElementById('form-proposta').addEventListener('submit', function(e) 
 });
 
 
+// Deletar ?????????????
+
+//================== MODAL PARA CARDS ANDANDO PARA OS LADOS ==================//
+
+function scrollCards(direction) {
+  const container = document.getElementById('cardsContainer');
+  const scrollAmount = 300; // pixels por clique
+
+  if (direction === 'left') {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  } else {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  }
+}
+
+// Deletar até aqui ?????????????
+
 //================== MODAL PARA CARDS ==================//
 
   document.addEventListener("DOMContentLoaded", function () {
