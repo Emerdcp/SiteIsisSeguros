@@ -482,12 +482,11 @@
     margin: 5px 0;
   }
 
-  .prod img {
-    width: 20px; /* ou qualquer tamanho que desejar */
+  #produtos .produtosBotao {
+    width: 20px; /* ou qualquer tamanho que você deseja */
     height: auto; /* mantém a proporção */
     margin: 5px 0;
   }
-
 
   #quemSomos img {
     width: 20px; /* ou qualquer tamanho que desejar */
