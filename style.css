@@ -205,7 +205,7 @@ footer {
 }
 
 .card img {
-  width: 100%;
+  width: 100%; /* Largura padrão para todas as imagens */
   border-radius: 6px;
   margin-bottom: 10px;
 }
@@ -615,6 +615,16 @@ img {
   width: 24px;
   height: 24px;
   margin-right: 8px;
+}
+
+@keyframes pulse { /*Movimentação do Whatsapp*/
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.whatsapp-popup {
+  animation: pulse 2s infinite;
 }
 
 /*================== FORMATEÇÃO DO CAPTCHA ==================*/

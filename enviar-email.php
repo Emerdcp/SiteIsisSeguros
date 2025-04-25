@@ -3,8 +3,21 @@
 # composer init
 # composer require phpmailer/phpmailer
 
+//incluido o composer
 use PHPMailer\PHPMailer\PHPMailer;
 require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
+$dotenv->load();
+
+echo "Recuperar o ambiente: " . getenv('APP_ENV') . "<br>";
+echo "Recuperar o ambiente: " . $_ENV('APP_ENV') . "<br>";
+echo "Recuperar o ambiente: " . $_SERVER('APP_ENV') . "<br>";
+
+echo "Recuperar o e-mail suporte: " . getenv('EMAIL') . "<br>";
+echo "Recuperar o e-mail suporte: " . $_ENV('EMAIL') . "<br>";
+echo "Recuperar o e-mail suporte: " . $_SERVER('EMAIL') . "<br>";
+
 
 header("Content-type: Application/json");
 // if ($_SERVER["REQUEST_METHOD"] === "POST") {
