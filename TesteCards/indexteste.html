@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Produtos com Scroll</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    .secao-cards {
+      padding: 40px 20px;
+      background-color: #fff;
+    }
+
+    .container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .linha-topo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .cards-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scroll-behavior: smooth;
+      padding: 10px 0;
+    }
+
+    .cards {
+      display: inline-flex;
+      gap: 20px;
+    }
+
+    .card {
+      min-width: 250px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: inline-block;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .btn-scroll {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+      font-size: 24px;
+    }
+
+    .btn-scroll.left {
+      left: -20px;
+    }
+
+    .btn-scroll.right {
+      right: -20px;
+    }
+
+    .botao-topo img {
+      width: 32px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<section id="produtos" class="produtos secao-cards">
+  <div class="container">
+    <div class="linha-topo">
+      <h2><b>Nossos Produtos</b></h2>
+      <a href="#home" class="botao-topo"><img src="imagens/topo.png" class="produtosBotao" alt="Início"></a>
+    </div> 
+
+    <button class="btn-scroll left" onclick="scrollCards('left')">&#8249;</button> 
+
+    <div class="cards-scroll" id="cardsContainer">
+      <div class="cards">
+        <div class="card">
+          <img src="imagens/seguroAuto.jpg" alt="Seguro Auto" loading="lazy">
+          <h3>Seguro Auto</h3>
+          <p>Para proteger seu veículo, você também pode usufruir de uma série de vantagens.</p>
+        </div>
+        <div class="card">
+          <img src="imagens/previdencia.jpg" alt="Previdência" loading="lazy">
+          <h3>Previdência</h3>
+          <p>Planeje seu futuro com um dos planos de Previdência para você.</p>
+        </div>
+        <div class="card">
+          <img src="imagens/seguroResidencial.jpg" alt="Seguro Residencial" loading="lazy">
+          <h3>Seguro Residencial</h3>
+          <p>Garanta seu patrimônio e supere suas expectativas.</p>
+        </div>
+        <div class="card">
+          <img src="imagens/condominio.jpg" alt="Condomínio" loading="lazy">
+          <h3>Seguro para Condomínio</h3>
+          <p>Proteção e vantagens para o seu condomínio.</p>
+        </div>
+        <div class="card">
+          <img src="imagens/seguroEmpresariais.jpg" alt="Empresariais" loading="lazy">
+          <h3>Seguro Empresariais</h3>
+          <p>Cuide do seu patrimônio com eficiência, segurança e economia.</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-scroll right" onclick="scrollCards('right')">&#8250;</button>  
+  </div>
+</section>
+
+<script>
+  function scrollCards(direction) {
+    const container = document.getElementById('cardsContainer');
+    const scrollAmount = 300;
+
+    if (direction === 'left') {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>

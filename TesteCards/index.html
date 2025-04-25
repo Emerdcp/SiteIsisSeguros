@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Isis - Seguro</title>
+  <link rel="icon" href="imagens/isis.png" type="imagens/isis.jpeg">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  
+  <!--================== CHAVE CAPTCHA ==================-->
+  <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
+  <!--================== CHAVE CAPTCHA - FIM ==================-->
+
+</head>
+<body>
+<!-- <body style="background-image: url(imagens/logoIsisSeguroFundo.png); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;">   -->
+  <!--================== LOGO E MENU ==================-->
+  <header id="home">
+    <div class="container">
+      <div class="logo-header">
+        <img src="imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro" class="logo">
+      </div>
+      <nav class="menu-rodape">
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <hr>
+  <!--================== PRODUTOS - CARDS ==================-->
+  <section id="produtos" class="produtos secao-cards"><!--"secao-cards" para cards na laterais-->
+    <div class="container">
+      <div class="linha-topo">
+        <h2><b>Nossos Produtos</b></h2>
+        <!-- <a href="#home" class="botao-topo" class="alinha-direita">🔝 Inicio</a> -->
+        <a href="#home" class="botao-topo" class="alinha-direita"><img src="imagens/topo.png" class="produtosBotao" alt="Início"></a>
+      </div> 
+      
+      <button class="btn-scroll left" onclick="scrollCards('left')">&#8249;</button> 
+
+      <div class="cards-scroll" id="cardsContainer">
+
+      <div class="cards">
+        <div class="card" data-produto="auto"> <!-- data-produto="auto" Para abrir o Modal.-->
+          <img src="imagens/seguroAuto.jpg" alt="Seguro Auto" loading="lazy">
+          <h3>Seguro Auto</h3>
+          <p>Para proteger seu veículo, você também pode usufruir de uma série de vantagens.</p>
+        </div>
+        <div class="card" data-produto="previdencia"> <!-- data-produto="previdencia" Para abrir o Modal.-->
+          <img src="imagens/previdencia.jpg" alt="Previdência" loading="lazy">
+          <h3>Previdência</h3>
+          <p>Planeje seu futuro com um dos planos de Previdência para você.</p>
+        </div>
+        <div class="card" data-produto="residencial"> <!-- data-produto="residencial" Para abrir o Modal.-->
+          <img src="imagens/seguroResidencial.jpg" alt="Seguro Residencial" loading="lazy">
+          <h3>Seguro Residencial</h3>
+          <p>O Seguro Residência foi feito para garantir o seu patrimônio e superar suas expectativas.</p>
+        </div>
+        <div class="card" data-produto="condominio"> <!-- data-produto="auto" Para abrir o Modal.-->
+          <img src="imagens/condominio.jpg" alt="Condominio" loading="lazy">
+          <h3>Seguro para Condomínio</h3>
+          <p>Com Seguro Condomínio você deixa de se preocupar com eventuais problemas e ainda acumula vantagens.</p>
+        </div>
+        <div class="card" data-produto="empresariais"> <!-- data-produto="auto" Para abrir o Modal.-->
+          <img src="imagens/seguroEmpresariais.jpg" alt="Empresariais" loading="lazy">
+          <h3>Seguro Empresariais</h3>
+          <p>O Porto Seguro Empresa cuida do seu patrimônio com eficiência, segurança e economia.</p>
+        </div>
+      </div>
+
+    </div>
+    <button class="btn-scroll right" onclick="scrollCards('right')">&#8250;</button> <!--button para cards na laterais-->  
+
+  </section>
+  <!--================== MODAL PARA ABRIR AS INFORMAÇÕES DOS CARDS ==================-->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-texto"></p>
+    </div>
+  </div>
+  <!--================== Solicite um proposta ==================-->
+  <hr>
+  
+  <!--================== CHAMADA DO JAVA ==================-->
+
+  <!-- <script src="script.js"></script> -->
+
+
+  <script>
+    function scrollCards(direction) {
+      const container = document.getElementById('cardsContainer');
+      const scrollAmount = 300; // ajuste a distância do scroll aqui
+  
+      if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+  </script>
+
+</body>
+</html>

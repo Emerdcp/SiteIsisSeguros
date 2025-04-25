@@ -13,8 +13,8 @@
   <!--================== CHAVE CAPTCHA - FIM ==================-->
 
 </head>
-<body>
-<!-- <body style="background-image: url(imagens/logoIsisSeguroFundo.png); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;">   -->
+<!-- <body> -->
+<body style="background-image: url(imagens/logoIsisSeguroFundo.png); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;">  
   <!--================== LOGO E MENU ==================-->
   <header id="home">
     <div class="container">
@@ -62,41 +62,38 @@
         <!-- <a href="#home" class="botao-topo" class="alinha-direita">🔝 Inicio</a> -->
         <a href="#home" class="botao-topo" class="alinha-direita"><img src="imagens/topo.png" class="produtosBotao" alt="Início"></a>
       </div> 
-      
-      <button class="btn-scroll left" onclick="scrollCards('left')">&#8249;</button><!--button para cards na laterais-->  
-      <div class="cards-scroll" id="cardsContainer"> <!--Scroll para cards na laterais-->
-
-      <div class="cards">
-        <div class="card" data-produto="auto"> <!-- data-produto="auto" Para abrir o Modal.-->
-          <img src="imagens/seguroAuto.jpg" alt="Seguro Auto" loading="lazy">
-          <h3>Seguro Auto</h3>
-          <p>Para proteger seu veículo, você também pode usufruir de uma série de vantagens.</p>
-        </div>
-        <div class="card" data-produto="previdencia"> <!-- data-produto="previdencia" Para abrir o Modal.-->
-          <img src="imagens/previdencia.jpg" alt="Previdência" loading="lazy">
-          <h3>Previdência</h3>
-          <p>Planeje seu futuro com um dos planos de Previdência para você.</p>
-        </div>
-        <div class="card" data-produto="residencial"> <!-- data-produto="residencial" Para abrir o Modal.-->
-          <img src="imagens/seguroResidencial.jpg" alt="Seguro Residencial" loading="lazy">
-          <h3>Seguro Residencial</h3>
-          <p>O Seguro Residência foi feito para garantir o seu patrimônio e superar suas expectativas.</p>
-        </div>
-        <div class="card" data-produto="condominio"> <!-- data-produto="auto" Para abrir o Modal.-->
-          <img src="imagens/condominio.jpg" alt="Condominio" loading="lazy">
-          <h3>Seguro para Condomínio</h3>
-          <p>Com Seguro Condomínio você deixa de se preocupar com eventuais problemas e ainda acumula vantagens.</p>
-        </div>
-        <div class="card" data-produto="empresariais"> <!-- data-produto="auto" Para abrir o Modal.-->
-          <img src="imagens/seguroEmpresariais.jpg" alt="Empresariais" loading="lazy">
-          <h3>Seguro Empresariais</h3>
-          <p>O Porto Seguro Empresa cuida do seu patrimônio com eficiência, segurança e economia.</p>
+      <button class="btn-scroll left" onclick="scrollCards('left')"><img src="imagens/left.png" alt="Voltar" class="seta-btn"></button>
+      <div class="cards-scroll" id="cardsContainer">
+        <div class="cards">
+          <div class="card" data-produto="auto"> <!-- data-produto="auto" Para abrir o Modal.-->
+            <img src="imagens/seguroAuto.jpg" alt="Seguro Auto" loading="lazy">
+            <h3>Seguro Auto</h3>
+            <p>Para proteger seu veículo, você também pode usufruir de uma série de vantagens.</p>
+          </div>
+          <div class="card" data-produto="previdencia"> <!-- data-produto="previdencia" Para abrir o Modal.-->
+            <img src="imagens/previdencia.jpg" alt="Previdência" loading="lazy">
+            <h3>Previdência</h3>
+            <p>Planeje seu futuro com um dos planos de Previdência para você.</p>
+          </div>
+          <div class="card" data-produto="residencial"> <!-- data-produto="residencial" Para abrir o Modal.-->
+            <img src="imagens/seguroResidencial.jpg" alt="Seguro Residencial" loading="lazy">
+            <h3>Seguro Residencial</h3>
+            <p>O Seguro Residência foi feito para garantir o seu patrimônio e superar suas expectativas.</p>
+          </div>
+          <div class="card" data-produto="condominio"> <!-- data-produto="auto" Para abrir o Modal.-->
+            <img src="imagens/condominio.jpg" alt="Condominio" loading="lazy">
+            <h3>Seguro para Condomínio</h3>
+            <p>Com Seguro Condomínio você deixa de se preocupar com eventuais problemas e ainda acumula vantagens.</p>
+          </div>
+          <div class="card" data-produto="empresariais"> <!-- data-produto="auto" Para abrir o Modal.-->
+            <img src="imagens/seguroEmpresariais.jpg" alt="Empresariais" loading="lazy">
+            <h3>Seguro Empresariais</h3>
+            <p>O Porto Seguro Empresa cuida do seu patrimônio com eficiência, segurança e economia.</p>
+          </div>
         </div>
       </div>
-
+      <button class="btn-scroll right" onclick="scrollCards('right')"><img src="imagens/right.png" alt="Avançar" class="seta-btn"></button>
     </div>
-    <button class="btn-scroll right" onclick="scrollCards('right')">&#8250;</button><!--button para cards na laterais-->  
-
   </section>
   <!--================== MODAL PARA ABRIR AS INFORMAÇÕES DOS CARDS ==================-->
   <div id="modal" class="modal">

@@ -54,7 +54,7 @@ document.getElementById('form-proposta').addEventListener('submit', function(e) 
 
 function scrollCards(direction) {
   const container = document.getElementById('cardsContainer');
-  const scrollAmount = 300; // pixels por clique
+  const scrollAmount = 300; // ajuste a distância do scroll aqui
 
   if (direction === 'left') {
     container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
