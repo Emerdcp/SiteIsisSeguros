@@ -651,6 +651,7 @@ img {
 
   /* Área das logos lado a lado */
 .logos-seguradoras {
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -673,3 +674,70 @@ img {
   text-align: center; /* Centraliza o texto */
   padding: 20px; /* Adiciona um pouco de espaço interno */
 }
+
+/* tabela */
+table {
+  width: 60%; /* A tabela ocupa 100% da largura disponível da página ou do contêiner pai. */
+  border-collapse: separate; /* Separa as bordas da tabela (dá o espaçamento entre as células). */
+  border-spacing: 20px; /* Adiciona um espaçamento de 20px entre as células da tabela. */
+}
+
+td {
+  padding: 10px 20px; /* Adiciona 10px de espaçamento vertical (em cima e embaixo) e 20px de espaçamento horizontal (esquerda e direita) nas células. */
+  text-align: center; /* Alinha o conteúdo das células no centro horizontalmente. */
+}
+
+.telefone-btn {
+  display: inline-flex; /* Exibe o botão como um elemento inline (sem quebra de linha), mas com a capacidade de usar o layout flexível. */
+  align-items: center; /* Alinha verticalmente o conteúdo (ícone e texto) no centro. */
+  background-color: #ffc107; /* Define a cor de fundo do botão como verde (pode ser alterada conforme preferir). */
+  color: #333; /* Define a cor do texto como branca. */
+  padding: 8px 12px; /* Adiciona um espaçamento interno de 8px na vertical e 12px na horizontal. */
+  border-radius: 5px; /* Arredonda os cantos do botão com raio de 5px, deixando-o mais suave e amigável. */
+  text-decoration: none; /* Remove qualquer estilo de link (como sublinhado) do botão. */
+  font-weight: bold; /* Define o texto em negrito. */
+  font-size: 16px; /* Define o tamanho da fonte para 16px, ajustando a legibilidade. */
+  transition: background-color 0.3s ease; /* Faz a cor de fundo mudar suavemente quando o botão for clicado. */
+}
+
+.telefone-btn:hover {
+  background-color: #ffb300; /* Quando o mouse passa sobre o botão, a cor de fundo muda para um tom mais escuro de verde. */
+}
+
+.telefone-btn img {
+  width: 20px; /* Define a largura da imagem para 20px. */
+  height: 20px; /* Define a altura da imagem para 20px, mantendo a proporção correta. */
+  margin-right: 10px; /* Adiciona um espaço de 10px entre a imagem e o texto do botão. */
+}
+
+
+/* .logos-seguradoras img { */
+  /* max-width: 150px; Ajuste o tamanho conforme necessário */
+  /* height: auto;     Mantém a proporção da imagem */
+  /* margin: 10px;     Adiciona espaço entre as imagens */
+/* } */
+
+.logo-isis {
+  max-width: 90px; /* Tamanho da logo da ÍSIS Seguros */
+  height: auto;
+  margin: 10px;
+}
+
+.logo-hdi {
+  max-width: 200px; /* Tamanho da logo da HDI Seguros */
+  height: auto;
+  margin: 10px;
+}
+
+.logo-portoseguros {
+  max-width: 200px; /* Tamanho da logo da HDI Seguros */
+  height: auto;
+  margin: 10px;
+}
+
+.logo-azulseguros {
+  max-width: 200px; /* Tamanho da logo da HDI Seguros */
+  height: auto;
+  margin: 10px;
+}
+
