@@ -641,3 +641,35 @@ img {
 }
 
   /*================== Carrega Mais ==================*/
+
+
+
+
+
+
+  /*================== PÁGINAS 24HS ==================*/
+
+  /* Área das logos lado a lado */
+.logos-seguradoras {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* espaço entre as imagens */
+  margin-bottom: 30px; /* espaço depois do bloco */
+  width: 100%;
+}
+
+/* Imagens menores e proporcionais */
+.logo-pequena {
+  height: 20px; /* ou 80px ou qualquer valor menor que você desejar */
+  width: auto; /* largura ajustada automaticamente para manter a proporção */
+  object-fit: contain; /* mantém proporção sem distorcer */
+}
+
+.textos-seguradoras{
+  display: flex;
+  flex-direction: column; /* Alinha os itens de cima para baixo */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Adiciona um pouco de espaço interno */
+}
