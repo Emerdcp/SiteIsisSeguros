@@ -215,7 +215,7 @@ footer {
   top: 50%; /*Alinhamento no centro*/
   transform: translateY(-50%);
   background-color: transparent; /* <-- Remove o fundo */
-  color: #3d4655; /* Cor da seta > */
+  color: #333; /* Cor da seta > */
   border: none; /*Coloca Broda no Botão*/
   padding: 10px;
   cursor: pointer; /*Ao Clicar*/
