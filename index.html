@@ -21,13 +21,14 @@
       <div class="logo-header">
         <img src="imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro" class="logo">
       </div>
-      <nav class="menu-rodape">
-        <ul>
+      <nav class="menu-rodape topo-menu"> <!-- Colocado o topo-menu para centralizar o menu na vertical-->
+        <ul class="centro-menu"> <!-- Colocado o centro-menu para centralizar o menu na vertical-->
           <li><a href="#quemSomos">Quem Somos</a></li>
           <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#proposta">Solicite uma Proposta</a></li>
+          <li><a href="https://isisseguros.aggilizador.com.br/" target="_blank">Solicite uma Proposta</a></li>
           <li><a href="#" id="btn-assistencia">Assistência 24hs</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="#localizacao">Localização</a></li>
         </ul>
       </nav>
     </div>
@@ -38,7 +39,7 @@
       <div class="container">
         <h2><b>Proteção patrimonial, familial e profissional</b></h2>
           <!-- <p>Seguro para você, sua família e seus bens com quem entende do assunto.</p> -->
-        <a href="#proposta" class="btn">Solicite uma proposta</a>
+        <a href="https://isisseguros.aggilizador.com.br/" class="btn" target="_blank">Solicite uma proposta</a>
       </div>
     </div>
   </section>
@@ -105,10 +106,10 @@
   </div>
   <!--================== Solicite um proposta ==================-->
   <hr>
-  <section id="proposta" class="proposta">
+  <section id="contato" class="proposta"> <!-- arrumar o id"proposta para contato... arrumar botão que está dando problemas-->
     <div class="container">
       <div class="linha-topo">
-        <h2><b>Solicite uma Proposta</b></h2>
+        <h2><b>Entre em Contato</b></h2>
         <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a>
       </div>  
       <form  class="container mb-4" id="form-proposta" action="enviar-email.php" method="POST">      
@@ -121,24 +122,22 @@
           <div class="col-md-4">
             <label for="telefone" class="form-label">Telefone</label>
             <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(99)99999-9999" required pattern="\(\d{2}\) \d{5}-\d{4}" />
-            <small class="form-text text-muted">Digite o DDD e o número, ex: (99)99999-9999</small>
           </div>
           <div class="col-md-4">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@dominio.com" required/>
-            <small class="form-text text-muted">Digite um e-mail válido. Ex: nome@exemplo.com</small>
           </div>
           <div class="col-12">
             <label for="mensagem" class="form-label">Mensagem</label>
             <textarea class="form-control" id="mensagem" name="mensagem" placeholder="Sua mensagem" rows="4" required></textarea>
           </div>
           <div class="col-12 text-end">
-<!-- ================== CHAVE CAPTCHA ================== -->
-            <!-- <button class="g-recaptcha" 
+              <!-- ================== CHAVE CAPTCHA ================== -->
+              <!-- <button class="g-recaptcha" 
               data-sitekey="reCAPTCHA_site_key" 
               data-callback='onSubmit' 
               data-action='submit'>Submit</button> -->
-<!-- ================== CHAVE CAPTCHA - FIM ================== -->
+              <!-- ================== CHAVE CAPTCHA - FIM ================== -->
             <button type="submit">Enviar</button>
             <button type="button" class="botao" onclick="limparFormulario()">Cancelar</button>
           </div>
@@ -147,16 +146,16 @@
     </div>
   </section>
   <!--================== Contato ==================-->
-  <section id="contato">
+  <section id="localizacao">
     <div class="container">
       <div class="linha-topo">
-        <h2><b>Contato</b></h2>
-        <a href="#home" class="botao-topo linha-direita"><img src="imagens/topo.png" alt="Início"></a>
+        <h2><b>Localização</b></h2>
+        <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a>
       </div>
       <form  class="container mb-4">
         <div class="row g-3">
           <div class="col-md-4">
-            <p><b><h4>Isis Seguros</h4></b></p> 
+            <p><b><h4>ÍSIS Seguros</h4></b></p> 
             <p>Rua Habib Sarkis, 74 - Aviação</p>
             <p>São José dos Pinhais/PR</p>
             <p><b>CEP:</b> 83.045-725</p>
@@ -207,47 +206,30 @@
       <div class="cards">
         <div class="card">
           <a href="seguradoras/hdi.html" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
-          <img src="imagens/logoSeguradoras/hdiSeguro.jpg" alt="HDI Seguros" >
+          <img src="imagens/logoSeguradoras/hdiSeguro.jpg" alt="HDI" >
           <h4>Clique aqui</h4></a>
         </div>  
         <div class="card">
           <a href="seguradoras/portoSeguro.html" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
-          <img src="imagens/logoSeguradoras/portoSeguro.jpg" alt="Porto Seguro" >
+          <img src="imagens/logoSeguradoras/portoSeguro.jpg" alt="Porto" >
           <h4>Clique aqui</h4></a>
         </div> 
         <div class="card">
           <a href="seguradoras/azulSeguro.html" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
-          <img src="imagens/logoSeguradoras/azulSeguros.jpg" alt="Porto Seguro" >
+          <img src="imagens/logoSeguradoras/azulSeguros.jpg" alt="Azul" >
+          <h4>Clique aqui</h4></a>
+        </div> 
+        <div class="card">
+          <a href="seguradoras/mitsui.html" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+          <img src="imagens/logoSeguradoras/mitsui.jpg" alt="Mitsui" >
+          <h4>Clique aqui</h4></a>
+        </div> 
+        <div class="card">
+          <a href="seguradoras/tokio.html" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+          <img src="imagens/logoSeguradoras/tokio.jpg" alt="Tokio" >
           <h4>Clique aqui</h4></a>
         </div> 
 
-
-        <div class="card">
-          <img src="imagens/logoSeguradoras/mitsui.jpg" alt="">
-          <h4>Mitsui</h4>
-          <p>Assistência 24hs - Automóvel, residencial, e empresarial.</p>
-          <p><b>Telefone</b></p>
-          <p><img src="imagens/telefone.png" alt="Telefone" class="telWhats"> 0300.772.6744</p>
-          <!-- <p><b>Demais Localidades</b></p>
-          <p><img src="imagens/telefone.png" alt="Telefone" class="telWhats"> 0800.703.0203</p>
-          <p><b>WhatsApp</b></p>
-          <p><a href="https://wa.me/552139062985" target="_blank" style="text-decoration: none; color: inherit;">
-            <img src="imagens/whatsapp.png" alt="Whatsapp" class="telWhats"> (21) 3906-2985</a></p> -->
-        </div>
-        <div class="card">
-          <img src="imagens/logoSeguradoras/tokio.jpg" alt="">
-          <h4>Tókio</h4>
-          <p>Assistência 24hs - Sinistros, automóvel, residencial, e empresarial.</p>
-          <p><b>Telefone</b></p>
-          <p><img src="imagens/telefone.png" alt="Telefone" class="telWhats"> 0300.772.6744</p>
-          <p><b>Vidros</b></p>
-          <p><img src="imagens/telefone.png" alt="Telefone" class="telWhats"> 0800.707.8005</p>
-          <p><b>Carro Reserva</b></p>
-          <p><img src="imagens/telefone.png" alt="Telefone" class="telWhats"> 0800.208.6546</p>
-          <p><b>WhatsApp</b></p>
-          <p><a href="https://wa.me/5511212532125" target="_blank" style="text-decoration: none; color: inherit;">
-            <img src="imagens/whatsapp.png" alt="Whatsapp" class="telWhats"> (11) 2125.3212</a></p>
-        </div> 
       </div>
     </div>
   </div>

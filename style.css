@@ -233,6 +233,7 @@ footer {
   right: -40px; /* Aumente esse valor para mover mais pra fora */
 }
 
+/*IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO*/
 .botao-topo img {
   width: 32px;
   height: auto;
@@ -374,6 +375,34 @@ scrollbar-width: none;
 .menu-rodape a:hover {
   color: #ffc107; /* Amarelo no hover */
 }
+
+/*================== CENTRALIZADO O MENU NA VERTICAL==================*/
+/* Aplica só ao menu do header usando .topo-menu */
+.menu-rodape.topo-menu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Lista do menu */
+.menu-rodape.topo-menu .centro-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Alinha logo e menu verticalmente no header */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px; /* ou o valor que funcione no seu layout */
+}
+
 
 /*================== IMAGEM DA FAMÍLIA CENTRALIZADO ==================*/
 
@@ -547,13 +576,13 @@ img {
 }
 
 /*================== TAMANHO DAS IMAGENS TELEFOEN E WHATS==================*/
-#contato img {
+#localizacao img {
   width: 20px; /* ou qualquer tamanho que desejar */
   height: auto; /* mantém a proporção */
   margin: 5px 0;
 }
 
-#proposta img {
+#contato img {
   width: 20px; /* ou qualquer tamanho que desejar */
   height: auto; /* mantém a proporção */
   margin: 5px 0;
@@ -594,13 +623,13 @@ img {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #25d366;
-  color: white;
+  /* background-color: #25d366; */
+  /* color: white; */
   padding: 10px 15px;
   border-radius: 50px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  /* box-shadow: 0 4px 10px rgba(0,0,0,0.2); */
   text-decoration: none;
   font-family: sans-serif;
   z-index: 999;
@@ -612,8 +641,8 @@ img {
 }
 
 .whatsapp-popup img {
-  width: 24px;
-  height: 24px;
+  width: 50px;
+  height: 50px;
   margin-right: 8px;
 }
 
@@ -677,7 +706,7 @@ img {
 
 /* tabela */
 table {
-  width: 60%; /* A tabela ocupa 100% da largura disponível da página ou do contêiner pai. */
+  width: 40%; /* A tabela ocupa 100% da largura disponível da página ou do contêiner pai. */
   border-collapse: separate; /* Separa as bordas da tabela (dá o espaçamento entre as células). */
   border-spacing: 20px; /* Adiciona um espaçamento de 20px entre as células da tabela. */
 }
@@ -724,20 +753,33 @@ td {
 }
 
 .logo-hdi {
-  max-width: 200px; /* Tamanho da logo da HDI Seguros */
+  max-width: 300px; /* Tamanho da logo da HDI Seguros */
   height: auto;
   margin: 10px;
 }
 
 .logo-portoseguros {
-  max-width: 200px; /* Tamanho da logo da HDI Seguros */
+  max-width: 300px; /* Tamanho da logo da HDI Seguros */
   height: auto;
   margin: 10px;
 }
 
 .logo-azulseguros {
-  max-width: 200px; /* Tamanho da logo da HDI Seguros */
+  max-width: 300px; /* Tamanho da logo da HDI Seguros */
   height: auto;
   margin: 10px;
 }
+
+.logo-tokio {
+  max-width: 300px; /* Tamanho da logo da HDI Seguros */
+  height: auto;
+  margin: 10px;
+}
+
+.logo-mitsui {
+  max-width: 300px; /* Tamanho da logo da HDI Seguros */
+  height: auto;
+  margin: 10px;
+}
+
 
