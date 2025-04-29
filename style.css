@@ -377,14 +377,14 @@ scrollbar-width: none;
 }
 
 /*================== CENTRALIZADO O MENU NA VERTICAL==================*/
-/* Aplica só ao menu do header usando .topo-menu */
+/* Aplica só ao menu do header usando .topo-menu 
 .menu-rodape.topo-menu {
   display: flex;
   align-items: center;
   height: 100%;
-}
+}*/
 
-/* Lista do menu */
+/* Lista do menu 
 .menu-rodape.topo-menu .centro-menu {
   display: flex;
   flex-wrap: wrap;
@@ -393,7 +393,7 @@ scrollbar-width: none;
   list-style: none;
   padding: 0;
   margin: 0;
-}
+}*/
 
 /* Alinha logo e menu verticalmente no header */
 header .container {
