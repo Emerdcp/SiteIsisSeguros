@@ -38,21 +38,6 @@ header .container {
   align-items: center;
 }
 
-nav ul {
-  list-style: none; /*Remove as bolinhas (ou marcadores) da lista de navegação*/
-  display: flex; /*Exibe os itens de navegação em linha (horizontais) ao invés de uma lista vertical*/
-  gap: 20px; /*Adiciona um espaçamento de 20px entre cada item da lista*/
-}
-
-nav a {
-  color: #333; /*Define a cor dos links para um tom de cinza escuro*/
-  text-decoration: none; /*Remove o sublinhado dos links*/
-  font-weight: bold; /*Torna o texto dos links em negrito*/
-}
-
-nav a:hover {
-  text-decoration: underline; /*Adiciona o sublinhado ao link quando o mouse passa sobre ele (efeito hover).*/
-}
 
 .hero {
   background: #e0e0e0; /* Cinza claro Define o fundo da seção hero como um tom de cinza claro*/
@@ -308,15 +293,7 @@ scrollbar-width: none;
 }
 
 /*================== COLOCANDO IMAGEM NO LOGO, TAMANHO DO LOGO ==================*/
-.logo-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
 
-.logo {
-  height: 60px;
-}
 
 /*================== COLOCADO PARA PADRONIZAR O TAMANHO DAS IMAGENS DO CARDS ==================*/
 
@@ -352,83 +329,70 @@ scrollbar-width: none;
 
 /*================== TESTE MENU ==================*/
 
+
+/*-------REDUZIR O TAMANHO DA IMAGEM DO LOGO NA HOME-------------*/
+.logo-imglogo {
+  max-width: 80px; /* Ajuste o tamanho conforme necessário */
+  height: auto; /*Mantém a proporção original da imagem (largura x altura). Isso evita distorções*/
+  display: block; /*Faz a imagem se comportar como um bloco, permitindo o uso de margin para centralizar, por exemplo*/
+  margin: 0 auto; /* Centraliza se necessário */
+}
+
+/* Responsivo (opcional) */
+@media (max-width: 576px) { /*Esse bloco só se aplica a telas pequenas (como celulares)*/
+  .logo-img {
+      max-width: 140px; /*Em telas pequenas, o logo será menor (até 140px), para caber bem em espaços mais estreitos*/
+  }
+}
+
 /*-------AJUSTE DE MENU-------------*/
 
-.logo-img {
-  max-width: 160px;
+.logo-imglogo {
+  max-width: 60px;
   height: auto;
 }
 .navbar {
-  font-size: 18px; /* Aumenta o tamanho da fonte */
+  font-size: 14px; /* Aumenta o tamanho da fonte */
   line-height: 1.6; /* Dá um espaçamento maior entre as linhas */
-  color: #212121; /* Cor das letras, você pode alterar para o tom que preferir */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: #333; /* Cor das letras, você pode alterar para o tom que preferir */
+  box-shadow: #333;
+  text-align: center;
+  /* align-items: center !important; */
 }
 .nav-link {
-  color: #444 !important;
+  color: #333 !important;
   font-weight: 500;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .nav-link:hover {
-  color: #5a8d6d !important; /* Verde suave */
+  color: #ffb300 !important; /* Verde suave */
 }
 
+.navbar-toggler {
+  /* margin-left: auto; Empurra o botão para a direita */
+  /* align-self: center; Garante alinhamento vertical no flex container */
+  transform: translateY(-50%);
+  top: 50%;
+  position: relative;
+}
+
+.navbar-toggler-icon {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%; /* Garante que o ícone se encaixe bem */
+}
 
 /*================== TESTE MENU - FIM ==================*/
 
 
 
-
-
-
-
-
-
-
 /*================== ALINHAMENDO O RODAPE DO MENU ==================*/
-.navegacao-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 300px; /* ou o valor necessário pra sua seção */
-  padding: 20px;
-  background-color: #f7f7f7;
-}
 
-.menu-rodape {
-  margin-top: auto; /* empurra o menu pro final da section */
-}
-
-.menu-rodape ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0;
-}
-
-.menu-rodape a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.menu-rodape a:hover {
-  color: #ffc107; /* Amarelo no hover */
-}
 
 /*================== CENTRALIZADO O MENU NA VERTICAL==================*/
-
-/* Alinha logo e menu verticalmente no header */
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px; /* ou o valor que funcione no seu layout */
-}
 
 
 /*================== IMAGEM DA FAMÍLIA CENTRALIZADO ==================*/
@@ -440,10 +404,24 @@ img {
 }
 
 /*================== RESPONSIVEL ==================*/
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   header .container {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;/* Alinha lado a lado */
+    justify-content: space-between;
+    align-items: center;/* Centraliza verticalmente */
+    display: flex;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;        /* Garante alinhamento vertical */
+  }
+
+  .navbar-toggler {
+    margin: 0;
+    position: static;          /*Remove posição relativa*/
+    transform: none;            /*Remove translateY que deslocava*/
+    align-self: center;         /* Centraliza o botão verticalmente */
   }
 
   .hero h2 {
@@ -455,7 +433,7 @@ img {
   }
 
   .cards {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 10px;
   }
 
