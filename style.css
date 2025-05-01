@@ -341,6 +341,50 @@ scrollbar-width: none;
   color: #666;
 }
 
+
+
+
+
+
+
+
+
+
+/*================== TESTE MENU ==================*/
+
+/*-------AJUSTE DE MENU-------------*/
+
+.logo-img {
+  max-width: 160px;
+  height: auto;
+}
+.navbar {
+  font-size: 18px; /* Aumenta o tamanho da fonte */
+  line-height: 1.6; /* Dá um espaçamento maior entre as linhas */
+  color: #212121; /* Cor das letras, você pode alterar para o tom que preferir */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.nav-link {
+  color: #444 !important;
+  font-weight: 500;
+  margin-left: 15px;
+}
+.nav-link:hover {
+  color: #5a8d6d !important; /* Verde suave */
+}
+
+
+/*================== TESTE MENU - FIM ==================*/
+
+
+
+
+
+
+
+
+
+
 /*================== ALINHAMENDO O RODAPE DO MENU ==================*/
 .navegacao-section {
   display: flex;

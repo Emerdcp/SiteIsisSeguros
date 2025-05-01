@@ -1,0 +1,127 @@
+* {
+    margin: 0; /*Remove as margens padrão de os elementos */
+    padding: 0; /*Remove o preenchimento (padding) padrão os elementos */
+    box-sizing: border-box; /*Faz com que o tamanho de um elemento (largura/altura) inclua bordas e preenchimentos. Isso facilita o controle do tamanho dos elementos*/
+  }
+   
+  body {
+    font-family: 'Segoe UI', sans-serif; /*Define a fonte principal da página (se o Segoe UI não estiver disponível, o navegador usará uma fonte sans-serif genérica*/
+    color: #000000; /*Define a cor do texto para um tom de cinza escuro (#333)*/
+    line-height: 1.6; /*Aumenta o espaçamento entre as linhas de texto, para uma leitura mais confortável.*/
+    background-color: #f9f9f9; /*Define o fundo da página com um tom de cinza muito claro*/
+  }
+
+  body {
+
+    background-color: #ead3f0;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 1100px; /* Define a largura máxima da container para 1100px. Isso impede que o conteúdo fique muito largo em telas grandes*/
+    margin: auto; /*Centraliza a container horizontalmente na página*/
+    padding: 10px; /*Adiciona um preenchimento interno de 10px em  os lados, evitando que o conteúdo fique muito colado às bordas*/
+  }
+
+/*-------REDUZIR O TAMANHO DA IMAGEM DO LOGO NA HOME-------------*/
+
+  .logo-img {
+    max-width: 180px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /*Mantém a proporção original da imagem (largura x altura). Isso evita distorções*/
+    display: block; /*Faz a imagem se comportar como um bloco, permitindo o uso de margin para centralizar, por exemplo*/
+    margin: 0 auto; /* Centraliza se necessário */
+}
+
+/* Responsivo (opcional) */
+@media (max-width: 576px) { /*Esse bloco só se aplica a telas pequenas (como celulares)*/
+    .logo-img {
+        max-width: 140px; /*Em telas pequenas, o logo será menor (até 140px), para caber bem em espaços mais estreitos*/
+    }
+}
+
+/*-------AJUSTE DE MENU-------------*/
+
+  .logo-img {
+    max-width: 160px;
+    height: auto;
+  }
+  .navbar {
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    line-height: 1.6; /* Dá um espaçamento maior entre as linhas */
+    color: #212121; /* Cor das letras, você pode alterar para o tom que preferir */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  .nav-link {
+    color: #444 !important;
+    font-weight: 500;
+    margin-left: 15px;
+  }
+  .nav-link:hover {
+    color: #5a8d6d !important; /* Verde suave */
+  }
+
+  
+
+/*-------AJUSTE DOS TEXTO-------------*/
+
+ header { /*TEXTO DO HEADER*/
+    background-color: #edf8f1;
+    color: rgb(0, 0, 0);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    background-color: var(--lavanda);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--verde-escuro);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--verde-claro);
+    color: var(--cinza);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+
+  .cta-button:hover {
+    background-color: var(--verde-escuro);
+    color: white;
+  }
+
+  section {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  section h3 {
+    color: var(--verde-escuro);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+  }
+
+  footer {
+    background-color: var(--verde-escuro);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
