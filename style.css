@@ -352,7 +352,7 @@ scrollbar-width: none;
   height: auto;
 }
 .navbar {
-  font-size: 14px; /* Aumenta o tamanho da fonte */
+  font-size: 16px; /* Aumenta o tamanho da fonte */
   line-height: 1.6; /* Dá um espaçamento maior entre as linhas */
   color: #333; /* Cor das letras, você pode alterar para o tom que preferir */
   box-shadow: #333;
