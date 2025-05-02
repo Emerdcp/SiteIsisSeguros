@@ -709,13 +709,14 @@ img {
   padding: 20px; /* Adiciona um pouco de espaço interno */
 }
 
-/* tabela */
+/* tabela RETIRAR */
 table {
   width: 40%; /* A tabela ocupa 100% da largura disponível da página ou do contêiner pai. */
   border-collapse: separate; /* Separa as bordas da tabela (dá o espaçamento entre as células). */
   border-spacing: 20px; /* Adiciona um espaçamento de 20px entre as células da tabela. */
 }
 
+/* tabela RETIRAR */
 td {
   padding: 10px 20px; /* Adiciona 10px de espaçamento vertical (em cima e embaixo) e 20px de espaçamento horizontal (esquerda e direita) nas células. */
   text-align: center; /* Alinha o conteúdo das células no centro horizontalmente. */
