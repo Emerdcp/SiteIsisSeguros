@@ -1,230 +1,136 @@
-Foi Criado pelo GPT.
-
-
-Claro que posso te ajudar! 😊 Só me diz um pouquinho mais sobre o que você quer:
-
-Qual é o objetivo do programa? (ex: uma página de cadastro, uma calculadora, um portfólio...)
-
-Quer usar só HTML ou também CSS e JavaScript?
-
-Quer algo bem simples ou mais completo/responsivo?
-
-Tem alguma ideia de visual que você quer seguir?
-
-Se quiser, posso montar um esqueleto básico agora mesmo pra você começar. Que tal?
-
-
-
-Você disse:
-1 Seria uma Pagina de Apresentação de uma empresa de Seguro
-2 HTML, CSS e Java sim
-3 Completo e Responsivo
-4 O visual pode ser algo alegre, dinâmico, que seja bem visível  
-
-O ChatGPT disse:
-Perfeito! 👌 Então vamos criar uma página de apresentação para uma empresa de seguros, com HTML, CSS e JavaScript. A ideia vai ser algo alegre, moderno e responsivo.
-
-Vou te mostrar a estrutura inicial do projeto:
+# Estrutura inicial do projeto:
 
 📁 Estrutura de pastas
 bash
-Copiar
-Editar
 /meu-seguro/
 ├── index.html
 ├── style.css
 └── script.js
-✅ index.html (estrutura da página)
-html
-Copiar
-Editar
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SeguroFácil - Sua proteção em boas mãos</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <div class="container">
-      <h1>SeguroFácil</h1>
-      <nav>
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div class="container">
-      <h2>Protegendo o que é mais importante para você</h2>
-      <p>Planos acessíveis, atendimento humanizado e cobertura completa.</p>
-      <a href="#contato" class="btn">Fale Conosco</a>
-    </div>
-  </section>
+# 🛡️ ÍSIS Seguros - Página Institucional
 
-  <section id="sobre" class="sobre">
-    <div class="container">
-      <h2>Sobre Nós</h2>
-      <p>Somos uma empresa dedicada a oferecer soluções completas em seguros pessoais, empresariais e veiculares.</p>
-    </div>
-  </section>
+Este é um projeto de site institucional para a corretora **ÍSIS Seguros**, desenvolvido utilizando **HTML5**, **CSS3**, **JavaScript** puro e o framework **Bootstrap 5** para responsividade. A página oferece informações sobre a empresa, seus produtos, formulário de contato, localização, assistência 24h e integração com o WhatsApp.
 
-  <section id="servicos" class="servicos">
-    <div class="container">
-      <h2>Nossos Serviços</h2>
-      <ul class="cards">
-        <li>Seguro de Vida</li>
-        <li>Seguro Automóvel</li>
-        <li>Seguro Residencial</li>
-        <li>Seguro Empresarial</li>
-      </ul>
-    </div>
-  </section>
+## 📌 Objetivo
 
-  <section id="contato" class="contato">
-    <div class="container">
-      <h2>Entre em Contato</h2>
-      <form id="form-contato">
-        <input type="text" placeholder="Seu nome" required />
-        <input type="email" placeholder="Seu e-mail" required />
-        <textarea placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
-  </section>
+Criar uma presença digital profissional para a corretora ÍSIS Seguros, facilitando o acesso a informações sobre seus serviços, produtos, contato direto com a equipe e suporte emergencial.
 
-  <footer>
-    <p>© 2025 SeguroFácil. Todos os direitos reservados.</p>
-  </footer>
+## 🧱 Estrutura do Projeto (HTML)
 
-  <script src="script.js"></script>
-</body>
-</html>
-🎨 style.css (estilo alegre e responsivo)
-css
-Copiar
-Editar
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+### 🔸 `<!DOCTYPE html>`  
+Define o documento como HTML5.
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-  line-height: 1.6;
-}
+### 🔸 `<head>`  
+Inclui:
+- Metadados (charset, viewport, favicon)
+- Link para o CSS local (`style.css`)
+- Link para o Bootstrap via CDN
+- Comentários para possível integração com Google reCAPTCHA
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
-}
+### 🔸 `<body>`  
+Organizado em seções funcionais:
 
-header {
-  background: #00aaff;
-  color: #fff;
-  padding: 20px 0;
-}
+#### ✅ **Header / Navbar**
+- Logotipo da empresa
+- Menu de navegação com links âncora para seções da mesma página
+- Comportamento responsivo com `navbar-toggler` (Bootstrap)
 
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+#### ✅ **Sessão Hero / Destaque**
+- Chamada principal com botão para "Solicitar Proposta"
+- Imagem de fundo com sobreposição e CTA
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+#### ✅ **Seção "Quem Somos"**
+- Texto institucional apresentando a empresa
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+#### ✅ **Seção "Produtos"**
+- Cards com imagens, título e descrição de produtos (seguros Auto, Residencial, Empresarial, etc.)
+- Navegação horizontal por botões de scroll
+- Abertura de detalhes via modal (JavaScript)
 
-.hero {
-  background: #e0f7fa;
-  text-align: center;
-  padding: 60px 20px;
-}
+#### ✅ **Seção de Contato**
+- Formulário com campos: nome, telefone, email e mensagem
+- Validação básica via HTML5
+- Botões de envio e cancelamento
+- Comentário para reativação do Google reCAPTCHA, se necessário
 
-.hero h2 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
+#### ✅ **Seção de Localização**
+- Endereço da empresa com informações de contato
+- Integração com Google Maps via `iframe`
 
-.hero .btn {
-  background: #00aaff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-block;
-}
+#### ✅ **Rodapé**
+- Direitos autorais
+- Links para redes sociais (Facebook, Instagram)
 
-section {
-  padding: 40px 20px;
-}
+#### ✅ **Modal de Assistência 24h**
+- Modal com logos e links diretos para seguradoras parceiras
 
-.servicos .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-}
+#### ✅ **Botão flutuante de WhatsApp**
+- Link direto para contato via WhatsApp
 
-.servicos .cards li {
-  background: #f0f8ff;
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  font-weight: bold;
-}
+## 🚀 Tecnologias Utilizadas
 
-form input, form textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
+- **HTML5**: Estrutura e semântica da página
+- **CSS3**: Estilização personalizada via `style.css`
+- **Bootstrap 5**: Layout responsivo e componentes como navbar, grid e botões
+- **JavaScript**: Funcionalidades como modais, scroll de cards e manipulação do DOM
+- **Google Maps API**: Embutido com `iframe`
+- **WhatsApp API**: Integração direta para atendimento
 
-form button {
-  background: #00aaff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 6px;
-}
+## 🖼️ Pré-visualização
 
-footer {
-  background: #0077aa;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
-⚙️ script.js (formulário com mensagem simples)
-javascript
-Copiar
-Editar
-document.getElementById('form-contato').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
-  this.reset();
-});
-Se quiser, posso te ajudar a inserir imagens, ícones, melhorar o design, ou até integrar com WhatsApp ou um formulário de e-mail real. Quer seguir por essa linha?
+Você pode abrir o arquivo `index.html` em qualquer navegador para visualizar o site localmente.
 
-Ou prefere que eu envie os arquivos como um zip?
+## 🔒 Observações
+
+- O projeto está preparado para receber integração com CAPTCHA e backend em `PHP` (por exemplo, `enviar-email.php`).
+- Todas as imagens e links são locais ou diretos (não há dependência de back-end neste código HTML).
+
+## 📂 Estrutura de Arquivos Sugerida
+
+├── index.html
+├── style.css
+├── script.js
+├── imagens/
+│ ├── logoIsisSeguro.png
+│ ├── seguroAuto.jpg
+│ ├── topo.png
+│ └── ...demais imagens
+├── seguradoras/
+│ ├── hdi.html
+│ ├── portoSeguro.html
+│ └── ...
+
+
+# Formulário de Contato e Funcionalidades Interativas
+
+Este repositório contém um **formulário de contato** e outras funcionalidades interativas implementadas com **HTML**, **CSS** e **JavaScript**. O projeto oferece um formulário de envio com validações de e-mail, máscaras de telefone, modais interativos para exibir informações sobre produtos (seguros, previdência, etc.), e suporte para reCAPTCHA.
+
+## Funcionalidades
+
+### 1. **Formulário de Contato**
+- O formulário coleta informações do usuário, incluindo **nome**, **telefone**, **e-mail** e **mensagem**.
+- Através de uma requisição `POST`, os dados são enviados para o backend (`enviar-email.php`), que deverá ser configurado para processar o envio de e-mails.
+- Após o envio bem-sucedido, uma mensagem de sucesso será exibida ao usuário, e o formulário será limpo automaticamente.
+
+### 2. **Validação de E-mail**
+- O formulário realiza a validação do e-mail usando uma expressão regular para garantir que o formato seja correto antes de enviar os dados.
+
+### 3. **Máscara de Telefone**
+- O campo de **telefone** tem uma máscara que segue o formato: `(XX) XXXXX-XXXX`.
+- A máscara é aplicada automaticamente enquanto o usuário digita o número, garantindo que o formato esteja correto.
+
+### 4. **Modais Interativos para Produtos**
+- Modais são exibidos ao clicar nos **cards de produtos** (seguros, previdência, etc.).
+- Cada produto (exemplo: "Seguro Auto", "Previdência", "Seguro Residencial") tem um modal com título e conteúdo informativo detalhado.
+- O modal é fechado ao clicar no botão de fechar ou fora da área do modal.
+
+### 5. **Assistência 24h**
+- Um modal adicional oferece informações sobre a **assistência 24 horas**. Este modal pode ser aberto clicando no botão "Assistência" e fechado clicando no botão de fechamento ou fora do modal.
+
+### 6. **Suporte para reCAPTCHA (Opcional)**
+- A chave do **Google reCAPTCHA** está configurada no código, mas está comentada. Para usá-la, basta descomentar o código e configurar as chaves de API do Google.
+
+### 7. **Limpeza do Formulário**
+- Após o envio bem-sucedido do formulário, o código automaticamente limpa todos os campos do formulário.
+
+

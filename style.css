@@ -172,6 +172,12 @@ footer {
   /* white-space: nowrap; */ /*----------------------faz diminuir tamanho do card--------------------*/
   scroll-behavior: smooth;
   padding: 10px 0;
+
+  /*Analisar para Celular de fica bommmmmm ================================================================================*/
+  display: grid;
+  grid-template-columns: 1fr; /*Em telas pequenas, ao usar grid-template-columns, talvez você queira incluir uma regra de quebra de coluna para que os cards fiquem empilhados ao invés de lado a lado.*/
+  gap: 10px;
+  
 }
 
 .cards {
@@ -218,10 +224,12 @@ footer {
   right: -40px; /* Aumente esse valor para mover mais pra fora */
 }
 
-/*IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO*/
+/*IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados*/
 .botao-topo img {
-  width: 32px;
+  width: 21px;
   height: auto;
+  margin: 5px 0;
+  vertical-align: middle
 }
 
 /* Esconde a barra de rolagem */
