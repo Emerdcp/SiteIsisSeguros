@@ -1,12 +1,3 @@
-/*================== TESTE ESPACAMENTO CELULAR ==================*/
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-
-/*================== TESTE ESPACAMENTO CELULAR - FIM ==================*/
-
 * {
   margin: 0px; /*Remove as margens padrão de os elementos */
   padding: 0px; /*Remove o preenchimento (padding) padrão os elementos */
@@ -38,7 +29,7 @@ body {
 header {
   background: #ffffff; /* Define a cor de fundo do cabeçalho como um tom de cinza - Amarelo vivo */
   color: #333; /*Define a cor do texto dentro do cabeçalho*/
-  padding: 2px 0; /*Adiciona 20px de espaço acima e abaixo do conteúdo do cabeçalho*/
+  /* padding: 2px 0; Adiciona 20px de espaço acima e abaixo do conteúdo do cabeçalho */
 }
 
 header .container {
