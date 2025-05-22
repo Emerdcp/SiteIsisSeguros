@@ -1,6 +1,15 @@
+/*================== TESTE ESPACAMENTO CELULAR ==================*/
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+
+/*================== TESTE ESPACAMENTO CELULAR - FIM ==================*/
+
 * {
-  margin: 0; /*Remove as margens padrão de os elementos */
-  padding: 0; /*Remove o preenchimento (padding) padrão os elementos */
+  margin: 0px; /*Remove as margens padrão de os elementos */
+  padding: 0px; /*Remove o preenchimento (padding) padrão os elementos */
   box-sizing: border-box; /*Faz com que o tamanho de um elemento (largura/altura) inclua bordas e preenchimentos. Isso facilita o controle do tamanho dos elementos*/
 }
 
@@ -23,7 +32,7 @@ body {
 .container {
   max-width: 1100px; /* Define a largura máxima da container para 1100px. Isso impede que o conteúdo fique muito largo em telas grandes*/
   margin: auto; /*Centraliza a container horizontalmente na página*/
-  /* teste -> padding: 10px;*/ /*Adiciona um preenchimento interno de 20px em  os lados, evitando que o conteúdo fique muito colado às bordas*/
+  padding: 10px; /*Adiciona um preenchimento interno de 20px em  os lados, evitando que o conteúdo fique muito colado às bordas*/
 }
 
 header {
