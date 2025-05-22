@@ -201,22 +201,25 @@ footer {
   margin-bottom: 10px;
 }
 
+
+/*================== BOTÃO PARA MOVER CARDS PARA LADO ==================*/
 .btn-scroll {
   position: absolute; /* Posiciona o botão de forma absoluta dentro do contêiner pai */
   top: 50%; /* Alinha verticalmente ao centro */
   transform: translateY(-50%); /* Corrige o alinhamento central exato */
+  border: none; /*Coloca Broda no Botão*/
   background-color: transparent; /* <-- Remove o fundo */
   color: #333; /* Cor da seta > */
-  border: none; /*Coloca Broda no Botão*/
   padding: 10px;
   cursor: pointer; /*Ao Clicar*/
   z-index: 10;
   border-radius: 0; /* <-- Remove o formato arredondado */
   font-size: 32px; /* Tamanho da seta */
   box-shadow: none; /* Remove qualquer sombra */
-
-    transition: transform 0.3s ease; /* Suaviza a animação de movimento */
-
+  transition: transform 0.3s ease; /* Suaviza a animação de movimento */
+  background: none; /* Remove o fundo padrão do botão */
+  cursor: pointer; /* Mostra cursor de clique */
+  z-index: 1; /* Garante que o botão fique acima dos outros elementos */
 
 }
 
@@ -227,6 +230,38 @@ footer {
 .btn-scroll.right {
   right: -20px; /* Aumente esse valor para mover mais pra fora */
 }
+
+/* Animação contínua esquerda */
+.btn-scroll.left:hover {
+  animation: moveLeft 0.6s infinite alternate ease-in-out;
+}
+
+/* Animação contínua direita */
+.btn-scroll.right:hover {
+  animation: moveRight 0.6s infinite alternate ease-in-out;
+}
+
+/* Keyframes para botão da esquerda */
+@keyframes moveLeft {
+  from {
+    transform: translateY(-50%) translateX(0);
+  }
+  to {
+    transform: translateY(-50%) translateX(-12px);
+  }
+}
+
+/* Keyframes para botão da direita */
+@keyframes moveRight {
+  from {
+    transform: translateY(-50%) translateX(0);
+  }
+  to {
+    transform: translateY(-50%) translateX(12px);
+  }
+}
+/*================== BOTÃO PARA MOVER CARDS PARA LADO- FIM ==================*/
+
 
 /*IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados*/
 .botao-topo img {
@@ -645,7 +680,7 @@ img {
   right: 20px;
   /* background-color: #25d366; */
   /* color: white; */
-  padding: 10px 15px;
+  padding: 50px 5px;
   border-radius: 50px;
   /* display: flex; */
   align-items: center;
