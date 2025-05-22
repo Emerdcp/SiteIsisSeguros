@@ -1,3 +1,4 @@
+/*================== TODOS AS PÁGINAS REMOVE OS ESPAÇO ==================*/
 * {
   margin: 0px; /*Remove as margens padrão de os elementos */
   padding: 0px; /*Remove o preenchimento (padding) padrão os elementos */
@@ -17,7 +18,7 @@ body {
   font-family: 'Segoe UI', sans-serif; /*Define a fonte principal da página (se o Segoe UI não estiver disponível, o navegador usará uma fonte sans-serif genérica*/
   color: #333; /*Define a cor do texto para um tom de cinza escuro (#333)*/
   line-height: 1.6; /*Aumenta o espaçamento entre as linhas de texto, para uma leitura mais confortável.*/
-  background-color: #f30606; /*Define o fundo da página com um tom de cinza muito claro*/
+  background-color: #a8a8a8; /*Define o fundo da página com um tom de cinza muito claro*/
 }
 
 .container {
@@ -37,7 +38,6 @@ header .container {
   justify-content: space-between;
   align-items: center;
 }
-
 
 .hero {
   background: #e0e0e0; /* Cinza claro Define o fundo da seção hero como um tom de cinza claro*/
@@ -145,7 +145,6 @@ footer {
   padding: 15px;
 }
 
-
 /*================== CARDS LADO MOVENDO LATERAL ==================*/
 /* Estilo para rolagem lateral */
 .secao-cards {
@@ -172,12 +171,6 @@ footer {
   /* white-space: nowrap; */ /*----------------------faz diminuir tamanho do card--------------------*/
   scroll-behavior: smooth;
   padding: 10px 0;
-
-  /*Analisar para Celular de fica bommmmmm ================================================================================*/
-  display: grid;
-  grid-template-columns: 1fr; /*Em telas pequenas, ao usar grid-template-columns, talvez você queira incluir uma regra de quebra de coluna para que os cards fiquem empilhados ao invés de lado a lado.*/
-  gap: 10px;
-  
 }
 
 .cards {
@@ -201,11 +194,10 @@ footer {
   margin-bottom: 10px;
 }
 
-
-/*================== BOTÃO PARA MOVER CARDS PARA LADO ==================*/
+/*================== BOTÃO MOVER "SETINHA" APRESENTADO NOS CARDS ==================*/
 .btn-scroll {
   position: absolute; /* Posiciona o botão de forma absoluta dentro do contêiner pai */
-  top: 50%; /* Alinha verticalmente ao centro */
+  top: 60%; /* Alinha verticalmente ao centro */
   transform: translateY(-50%); /* Corrige o alinhamento central exato */
   border: none; /*Coloca Broda no Botão*/
   background-color: transparent; /* <-- Remove o fundo */
@@ -220,7 +212,6 @@ footer {
   background: none; /* Remove o fundo padrão do botão */
   cursor: pointer; /* Mostra cursor de clique */
   z-index: 1; /* Garante que o botão fique acima dos outros elementos */
-
 }
 
 .btn-scroll.left {
@@ -260,10 +251,9 @@ footer {
     transform: translateY(-50%) translateX(12px);
   }
 }
-/*================== BOTÃO PARA MOVER CARDS PARA LADO- FIM ==================*/
+/*================== BOTÃO MOVER "SETINHA" APRESENTADO NOS CARDS - FIM ==================*/
 
-
-/*IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados*/
+/*================== IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados ==================*/
 .botao-topo img {
   width: 21px;
   height: auto;
@@ -286,7 +276,6 @@ scrollbar-width: none;
   height: 90px;
   object-fit: contain;
 }
-
 
 /*================== CARDS LADO A LADO ==================*/
 .cards {   
@@ -365,18 +354,7 @@ scrollbar-width: none;
   color: #666;
 }
 
-
-
-
-
-
-
-
-
-
-/*================== TESTE MENU ==================*/
-
-
+/*================== MENU ==================*/
 /*-------REDUZIR O TAMANHO DA IMAGEM DO LOGO NA HOME-------------*/
 .logo-imglogo {
   max-width: 80px; /* Ajuste o tamanho conforme necessário */
@@ -389,9 +367,6 @@ scrollbar-width: none;
 @media (max-width: 576px) { /*Esse bloco só se aplica a telas pequenas (como celulares)*/
   .logo-img {
       max-width: 140px; /*Em telas pequenas, o logo será menor (até 140px), para caber bem em espaços mais estreitos*/
-  }
-  body {
-    background-color: BLUE!important;
   }
 }
 
@@ -435,15 +410,11 @@ scrollbar-width: none;
   background-size: 100% 100%; /* Garante que o ícone se encaixe bem */
 }
 
-/*================== TESTE MENU - FIM ==================*/
-
-
+/*================== MENU - FIM ==================*/
 
 /*================== ALINHAMENDO O RODAPE DO MENU ==================*/
 
-
 /*================== CENTRALIZADO O MENU NA VERTICAL==================*/
-
 
 /*================== IMAGEM DA FAMÍLIA CENTRALIZADO ==================*/
 
@@ -671,8 +642,6 @@ img {
   vertical-align: middle !important;
 }
 
-
-
 /*================== ATENDIMENTO POR WHATSAPP - PRECISANDO DE AJUDA ==================*/
 .whatsapp-popup {
   position: fixed;
@@ -680,7 +649,7 @@ img {
   right: 20px;
   /* background-color: #25d366; */
   /* color: white; */
-  padding: 50px 5px;
+  padding: 50px 0px;
   border-radius: 50px;
   /* display: flex; */
   align-items: center;
@@ -711,7 +680,7 @@ img {
   animation: pulse 2s infinite;
 }
 
-/*================== FORMATEÇÃO DO CAPTCHA ==================*/
+/*================== FORMATAÇÃO DO CAPTCHA ==================*/
 .g-recaptcha {
   margin: 15px 0;
 }
@@ -724,16 +693,8 @@ img {
   align-items: center;
 }
 
-  /*================== Carrega Mais ==================*/
-
-
-
-
-
-
-  /*================== PÁGINAS 24HS ==================*/
-
-  /* Área das logos lado a lado */
+/*================== PÁGINAS 24HS ==================*/
+/* Área das logos lado a lado */
 .logos-seguradoras {
 
   display: flex;
@@ -759,19 +720,6 @@ img {
   padding: 20px; /* Adiciona um pouco de espaço interno */
 }
 
-/* tabela RETIRAR */
-table {
-  width: 40%; /* A tabela ocupa 100% da largura disponível da página ou do contêiner pai. */
-  border-collapse: separate; /* Separa as bordas da tabela (dá o espaçamento entre as células). */
-  border-spacing: 20px; /* Adiciona um espaçamento de 20px entre as células da tabela. */
-}
-
-/* tabela RETIRAR */
-td {
-  padding: 10px 20px; /* Adiciona 10px de espaçamento vertical (em cima e embaixo) e 20px de espaçamento horizontal (esquerda e direita) nas células. */
-  text-align: center; /* Alinha o conteúdo das células no centro horizontalmente. */
-}
-
 .telefone-btn {
   display: inline-flex; /* Exibe o botão como um elemento inline (sem quebra de linha), mas com a capacidade de usar o layout flexível. */
   align-items: center; /* Alinha verticalmente o conteúdo (ícone e texto) no centro. */
@@ -794,7 +742,6 @@ td {
   height: 20px; /* Define a altura da imagem para 20px, mantendo a proporção correta. */
   margin-right: 10px; /* Adiciona um espaço de 10px entre a imagem e o texto do botão. */
 }
-
 
 /* .logos-seguradoras img { */
   /* max-width: 150px; Ajuste o tamanho conforme necessário */
