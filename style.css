@@ -221,11 +221,11 @@ footer {
 }
 
 .btn-scroll.left {
-  left: -30px; /* Aumente esse valor para mover mais pra fora */
+  left: -20px; /* Aumente esse valor para mover mais pra fora */
 }
 
 .btn-scroll.right {
-  right: -30px; /* Aumente esse valor para mover mais pra fora */
+  right: -20px; /* Aumente esse valor para mover mais pra fora */
 }
 
 /*IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados*/
