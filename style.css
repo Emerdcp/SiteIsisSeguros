@@ -17,7 +17,7 @@ body {
   font-family: 'Segoe UI', sans-serif; /*Define a fonte principal da página (se o Segoe UI não estiver disponível, o navegador usará uma fonte sans-serif genérica*/
   color: #333; /*Define a cor do texto para um tom de cinza escuro (#333)*/
   line-height: 1.6; /*Aumenta o espaçamento entre as linhas de texto, para uma leitura mais confortável.*/
-  background-color: #f9f9f9; /*Define o fundo da página com um tom de cinza muito claro*/
+  background-color: #f30606; /*Define o fundo da página com um tom de cinza muito claro*/
 }
 
 .container {
@@ -217,11 +217,11 @@ footer {
 }
 
 .btn-scroll.left {
-  left: -40px; /* Aumente esse valor para mover mais pra fora */
+  left: -20px; /* Aumente esse valor para mover mais pra fora */
 }
 
 .btn-scroll.right {
-  right: -40px; /* Aumente esse valor para mover mais pra fora */
+  right: -20px; /* Aumente esse valor para mover mais pra fora */
 }
 
 /*IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados*/
@@ -350,6 +350,9 @@ scrollbar-width: none;
 @media (max-width: 576px) { /*Esse bloco só se aplica a telas pequenas (como celulares)*/
   .logo-img {
       max-width: 140px; /*Em telas pequenas, o logo será menor (até 140px), para caber bem em espaços mais estreitos*/
+  }
+  body {
+    background-color: BLUE!important;
   }
 }
 
