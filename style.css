@@ -23,7 +23,7 @@ body {
 .container {
   max-width: 1100px; /* Define a largura máxima da container para 1100px. Isso impede que o conteúdo fique muito largo em telas grandes*/
   margin: auto; /*Centraliza a container horizontalmente na página*/
-  padding: 10px; /*Adiciona um preenchimento interno de 20px em  os lados, evitando que o conteúdo fique muito colado às bordas*/
+  /* teste -> padding: 10px;*/ /*Adiciona um preenchimento interno de 20px em  os lados, evitando que o conteúdo fique muito colado às bordas*/
 }
 
 header {
@@ -186,8 +186,8 @@ footer {
 }
 
 .card {
-  min-width: 250px;
-  background-color: #f9f9f9;
+  /* min-width: 250px; */
+  background-color: #ffffff;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -234,7 +234,7 @@ footer {
 
 /* Esconde a barra de rolagem */
 .cards-scroll::-webkit-scrollbar {
-display: none;
+/* display: none; */
 }
 
 .cards-scroll {
@@ -445,9 +445,9 @@ img {
     gap: 10px;
   }
 
-  .card {
-    width: 100%;
-  }
+  /* .card {
+    width: 100%; faz ficar responsivél, em tamanho de telas menores, mas fica fora de padrão
+  } */
 }
 
 @media (max-width: 480px) {
