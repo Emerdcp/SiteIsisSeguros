@@ -202,9 +202,9 @@ footer {
 }
 
 .btn-scroll {
-  position: absolute; /*Coloca cada um em uma ponta*/
-  top: 50%; /*Alinhamento no centro*/
-  transform: translateY(-50%);
+  position: absolute; /* Posiciona o botão de forma absoluta dentro do contêiner pai */
+  top: 50%; /* Alinha verticalmente ao centro */
+  transform: translateY(-50%); /* Corrige o alinhamento central exato */
   background-color: transparent; /* <-- Remove o fundo */
   color: #333; /* Cor da seta > */
   border: none; /*Coloca Broda no Botão*/
@@ -214,14 +214,18 @@ footer {
   border-radius: 0; /* <-- Remove o formato arredondado */
   font-size: 32px; /* Tamanho da seta */
   box-shadow: none; /* Remove qualquer sombra */
+
+    transition: transform 0.3s ease; /* Suaviza a animação de movimento */
+
+
 }
 
 .btn-scroll.left {
-  left: -20px; /* Aumente esse valor para mover mais pra fora */
+  left: -30px; /* Aumente esse valor para mover mais pra fora */
 }
 
 .btn-scroll.right {
-  right: -20px; /* Aumente esse valor para mover mais pra fora */
+  right: -30px; /* Aumente esse valor para mover mais pra fora */
 }
 
 /*IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados*/
