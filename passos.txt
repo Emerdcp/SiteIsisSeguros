@@ -1,3 +1,10 @@
+Site para pegar imagens gratuitas.
+
+https://www.istockphoto.com/br/foto/imagem-de-conceito-de-seguro-de-autom%C3%B3vel-gm139467665-19264645?utm_source=pexels&utm_medium=affiliate&utm_campaign=sponsored_photo&utm_content=adp_inline_media&utm_term=black+and+white
+https://www.pexels.com/pt-br/foto/brinquedo-volkswagen-furgao-van-11084472/
+
+
+
 # 1. Preparar dados no javascript para enviar para um arquivo .php enviar_email.php
 # 2. Configurar composer no projeto do site
 # 3. Baixar biblioteca PHPMailer no projeto do site
