@@ -1,3 +1,10 @@
+PARA TRAZER SEMPRE EM PRIMEIRO LUGAR NO GOOGLE.
+PRECIS SER COLOCADO DENTRO DO BODY
+
+<meta name="description" content="Do you want people to click on your search result? 
+Learn how to write the best meta description. Including 7 characteristics and examples!" />
+
+
 Site para pegar imagens gratuitas.
 
 https://www.istockphoto.com/br/foto/imagem-de-conceito-de-seguro-de-autom%C3%B3vel-gm139467665-19264645?utm_source=pexels&utm_medium=affiliate&utm_campaign=sponsored_photo&utm_content=adp_inline_media&utm_term=black+and+white
