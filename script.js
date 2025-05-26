@@ -282,5 +282,58 @@ const telefoneInput = document.getElementById("telefone");
     return true;
   }
 
-//================== CARREGA MAIS ==================//
+//================== BARRA DE ROLAGEM ... DO CARDS ==================//
 
+  // function scrollCards(direction) {
+  //   const container = document.getElementById('cardsContainer');
+  //   const scrollAmount = 300; // ajuste conforme necessário
+  //   if (direction === 'left') {
+  //     container.scrollLeft -= scrollAmount;
+  //   } else {
+  //     container.scrollLeft += scrollAmount;
+  //   }
+  // }
+
+ 
+
+  const cardsContainer = document.getElementById('cardsContainer');
+  const cards = document.querySelectorAll('.card');
+  const dots = document.querySelectorAll('.dot');
+  let currentIndex = 0;
+
+  function scrollCards(direction) {
+    const cardWidth = cards[0].offsetWidth;
+
+    if (direction === 'left' && currentIndex > 0) {
+      currentIndex--;
+    } else if (direction === 'right' && currentIndex < cards.length - 1) {
+      currentIndex++;
+    }
+
+    // Scroll para o card correspondente
+    cardsContainer.scrollTo({
+      left: cardWidth * currentIndex,
+      behavior: 'smooth'
+    });
+
+    // Atualiza os dots
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[currentIndex]) {
+      dots[currentIndex].classList.add('active');
+    }
+  }
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    currentIndex = parseInt(dot.dataset.index);
+    cardsContainer.scrollTo({
+      left: cards[0].offsetWidth * currentIndex,
+      behavior: 'smooth'
+    });
+    updateDots();
+  });
+});

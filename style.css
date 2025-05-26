@@ -253,6 +253,46 @@ footer {
 }
 /*================== BOTÃO MOVER "SETINHA" APRESENTADO NOS CARDS - FIM ==================*/
 
+/*================== BARRA DE ROLAGEM BOLINHA ... ==================*/
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 10px 5px 0;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.dot.active {
+  background-color: #555;
+  transform: scale(1.2);
+}
+
+.btn-scroll {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
+
 /*================== IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados ==================*/
 .botao-topo img {
   width: 21px;
@@ -268,7 +308,7 @@ footer {
 
 .cards-scroll {
 -ms-overflow-style: none; 
-scrollbar-width: none;
+scrollbar-width: none; /*Barra de relagem, retira*/
 }
 
 .seta-btn {
@@ -276,6 +316,7 @@ scrollbar-width: none;
   height: 90px;
   object-fit: contain;
 }
+
 
 /*================== CARDS LADO A LADO ==================*/
 .cards {   
