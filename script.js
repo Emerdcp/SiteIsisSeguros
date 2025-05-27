@@ -296,44 +296,138 @@ const telefoneInput = document.getElementById("telefone");
 
  
 
-  const cardsContainer = document.getElementById('cardsContainer');
-  const cards = document.querySelectorAll('.card');
-  const dots = document.querySelectorAll('.dot');
-  let currentIndex = 0;
+// const cardsContainer = document.getElementById('cardsContainer');
+// const cards = document.querySelectorAll('.card');
+// const dots = document.querySelectorAll('.dot');
+// let currentIndex = 0;
 
-  function scrollCards(direction) {
-    const cardWidth = cards[0].offsetWidth;
+// function scrollCards(direction) {
+//   const cardWidth = cards[0].offsetWidth;
+//   const containerWidth = cardsContainer.offsetWidth;
 
-    if (direction === 'left' && currentIndex > 0) {
-      currentIndex--;
-    } else if (direction === 'right' && currentIndex < cards.length - 1) {
-      currentIndex++;
-    }
+//   // Quantos cards cabem visíveis ao mesmo tempo?
+//   const cardsPerView = Math.floor(containerWidth / cardWidth);
 
-    // Scroll para o card correspondente
-    cardsContainer.scrollTo({
-      left: cardWidth * currentIndex,
-      behavior: 'smooth'
-    });
+//   // Número máximo de "páginas" de rolagem possível
+//   const maxIndex = cards.length - cardsPerView;
 
-    // Atualiza os dots
-    updateDots();
+//   if (direction === 'left' && currentIndex > 0) {
+//     currentIndex--;
+//   } else if (direction === 'right' && currentIndex < maxIndex) {
+//     currentIndex++;
+//   }
+
+//   cardsContainer.scrollTo({
+//     left: cardWidth * currentIndex,
+//     behavior: 'smooth'
+//   });
+
+//   updateDots();
+// }
+
+// function updateDots() {
+//   dots.forEach(dot => dot.classList.remove('active'));
+//   if (dots[currentIndex]) {
+//     dots[currentIndex].classList.add('active');
+//   }
+// }
+
+// dots.forEach(dot => {
+//   dot.addEventListener('click', () => {
+//     currentIndex = parseInt(dot.dataset.index);
+//     cardsContainer.scrollTo({
+//       left: cards[0].offsetWidth * currentIndex,
+//       behavior: 'smooth'
+//     });
+//     updateDots();
+//   });
+// });
+
+
+
+
+
+
+//Novo para Correção, visto que tem vários cards entradando sem estar preenchido.
+const cardsContainer = document.getElementById('cardsContainer');
+const cardsWrapper = cardsContainer.querySelector('.cards'); // wrapper real dos cards
+const cards = cardsWrapper.querySelectorAll('.card');
+let currentIndex = 0;
+let dotsContainer;
+let totalPages = 0;
+
+function createDots() {
+  if (cards.length === 0) return;
+
+  const cardWidth = cards[0].offsetWidth;
+  const containerWidth = cardsContainer.offsetWidth;
+
+  // Se medidas ainda não disponíveis, tenta de novo em 100ms
+  if (cardWidth === 0 || containerWidth === 0) {
+    setTimeout(createDots, 100);
+    return;
   }
 
-  function updateDots() {
-    dots.forEach(dot => dot.classList.remove('active'));
-    if (dots[currentIndex]) {
-      dots[currentIndex].classList.add('active');
-    }
+  const cardsPerView = Math.floor(containerWidth / cardWidth) || 1;
+  totalPages = Math.ceil(cards.length / cardsPerView);
+
+  // Remove dots antigos
+  const oldDots = document.querySelectorAll('.dot');
+  oldDots.forEach(dot => dot.remove());
+
+  dotsContainer = document.querySelector('.carousel-dots');
+
+  for (let i = 0; i < totalPages; i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.dataset.index = i;
+    dot.addEventListener('click', () => {
+      currentIndex = i;
+      scrollToCard();
+    });
+    dotsContainer.appendChild(dot);
+  }
+}
+
+function scrollCards(direction) {
+  const cardWidth = cards[0].offsetWidth;
+  const containerWidth = cardsContainer.offsetWidth;
+  const cardsPerView = Math.floor(containerWidth / cardWidth) || 1;
+  const maxIndex = totalPages - 1;
+
+  if (direction === 'left' && currentIndex > 0) {
+    currentIndex--;
+  } else if (direction === 'right' && currentIndex < maxIndex) {
+    currentIndex++;
   }
 
-dots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    currentIndex = parseInt(dot.dataset.index);
-    cardsContainer.scrollTo({
-      left: cards[0].offsetWidth * currentIndex,
-      behavior: 'smooth'
-    });
-    updateDots();
+  scrollToCard();
+}
+
+function scrollToCard() {
+  const cardWidth = cards[0].offsetWidth;
+  cardsContainer.scrollTo({
+    left: cardWidth * currentIndex,
+    behavior: 'smooth'
   });
+  updateDots();
+}
+
+function updateDots() {
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach(dot => dot.classList.remove('active'));
+  if (dots[currentIndex]) {
+    dots[currentIndex].classList.add('active');
+  }
+}
+
+// Aguarda carregamento e redimensionamento
+window.addEventListener('load', () => {
+  createDots();
+  scrollToCard();
+});
+window.addEventListener('resize', () => {
+  createDots();
+  scrollToCard();
 });

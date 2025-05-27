@@ -254,6 +254,12 @@ footer {
 /*================== BOTÃO MOVER "SETINHA" APRESENTADO NOS CARDS - FIM ==================*/
 
 /*================== BARRA DE ROLAGEM BOLINHA ... ==================*/
+.card-final {
+  min-width: 300px; /* mesmo valor do .card */
+  opacity: 0;
+  pointer-events: none;
+}
+
 .carousel-dots {
   text-align: center;
   margin-top: 10px;
