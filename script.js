@@ -11,7 +11,6 @@
 
 //--================== CHAVE CAPTCHA - FIM ==================
 
-
 document.getElementById('form-proposta').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -24,7 +23,6 @@ document.getElementById('form-proposta').addEventListener('submit', function(e) 
     }
 
     const form = document.getElementById('form-proposta');
-
 
     // Envia os dados para o arquivo PHP
     fetch('enviar-email.php', {
@@ -190,6 +188,46 @@ function scrollCards(direction) {
           <li>Permite a contratação de mais de um local por apólice.</li>
         </ul>
         `
+      },
+      seguroCaminhao: {
+        titulo: "Seguro Caminhões",
+        texto: `
+        <br>
+        <p>O <b>Seguro Caminhões</b> garante coberturas e serviços que atendem a sua necessidade, tanto na estrada quanto fora dela.</p>
+        <p>Além da proteção para o veículo, você conta com serviços residenciais que garantem a tranquilidade da sua família.</p>
+        <p><b>Conheça as Coberturas:</b></p>
+        <ul>
+          <li><b>Total:</b> Cobertura de indenização integral e parcial decorrente de colisão, incêndio, roubo, furto e alagamento;</li>
+          <li><b>Danos a Terceiros:</b>Cobertura para danos materiais e danos corporais decorrentes de acidentes com terceiros;</li>
+          <li><b>Lucros Cessantes por Paralisação do Veículo:</b>Cobertura que prevê o pagamento de diárias no caso de acidente em que seja necessária a paralisação do veículo utilizado para trabalho;</li>
+          <li><b>Acidentes Pessoais de Passageiros:</b>Cobertura para danos corporais causados aos passageiros em razão de acidente com o veículo segurado;</li>
+          <li><b>Incêndio, Roubo e Furto:</b>Cobertura que garante o reembolso de despesas que você possa vir a ter em caso de sinistro de indenização integral, até o limite máximo previsto na apólice;</li>
+        </ul>
+        <ul>
+        <p><b>Coberturas Adicinais:</b></p>
+          <li><b>Isenção de Franquia no Primeiro Sinistro (Seguro da Franquia):</b>Cobertura que garante o pagamento integral da franquia no primeiro sinistro, quando os prejuízos ultrapassarem o valor da franquia estipulada na apólice;</li>
+          <li><b>Lucros Cessantes por Paralisação do Veículo:</b>Cobertura que prevê o pagamento de diárias no caso de acidente em que seja necessária a paralisação do veículo utilizado para trabalho;</li>
+          <li><b>Proteção aos Vidros:</b>Cobertura que prevê a troca ou reparo em caso de danos aos vidros, às lanternas, aos faróis e aos retrovisores;</li>
+        </ul>
+        `
+      },
+      seguroVida: {
+        titulo: "Seguro de Vida Individual",
+        texto: `
+        <br>
+        <p>O <b>Seguro Vida Individual</b> garante a sua tranquilidade e a de sua família, agora e no futuro.</p>
+        <p>Pensando em sua qualidade de vida, você contará com a Rede de Benefícios que proporciona descontos em uma ampla rede de parceiros, como academias, farmácias, spas, clínicas de estética. Além disso, você tem descontos em teatro e gastronomia, assistência 24 horas em viagens e participa de sorteios mensais no valor de 12 mil reais.</p>
+        <p>O <b>Seguro Vida Individual</b> oferece diversas opções de coberturas, para que você escolha as mais adequadas às suas necessidades. As Diárias por Incapacidade Temporária, por exemplo, são uma ótima solução para quem é autônomo ou profissional liberal. Além disso, o seguro valoriza o seu perfil, proporcionando descontos para mulheres e não fumantes.</p>
+        <p>O <b>Seguro Vida Individual</b> pode ser contratado por pessoas em boas condições de saúde com idade entre 16 e 64 anos e tem opções de capitais entre 20mil e 2 milhões de reais.</p>
+        <p>Valor bruto sem desconto de impostos.</p>
+        <p><b>Principais Vantagens:</b></p>
+        <ul>
+          <li>Descontos em eventos;</li>
+          <li>Assistência em Viagem;</li>
+          <li>Titulo de Capitalização</li>
+         </ul>
+        <li>Simples de adquirir, completamente seguro. Descubra agora mesmo mais benefícios deste produto Porto.</li>
+        `
       }
     };
   
@@ -284,85 +322,22 @@ const telefoneInput = document.getElementById("telefone");
 
 //================== BARRA DE ROLAGEM ... DO CARDS ==================//
 
-  // function scrollCards(direction) {
-  //   const container = document.getElementById('cardsContainer');
-  //   const scrollAmount = 300; // ajuste conforme necessário
-  //   if (direction === 'left') {
-  //     container.scrollLeft -= scrollAmount;
-  //   } else {
-  //     container.scrollLeft += scrollAmount;
-  //   }
-  // }
-
- 
-
-// const cardsContainer = document.getElementById('cardsContainer');
-// const cards = document.querySelectorAll('.card');
-// const dots = document.querySelectorAll('.dot');
-// let currentIndex = 0;
-
-// function scrollCards(direction) {
-//   const cardWidth = cards[0].offsetWidth;
-//   const containerWidth = cardsContainer.offsetWidth;
-
-//   // Quantos cards cabem visíveis ao mesmo tempo?
-//   const cardsPerView = Math.floor(containerWidth / cardWidth);
-
-//   // Número máximo de "páginas" de rolagem possível
-//   const maxIndex = cards.length - cardsPerView;
-
-//   if (direction === 'left' && currentIndex > 0) {
-//     currentIndex--;
-//   } else if (direction === 'right' && currentIndex < maxIndex) {
-//     currentIndex++;
-//   }
-
-//   cardsContainer.scrollTo({
-//     left: cardWidth * currentIndex,
-//     behavior: 'smooth'
-//   });
-
-//   updateDots();
-// }
-
-// function updateDots() {
-//   dots.forEach(dot => dot.classList.remove('active'));
-//   if (dots[currentIndex]) {
-//     dots[currentIndex].classList.add('active');
-//   }
-// }
-
-// dots.forEach(dot => {
-//   dot.addEventListener('click', () => {
-//     currentIndex = parseInt(dot.dataset.index);
-//     cardsContainer.scrollTo({
-//       left: cards[0].offsetWidth * currentIndex,
-//       behavior: 'smooth'
-//     });
-//     updateDots();
-//   });
-// });
-
-
-
-
-
-
-//Novo para Correção, visto que tem vários cards entradando sem estar preenchido.
 const cardsContainer = document.getElementById('cardsContainer');
-const cardsWrapper = cardsContainer.querySelector('.cards'); // wrapper real dos cards
-const cards = cardsWrapper.querySelectorAll('.card');
+const cardsWrapper = cardsContainer.querySelector('.cards');
+function getCards() {
+  return cardsWrapper.querySelectorAll('.card');
+}
 let currentIndex = 0;
 let dotsContainer;
 let totalPages = 0;
 
 function createDots() {
+  const cards = getCards();
   if (cards.length === 0) return;
 
-  const cardWidth = cards[0].offsetWidth;
+  const cardWidth = getCardWidth();
   const containerWidth = cardsContainer.offsetWidth;
 
-  // Se medidas ainda não disponíveis, tenta de novo em 100ms
   if (cardWidth === 0 || containerWidth === 0) {
     setTimeout(createDots, 100);
     return;
@@ -371,16 +346,16 @@ function createDots() {
   const cardsPerView = Math.floor(containerWidth / cardWidth) || 1;
   totalPages = Math.ceil(cards.length / cardsPerView);
 
-  // Remove dots antigos
-  const oldDots = document.querySelectorAll('.dot');
-  oldDots.forEach(dot => dot.remove());
+  // Corrige bug de não exibir último card quando só 1 "página" visível
+  if (totalPages === 0) totalPages = 1;
 
-  dotsContainer = document.querySelector('.carousel-dots');
+  dotsContainer = document.querySelector('.dots-container');
+  dotsContainer.innerHTML = '';
 
   for (let i = 0; i < totalPages; i++) {
     const dot = document.createElement('span');
     dot.classList.add('dot');
-    if (i === 0) dot.classList.add('active');
+    if (i === currentIndex) dot.classList.add('active');
     dot.dataset.index = i;
     dot.addEventListener('click', () => {
       currentIndex = i;
@@ -390,28 +365,69 @@ function createDots() {
   }
 }
 
+function scrollToCard() {
+  const cards = getCards();
+  if (cards.length === 0) return;
+
+  const cardWidth = getCardWidth();
+  const containerWidth = cardsContainer.offsetWidth;
+  const totalWidth = cardsWrapper.scrollWidth;
+
+  const cardsPerView = Math.floor(containerWidth / cardWidth) || 1;
+  totalPages = Math.ceil(cards.length / cardsPerView);
+
+  // Protege contra índices maiores que o total possível
+  if (currentIndex > totalPages - 1) {
+    currentIndex = totalPages - 1;
+  }
+
+  let targetScroll;
+
+  // Se for a última página, garante que veja o último card totalmente
+  if (currentIndex === totalPages - 1) {
+    targetScroll = cardsWrapper.scrollWidth - cardsContainer.clientWidth;
+  } else {
+    targetScroll = cardWidth * cardsPerView * currentIndex;
+  }
+
+  cardsContainer.scrollTo({
+    left: targetScroll,
+    behavior: 'smooth'
+  });
+
+  updateDots();
+}
+
 function scrollCards(direction) {
-  const cardWidth = cards[0].offsetWidth;
+  const cards = getCards();
+  const cardWidth = getCardWidth();
   const containerWidth = cardsContainer.offsetWidth;
   const cardsPerView = Math.floor(containerWidth / cardWidth) || 1;
+  totalPages = Math.ceil(cards.length / cardsPerView);
   const maxIndex = totalPages - 1;
 
-  if (direction === 'left' && currentIndex > 0) {
-    currentIndex--;
-  } else if (direction === 'right' && currentIndex < maxIndex) {
-    currentIndex++;
+    if (direction === 'left') {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = maxIndex; // loop para o final
+    }
+  } else if (direction === 'right') {
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // loop para o início
+    }
   }
 
   scrollToCard();
 }
 
-function scrollToCard() {
-  const cardWidth = cards[0].offsetWidth;
-  cardsContainer.scrollTo({
-    left: cardWidth * currentIndex,
-    behavior: 'smooth'
-  });
-  updateDots();
+function getCardWidth() {
+  const cards = getCards();
+  const style = window.getComputedStyle(cardsWrapper);
+  const gap = parseFloat(style.gap) || 0;
+  return cards[0].offsetWidth + gap;
 }
 
 function updateDots() {
@@ -422,12 +438,19 @@ function updateDots() {
   }
 }
 
-// Aguarda carregamento e redimensionamento
 window.addEventListener('load', () => {
   createDots();
   scrollToCard();
 });
+
 window.addEventListener('resize', () => {
   createDots();
   scrollToCard();
 });
+
+/*✅ Ajuste extra: Aguarde renderização antes de calcular
+Caso os cards estejam sendo inseridos dinamicamente (por exemplo, via JS), adicione este trecho após inserir os novos cards:*/
+setTimeout(() => {
+  createDots();
+  scrollToCard();
+}, 50);

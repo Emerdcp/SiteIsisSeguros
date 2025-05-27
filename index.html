@@ -77,7 +77,7 @@
       </div>
       <button class="btn-scroll left" onclick="scrollCards('left')"><img src="imagens/left.png" alt="Voltar"
           class="seta-btn"></button>
-      <div class="cards-scroll" id="cardsContainer">
+      <div class="cards-scroll " id="cardsContainer">
         <div class="cards">
           <div class="card" data-produto="auto"> <!-- data-produto="auto" Para abrir o Modal.-->
             <img src="imagens/seguroAuto.jpg" alt="Seguro Auto" loading="lazy">
@@ -104,15 +104,21 @@
             <h3>Seguro Empresariais</h3>
             <p>O Porto Seguro Empresa cuida do seu patrimônio com eficiência, segurança e economia.</p>
           </div>
+            <div class="card" data-produto="seguroCaminhao"> <!-- data-produto="auto" Para abrir o Modal.-->
+            <img src="imagens/seguroCaminhao.jpg" alt="Seguro Caminhão" loading="lazy">
+            <h3>Seguro Caminhão</h3>
+            <p>Seu veículo de trabalho merece um seguro completo.</p>
+          </div>
+          <div class="card" data-produto="seguroVida"> <!-- data-produto="auto" Para abrir o Modal.-->
+            <img src="imagens/seguroVida.jpg" alt="Seguro Vida" loading="lazy">
+            <h3>Seguro de Vida Individual</h3>
+            <p>Proteção completa para você e mais conforto para quem você ama.</p>
+          </div>
         </div>
       </div>
       <button class="btn-scroll right" onclick="scrollCards('right')"><img src="imagens/right.png" alt="Avançar"
           class="seta-btn"></button>
-      <span class="dot active" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
-      <span class="dot" data-index="3"></span>
-      <span class="dot" data-index="4"></span>
+      <div class="dots-container"></div>
     </div>
   </section>
   <!--================== MODAL PARA ABRIR AS INFORMAÇÕES DOS CARDS ==================-->

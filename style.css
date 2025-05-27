@@ -62,8 +62,6 @@ header .container {
   color: white;
 }
 
-/*================== FIM ==================*/
-
 /*================== PARAMETRO PARA FONTE E TAMANHO ==================*/
 .hero h2 {
   font-size: 2.5em; /*Aumenta o tamanho da fonte para 2,5 vezes o tamanho padrão*/
@@ -254,49 +252,24 @@ footer {
 /*================== BOTÃO MOVER "SETINHA" APRESENTADO NOS CARDS - FIM ==================*/
 
 /*================== BARRA DE ROLAGEM BOLINHA ... ==================*/
-.card-final {
-  min-width: 300px; /* mesmo valor do .card */
-  opacity: 0;
-  pointer-events: none;
-}
-
-.carousel-dots {
+.dots-container {
   text-align: center;
   margin-top: 10px;
-  padding: 0;
 }
 
 .dot {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 10px 5px 0;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
   background-color: #ccc;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
 }
 
 .dot.active {
-  background-color: #555;
-  transform: scale(1.2);
-}
-
-.btn-scroll {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.left {
-  left: 10px;
-}
-
-.right {
-  right: 10px;
+  background-color: #464545;
 }
 
 /*================== IMAGEM DO DE VOLTA PARA O INICIO NA LINHA - ENTRE EM CONTATO - QUADRADO AMARELO nas páginas da segurados ==================*/
@@ -308,9 +281,9 @@ footer {
 }
 
 /* Esconde a barra de rolagem */
-.cards-scroll::-webkit-scrollbar {
+/* .cards-scroll::-webkit-scrollbar { */
 /* display: none; */
-}
+/* } */
 
 .cards-scroll {
 -ms-overflow-style: none; 
@@ -322,7 +295,6 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   height: 90px;
   object-fit: contain;
 }
-
 
 /*================== CARDS LADO A LADO ==================*/
 .cards {   
@@ -374,9 +346,6 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   /* margin: 0 15px 15px; */
   color: #666;
 }
-
-/*================== COLOCANDO IMAGEM NO LOGO, TAMANHO DO LOGO ==================*/
-
 
 /*================== COLOCADO PARA PADRONIZAR O TAMANHO DAS IMAGENS DO CARDS ==================*/
 
@@ -456,12 +425,6 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   justify-content: center;
   background-size: 100% 100%; /* Garante que o ícone se encaixe bem */
 }
-
-/*================== MENU - FIM ==================*/
-
-/*================== ALINHAMENDO O RODAPE DO MENU ==================*/
-
-/*================== CENTRALIZADO O MENU NA VERTICAL==================*/
 
 /*================== IMAGEM DA FAMÍLIA CENTRALIZADO ==================*/
 
