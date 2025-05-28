@@ -19,6 +19,7 @@ body {
   color: #333; /*Define a cor do texto para um tom de cinza escuro (#333)*/
   line-height: 1.6; /*Aumenta o espaçamento entre as linhas de texto, para uma leitura mais confortável.*/
   background-color: #a8a8a8; /*Define o fundo da página com um tom de cinza muito claro*/
+  padding-top: 60px;
 }
 
 .container {
@@ -377,6 +378,8 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   height: auto; /*Mantém a proporção original da imagem (largura x altura). Isso evita distorções*/
   display: block; /*Faz a imagem se comportar como um bloco, permitindo o uso de margin para centralizar, por exemplo*/
   margin: 0 auto; /* Centraliza se necessário */
+
+  transition: all 0.3s ease; /* CSS com transição suave do logo*/
 }
 
 /* Responsivo (opcional) */
@@ -387,10 +390,11 @@ scrollbar-width: none; /*Barra de relagem, retira*/
 }
 
 /*-------AJUSTE DE MENU-------------*/
-
 .logo-imglogo {
   max-width: 60px;
   height: auto;
+
+    transition: all 0.3s ease;
 }
 .navbar {
   font-size: 16px; /* Aumenta o tamanho da fonte */
@@ -399,7 +403,47 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   box-shadow: #333;
   text-align: center;
   /* align-items: center !important; */
+
+  transition: all 0.3s ease; /* CSS com transição suave do menu*/
+  /* padding: 0px !important; CSS com transição suave do menu */
+  background-color: #fff; /* mantendo a cor*/
+
+  transition: all 0.3s ease;
 }
+
+/*Usado no conteiner do menu para reduzir o tamanho*/
+.container.menuPequeno {
+  padding: 0px !important;
+}
+
+/* Navbar reduzida ao rolar */
+.navbar-shrink {
+  padding: 0.1rem 1rem !important;
+  background-color: #f8f9fa !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+/* icon do menu reduzida ao rolar */
+.icon-shrink {
+  height: 18px !important;
+  width: 18px !important;
+}
+/* icon do menu reduzida ao rolar */
+.navbar-toggler-icon {
+  height: 24px !important;
+  width: 24px !important;
+  transition: all 0.3s ease !important;
+}
+/* Redução do logo ao rolar */
+.logo-shrink {
+  max-width: 30px !important; /* Tamanho menor do logo quando encolhido */
+  transition: all 0.3s ease !important;
+}
+/* Redução do menu responsivo ao rolar */
+/* .navbar-collapse-shrink {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+} */
+
 .nav-link {
   color: #333 !important;
   font-weight: 500;

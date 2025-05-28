@@ -454,3 +454,34 @@ setTimeout(() => {
   createDots();
   scrollToCard();
 }, 50);
+
+//================== REDUÇÃO DO MENU QUANDO ROLA ==================//
+
+window.addEventListener('scroll', function () {
+  const logo = document.getElementById('logo');
+  const navbar = document.querySelector('.navbar');
+  const menuIcon = document.getElementById('menu-icon');
+  const navbarNav = document.getElementById('navbarNav');
+
+  if (window.scrollY > 50) {
+    navbar.classList.add('navbar-shrink');
+    logo.classList.add('logo-shrink');
+    menuIcon.classList.add('icon-shrink');
+    navbarNav.classList.add('navbar-collapse-shrink');
+  } else {
+    navbar.classList.remove('navbar-shrink');
+    logo.classList.remove('logo-shrink');
+    menuIcon.classList.remove('icon-shrink');
+    navbarNav.classList.remove('navbar-collapse-shrink');
+  }
+});
+
+//==================  SE MUDAR MENU TAMANHO MOLHAR O RESULTADO ==================//
+
+window.addEventListener('DOMContentLoaded', function () {
+  const navbar = document.querySelector('.navbar');
+  const hero = document.querySelector('.hero');
+  const navbarHeight = navbar.offsetHeight;
+
+  hero.style.paddingTop = navbarHeight + 'px';
+});
