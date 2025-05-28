@@ -428,11 +428,11 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   width: 18px !important;
 }
 /* icon do menu reduzida ao rolar */
-.navbar-toggler-icon {
+/* .navbar-toggler-icon {
   height: 24px !important;
   width: 24px !important;
   transition: all 0.3s ease !important;
-}
+} */
 /* Redução do logo ao rolar */
 .logo-shrink {
   max-width: 30px !important; /* Tamanho menor do logo quando encolhido */
@@ -446,11 +446,13 @@ scrollbar-width: none; /*Barra de relagem, retira*/
 
 .nav-link {
   color: #333 !important;
-  font-weight: 500;
+  font-weight: 400; /* Normal estava com 500*/ 
   margin-left: 10px;
+  transition: all 0.2s ease;
 }
 .nav-link:hover {
   color: #ffb300 !important; /* Verde suave */
+  font-weight: 700; /*Negrito apenas no hover*/
 }
 
 .navbar-toggler {
@@ -459,6 +461,29 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   transform: translateY(-50%);
   top: 50%;
   position: relative;
+
+  transition: all 0.3s ease;
+  border: none; /* remove borda padrão */
+  background-color: transparent;
+  padding: 6px;
+  border-radius: 4px;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Remove borda ao clicar */
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Aplica efeito de borda ao passar o mouse */
+.navbar-toggler:hover {
+  border: 2px solid #ffb300; /* ou outro destaque desejado */
+  border-radius: 6px;
+  background-color: rgba(255, 179, 0, 0.15);
+  cursor: pointer;
 }
 
 .navbar-toggler-icon {
@@ -468,7 +493,19 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   align-items: center;
   justify-content: center;
   background-size: 100% 100%; /* Garante que o ícone se encaixe bem */
+  
+  /* transition: all 0.3s ease;
+  background-color: #ffffff; /* exemplo de cor para visualização */
+  /* border-radius: 4px; */ 
 }
+
+/* Efeito ao passar o mouse */
+/* .navbar-toggler-icon:hover { */
+  /* transform: scale(1.15); aumenta um pouco */
+  /* background-color: #ffffff; muda a cor no hover #ffb300; */
+  /* box-shadow: 0 0 6px rgba(255, 255, 255, 0.2); sombra suave */
+  /* cursor: pointer; */
+/* } */
 
 /*================== IMAGEM DA FAMÍLIA CENTRALIZADO ==================*/
 

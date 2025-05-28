@@ -485,3 +485,20 @@ window.addEventListener('DOMContentLoaded', function () {
 
   hero.style.paddingTop = navbarHeight + 'px';
 });
+
+//==================  PARA FECHAR O MENU QUANDO CLICADO ==================//
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function () {
+      // Fecha o menu apenas se estiver aberto (útil para mobile)
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+        toggle: false
+      });
+      bsCollapse.hide();
+    });
+  });
+});
