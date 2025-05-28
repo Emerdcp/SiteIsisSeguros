@@ -412,7 +412,11 @@ scrollbar-width: none; /*Barra de relagem, retira*/
 }
 
 /*Usado no conteiner do menu para reduzir o tamanho*/
-.container.menuPequeno {
+.menuPequeno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   padding: 0px !important;
 }
 
@@ -469,6 +473,7 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   border-radius: 4px;
   box-shadow: none !important;
   outline: none !important;
+  margin-left: auto;
 }
 
 /* Remove borda ao clicar */
@@ -552,6 +557,19 @@ img {
   /* .card {
     width: 100%; faz ficar responsivél, em tamanho de telas menores, mas fica fora de padrão
   } */
+}
+
+@media (max-width: 990px) {
+  .menuPequeno {
+    padding: 0 10px;
+  }
+
+  .navbar-toggler {
+    margin: 0;
+    position: static;
+    transform: none;
+    align-self: center;
+  }
 }
 
 @media (max-width: 480px) {
