@@ -91,6 +91,7 @@ header .container {
 
 section {
   padding: 40px 20px;
+  scroll-margin-top: 50px; /* ou a altura do seu menu fixo */
 }
 
 .sobre, .servicos, .proposta {
