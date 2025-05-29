@@ -1,6 +1,4 @@
 //================== FORMULÁRIO DE CONTATO ==================//
-//--================== CHAVE CAPTCHA ==================
-// src="https://www.google.com/recaptcha/api.js"
 
 document.getElementById('form-proposta').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -50,43 +48,6 @@ document.getElementById('form-proposta').addEventListener('submit', async functi
   }
 });
 
-
-//--================== CHAVE CAPTCHA - FIM ==================
-
-// document.getElementById('form-proposta').addEventListener('submit', function(e) {
-//     e.preventDefault();
-
-//     const data = {
-//       nome: document.getElementById("nome").value,
-//       telefone: document.getElementById("telefone").value,
-//       email: document.getElementById("email").value,
-//       mensagem: document.getElementById("mensagem").value,
-//       enviar: true
-//     }
-
-//     const form = document.getElementById('form-proposta');
-
-//     // Envia os dados para o arquivo PHP
-//     fetch('enviar-email.php', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(data)
-//     }).then(response => response.text())
-//     .then(data => {
-//       // console.log(data)
-//       // return
-//       // Aqui você pode verificar a resposta do servidor
-//       alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
-//       form.reset();
-//     })
-//     .catch(error => {
-//       console.error('Erro ao enviar o formulário:', error);
-//       alert('Erro ao enviar a mensagem. Tente novamente mais tarde.');
-//     });
-// });
-
 //================== MODAL PARA CARDS ANDANDO PARA OS LADOS ==================//
 
 function scrollCards(direction) {
@@ -100,8 +61,6 @@ function scrollCards(direction) {
   }
 }
 
-
-  
 //================== MODAL PARA ASSISTEÊNCIA 24HS ==================//
 
   const btnAssistencia = document.getElementById("btn-assistencia");

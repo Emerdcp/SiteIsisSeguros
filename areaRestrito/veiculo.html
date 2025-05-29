@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ÍSIS Seguros</title>
+  <link rel="icon" href="../imagens/isis.png" type="image/png">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="styleRestrito.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <meta name="description" content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados."/>
+</head>
+
+<body>
+  <header id="home">
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img id="logo" src="../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro" class="logo-imglogo" loading="lazy">
+        </a>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span id="menu-icon" class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="home.html">Início</a></li>
+            
+            <!-- Menu com Subitens (Dropdown) -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Cadastro
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
+                <li><a class="dropdown-item" href="cadastroCliente.html">Cliente</a></li>
+                <li><a class="dropdown-item" href="veiculo.html">Veículos</a></li>
+                <li><a class="dropdown-item" href="seguradoras.html">Seguradoras</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="#">Relatório</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--================== CADASTROU CLIENTE ==================-->
+  <hr>
+  <section id="cadastroVeiculos" class="Cliente"><!-- arrumar o id"proposta para contato... arrumar botão que está dando problemas-->
+    <div class="container">
+      <div class="linha-topo">
+        <h2><b>Cadastro Veículos</b></h2>
+        <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
+      </div>
+      <form class="container mb-4" id="form-proposta" action="enviar-email.php" method="POST">
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label for="nome" class="form-label">Código</label>
+            <input type="number" class="form-control" id="codigo" name="codigo" placeholder="" required disabled />
+            <small class="form-text text-muted"></small>
+          </div>
+          <div class="col-md-8">
+            <label for="nome" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="descricao" name="descricao" placeholder="" maxlength="150" />
+            <small class="form-text text-muted"></small>
+          </div>
+          <div class="col-md-2">
+            <label for="nome" class="form-label">Status</label>
+            <section class="form-control">
+
+            </section>
+            <input type="number" class="form-control" id="codigo" name="codigo" placeholder="" required/>
+            <small class="form-text text-muted"></small>
+          </div>
+          <div class="col-md-2">
+            <label for="nome" class="form-label">Status</label>
+            <input type="number" class="form-control" id="codigo" name="codigo" placeholder="" required/>
+            <small class="form-text text-muted"></small>
+          </div>
+          <div class="col-md-4">
+            <label for="nome" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="veiculo" name="veiculo" placeholder="Veículos" maxlength="150" />
+            <small class="form-text text-muted"></small>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Marca</label>
+            <select  class="form-select" name="marca" id="marca">
+              <option value=""></option>
+              <option value="BMW">BMW</option>
+              <option value="BYD">BYD</option>
+              <option value="Chevrolet">Chevrolet</option>
+              <option value="Citroen">Citroen</option>
+              <option value="Fiat">Fiat</option>
+              <option value="Ford">Ford</option>
+              <option value="General Motors">General Motors</option>
+              <option value="Honda">Honda</option>
+              <option value="Hyundai">Hyundai</option>
+              <option value="Jaguar">Jaguar</option>
+              <option value="Jeep">Jeep</option>
+              <option value="Kia">Kia</option>
+              <option value="Lexus">Lexus</option>
+              <option value="Mercedes-Benz">Mercedes-Benz</option>
+              <option value="Mitsubishi">Mitsubishi</option>
+              <option value="Montadoral">Montadoral</option>
+              <option value="Nissan">Nissan</option>
+              <option value="Outros">Outros</option>
+              <option value="Peugeot">Peugeot</option>
+              <option value="Porsche">Porsche</option>
+              <option value="Renault">Renault</option>
+              <option value="Stellantis">Stellantis</option>
+              <option value="Toyota">Toyota</option>
+              <option value="Volkswagen">Volkswagen</option>
+              <option value="Volvo">Volvo</option>
+              </select>
+          </div>
+
+
+          <div class="col-md-4">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(99)99999-9999" required /> <!-- required
+            pattern="\(\d{2}\) \d{5}-\d{4}" -->
+          </div>
+          <div class="col-md-4">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@dominio.com"
+              required />
+          </div>
+          <div class="col-12">
+            <label for="mensagem" class="form-label">Mensagem</label>
+            <textarea class="form-control" id="mensagem" name="mensagem" placeholder="Sua mensagem" rows="4"
+              required></textarea>
+          </div>
+          <div class="col-12 text-end">
+            <button type="submit">Enviar</button>
+            <button type="button" class="botao" onclick="limparFormulario()">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!--================== INFORMAÇÃO DO REDAPÉ ==================-->
+  <footer>
+    <div class="container">
+      <p style="text-align: center;">&copy; ÍSIS Seguros. Todos os direitos reservados.
+    </div>
+  </footer>
+ 
+  <!--================== CHAMADA DO JAVA ==================-->
+  <script src="../script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
+    defer></script>
+</body>
+</html>

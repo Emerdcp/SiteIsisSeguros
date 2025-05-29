@@ -1,0 +1,37 @@
+/* ================== SUBMENU (DROPDOWN) ================== */
+
+/* Estilo do menu suspenso (dropdown) */
+.dropdown-menu {
+  background-color: #fff;             /* Fundo branco para combinar com a navbar */
+  border: 1px solid #ddd;             /* Borda suave cinza ao redor do dropdown */
+  border-radius: 8px;                 /* Cantos arredondados no dropdown */
+  padding: 0.5rem 0;                  /* Espaçamento interno vertical (topo e base) */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra leve para destacar visualmente */
+}
+
+/* Estilo dos links dentro do dropdown */
+.dropdown-item {
+  color: #333;                        /* Cor padrão dos textos dos itens do submenu */
+  padding: 0.5rem 1rem;               /* Espaçamento interno dos itens */
+  font-weight: 400;                   /* Peso da fonte normal */
+  transition: all 0.2s ease;          /* Transição suave ao passar o mouse */
+}
+
+/* Efeito ao passar o mouse sobre o item do submenu */
+.dropdown-item:hover {
+  background-color: rgba(255, 179, 0, 0.15) !important; /* Fundo amarelo translúcido no hover */
+  color: #ffb300 !important;                     /* Cor amarela destacada ao passar o mouse */
+  font-weight: 700 !important;                   /* Negrito ao passar o mouse */
+}
+
+/* ================== OPCIONAL: ABRIR SUBMENU AO PASSAR O MOUSE ================== */
+
+/* Essa regra só se aplica a telas maiores que 992px (modo desktop) */
+@media (min-width: 992px) {
+  /* Quando o usuário passa o mouse sobre o item de menu com dropdown... */
+  .navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;                  /* ...mostra o submenu automaticamente */
+    margin-top: 0;                   /* Remove espaçamento entre o item e o submenu */
+  }
+}
+

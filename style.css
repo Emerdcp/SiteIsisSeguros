@@ -5,6 +5,7 @@
   box-sizing: border-box; /*Faz com que o tamanho de um elemento (largura/altura) inclua bordas e preenchimentos. Isso facilita o controle do tamanho dos elementos*/
 }
 
+/*================== COLOCAR PARAFRAGO 1CM PARA OS PARAGRAFOS DO SITE ==================*/
 /* p {
   text-indent: 1cm; /* Define o recuo de 1 cm na primeira linha 
 } */
@@ -256,7 +257,6 @@ footer {
     transform: translateY(-50%) translateX(12px);
   }
 }
-/*================== BOTÃO MOVER "SETINHA" APRESENTADO NOS CARDS - FIM ==================*/
 
 /*================== BARRA DE ROLAGEM BOLINHA ... ==================*/
 .dots-container {
@@ -437,22 +437,12 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   height: 18px !important;
   width: 18px !important;
 }
-/* icon do menu reduzida ao rolar */
-/* .navbar-toggler-icon {
-  height: 24px !important;
-  width: 24px !important;
-  transition: all 0.3s ease !important;
-} */
+
 /* Redução do logo ao rolar */
 .logo-shrink {
   max-width: 30px !important; /* Tamanho menor do logo quando encolhido */
   transition: all 0.3s ease !important;
 }
-/* Redução do menu responsivo ao rolar */
-/* .navbar-collapse-shrink {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-} */
 
 .nav-link {
   color: #333 !important;
@@ -504,19 +494,7 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   align-items: center;/* Alinha o conteúdo verticalmente ao centro */
   justify-content: center;/* Alinha o conteúdo horizontalmente ao centro */
   background-size: 100% 100%; /* Garante que o ícone se encaixe bem */
-  
-  /* transition: all 0.3s ease;
-  background-color: #ffffff; /* exemplo de cor para visualização */
-  /* border-radius: 4px; */ 
 }
-
-/* Efeito ao passar o mouse */
-/* .navbar-toggler-icon:hover { */
-  /* transform: scale(1.15); aumenta um pouco */
-  /* background-color: #ffffff; muda a cor no hover #ffb300; */
-  /* box-shadow: 0 0 6px rgba(255, 255, 255, 0.2); sombra suave */
-  /* cursor: pointer; */
-/* } */
 
 /*================== IMAGEM DA FAMÍLIA CENTRALIZADO ==================*/
 
@@ -897,5 +875,3 @@ img {
   height: auto;
   margin: 10px;
 }
-
-

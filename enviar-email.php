@@ -52,9 +52,6 @@ if (isset($dados['enviar'])) {
         die(json_encode(["Status" => "Sucesso", "Message" => "Mensagem enviada com sucesso!"]));
     }
 }
-
-
-
 ?>
 
 
