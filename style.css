@@ -122,10 +122,10 @@ section {
   border: 1px solid #eee;/* Borda cinza claro */
 }
 
-form input, form textarea {
+form input, form textarea, form select {
   width: 100%;/* Largura de 100% (preenche o espaço disponível) */
   padding: 10px;/* Espaçamento interno de 10px */
-  margin: 10px 0;/* Margem de 10px no topo e embaixo */
+  margin: 5px 0;/* Margem de 10px no topo e embaixo */
   border-radius: 6px;/* Bordas arredondadas */
   border: 1px solid #ccc;/* Borda cinza claro */
 }
