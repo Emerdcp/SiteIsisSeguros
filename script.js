@@ -1,56 +1,6 @@
 //================== FORMULÁRIO DE CONTATO ==================//
-
-//Função para enviar o formulário via AJAX
-// document.getElementById('form-proposta').addEventListener('submit', function(event) {
-//   event.preventDefault(); // Impede o envio tradicional do formulário
-
-//   var formData = new FormData(this); // Pega os dados do formulário
-
-//   // Enviar os dados usando AJAX
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('POST', 'enviar-email.php', true);
-
-//   xhr.onload = function() {
-//     if (xhr.status == 200) {
-//       var response = JSON.parse(xhr.responseText);
-
-//       // Exibe a resposta do servidor
-//       if (response.Status === 'Sucesso') {
-//         alert(response.Message);  // Você pode usar um modal ou exibir na página de forma mais elegante
-//         document.getElementById('form-proposta').reset();  // Limpa o formulário
-//       } else {
-//         alert(response.Message);
-//       }
-//     } else {
-//       alert('Ocorreu um erro no envio. Tente novamente!');
-//     }
-//   };
-
-//   xhr.send(formData); // Envia os dados via POST
-// });
-
-//Teste Java para ver se está funcionando
-// xhr.onload = function() {
-//   if (xhr.status == 200) {
-//       var response = JSON.parse(xhr.responseText);
-
-//       console.log(response); // Log da resposta para ajudar na depuração
-
-//       // Exibe a resposta do servidor
-//       if (response.Status === 'Sucesso') {
-//           alert(response.Message);  // Você pode usar um modal ou exibir na página de forma mais elegante
-//           document.getElementById('form-proposta').reset();  // Limpa o formulário
-//       } else {
-//           alert(response.Message);
-//       }
-//   } else {
-//       alert('Ocorreu um erro no envio. Tente novamente!');
-//   }
-// };
-
 //--================== CHAVE CAPTCHA ==================
 // src="https://www.google.com/recaptcha/api.js"
-
 
 document.getElementById('form-proposta').addEventListener('submit', async function(e) {
   e.preventDefault();

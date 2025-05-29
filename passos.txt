@@ -32,6 +32,12 @@ Senha: *1S1ss3GUR0S
 Ver video reCAPTCHA no Google
 https://www.youtube.com/watch?v=CKoCRQPfvaY
 
+chave de site
+6Lf2hk4rAAAAAE_CJAK9GpMJ9kdABnv8nkbgjQI_
+
+chave secreta
+6Lf2hk4rAAAAAJohQytrN7km9PDdJSfjj7dey7If
+
 
 1. Criar a chave do reCAPTCHA no Google
 Acesse: https://www.google.com/recaptcha/admin/create

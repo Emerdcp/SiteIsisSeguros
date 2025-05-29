@@ -30,7 +30,7 @@ if (isset($dados['enviar'])) {
     $email = $dados['email'];
     $mensagem = $dados['mensagem'];
 
-    $email_from = getenv("CONTROL_PROJ_EMAIL_MAIL");
+    $email_from = getenv("CONTROL_EMAIL_MAIL");
 
     if (empty($email_from)) {
         http_response_code(400);
