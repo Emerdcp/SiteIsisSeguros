@@ -5,13 +5,17 @@
   box-sizing: border-box; /*Faz com que o tamanho de um elemento (largura/altura) inclua bordas e preenchimentos. Isso facilita o controle do tamanho dos elementos*/
 }
 
+/* p {
+  text-indent: 1cm; /* Define o recuo de 1 cm na primeira linha 
+} */
+
 /*================== CENTRALIZAÇÃO E JUSTICATIVA DE TEXTO (P)ARAGRAFO ==================*/
 p {
-  text-align: justify;  
+  text-align: justify;  /* Centraliza o conteúdo inline (como texto, imagens e links) dentro de um elemento */
 }
 
 .hero p {
-  text-align: center;
+  text-align: center;/* Centraliza o conteúdo inline (como texto, imagens e links) dentro de um elemento */
 }
 
 body {
@@ -35,9 +39,9 @@ header {
 }
 
 header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;/* Define o container como um contêiner flexível, ativando o modelo de layout Flexbox */
+  justify-content: space-between;/* Distribui os itens de forma que o espaço entre eles seja igual. O primeiro item vai para a esquerda e o último item vai para a direita, com espaço entre os itens */
+  align-items: center;/* Alinha os itens verticalmente no centro do container, ao longo do eixo transversal (vertical em uma linha flexível horizontal) */
 }
 
 .hero {
@@ -48,11 +52,11 @@ header .container {
 
 /*================== FUNDO SETION ==================*/
 .hero {
-  position: relative;
-  background-image: url('imagens/familiaNovo.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  position: relative;/* Define o posicionamento relativo do elemento, permitindo o posicionamento absoluto de elementos internos dentro dele */
+  background-image: url('imagens/familiaNovo.jpg');/* Define a imagem de fundo do elemento com o caminho fornecido */
+  background-size: cover;/* Faz a imagem de fundo cobrir todo o espaço do elemento, mantendo a proporção e cortando a imagem se necessário */
+  background-position: center;/* Posiciona a imagem de fundo no centro do elemento */
+  background-repeat: no-repeat;/* Impede que a imagem de fundo se repita se o tamanho do elemento for maior que a imagem */
   /* color: white; Para deixar o texto visível sobre a imagem */
   /* padding: 100px 0; Ajuste o espaçamento vertical */
 }
@@ -74,124 +78,125 @@ header .container {
 }
 
 .hero .btn {
-  background: #ffc107;
-  color: #333;
-  padding: 10px 20px;
-  border: none;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-block;
-  border-radius: 6px;
-  font-weight: bold;
+  background: #ffc107;/* Cor de fundo amarela */
+  color: #333;/* Cor do texto preta */
+  padding: 10px 20px;/* Espaçamento interno (10px de topo e 20px de laterais) */
+  border: none;/* Sem borda */
+  text-decoration: none;/* Sem sublinhado no texto */
+  margin-top: 20px;/* Margem superior de 20px */
+  display: inline-block; /* Exibe o botão em linha, mas com propriedades de bloco */
+  border-radius: 6px; /* Bordas arredondadas */
+  border-radius: 6px;/* Bordas arredondadas */
+  font-weight: bold;/* Texto em negrito */
 }
 
 .hero .btn:hover {
-  background-color: #ffb300;
+  background-color: #ffb300;/* Cor de fundo amarela mais intensa ao passar o mouse */
 }
 
 section {
-  padding: 40px 20px;
-  scroll-margin-top: 50px; /* ou a altura do seu menu fixo */
+  padding: 40px 20px;/* Espaçamento interno (40px no topo e 20px nas laterais) */
+  scroll-margin-top: 50px; /* Adiciona uma margem ao rolar a página, útil para menu fixo */
 }
 
 .sobre, .servicos, .proposta {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
+  background: #fff;/* Fundo branco */
+  border-bottom: 1px solid #ddd;/* Borda inferior cinza claro */
 }
 
 .servicos .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  list-style: none;
-  padding: 0;
+  display: grid;/* Exibe os itens em grid */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));/* Colunas automáticas com largura mínima de 180px */
+  gap: 20px;/* Espaço de 20px entre os itens */
+  list-style: none; /* Remove os marcadores de lista */
+  padding: 0;/* Remove o padding da lista */
 }
 
 .servicos .cards li {
-  background: #fdf5d4; /* Tom pastel de amarelo */
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  font-weight: bold;
-  border: 1px solid #eee;
+  background: #fdf5d4;  /* Fundo amarelo claro (tom pastel) */
+  padding: 20px; /* Espaçamento interno de 20px */
+  text-align: center;/* Texto centralizado */
+  border-radius: 8px;/* Bordas arredondadas */
+  font-weight: bold;/* Texto em negrito */
+  border: 1px solid #eee;/* Borda cinza claro */
 }
 
 form input, form textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  width: 100%;/* Largura de 100% (preenche o espaço disponível) */
+  padding: 10px;/* Espaçamento interno de 10px */
+  margin: 10px 0;/* Margem de 10px no topo e embaixo */
+  border-radius: 6px;/* Bordas arredondadas */
+  border: 1px solid #ccc;/* Borda cinza claro */
 }
 
 form button {
-  background: #ffc107;
-  color: #333;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 6px;
-  font-weight: bold;
+  background: #ffc107;/* Fundo amarelo */
+  color: #333;/* Texto preto */
+  border: none;/* Sem borda */
+  padding: 10px 20px;/* Espaçamento interno (10px de topo e 20px nas laterais) */
+  cursor: pointer;/* Cursor em forma de mãozinha */
+  border-radius: 6px;/* Bordas arredondadas */
+  font-weight: bold;/* Texto em negrito */
 }
 
 form button:hover {
-  background-color: #ffb300;
+  background-color: #ffb300; /* Cor de fundo amarela mais intensa ao passar o mouse */
 }
 
 footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 15px;
+  background: #333;/* Fundo escuro (cinza escuro) */
+  color: white;/* Texto branco */
+  text-align: center;/* Texto centralizado */
+  padding: 05px;/* Espaçamento interno de 15px */
 }
 
 /*================== CARDS LADO MOVENDO LATERAL ==================*/
 /* Estilo para rolagem lateral */
 .secao-cards {
-  padding: 40px 20px;
-  background-color: #fff;
+  padding: 40px 20px;/* Espaçamento interno (40px no topo e 20px nas laterais) */
+  background-color: #fff;/* Fundo branco */
 }
 
 .container {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
+  position: relative;/* Posicionamento relativo para poder usar posicionamento absoluto dentro dele */
+  max-width: 1200px;/* Largura máxima de 1200px */
+  margin: 0 auto; /* Centraliza o container horizontalmente */
 }
 
 .linha-topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  display: flex;/* Usando Flexbox para organizar os itens */
+  justify-content: space-between;/* Distribui os itens igualmente com espaço entre eles */
+  align-items: center;/* Alinha os itens verticalmente no centro */
+  margin-bottom: 20px;/* Espaço abaixo da linha */
 }
 
 .cards-scroll {   
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow-x: auto; /* Permite rolagem horizontal */
+  overflow-y: hidden;/* Desativa a rolagem vertical */
   /* white-space: nowrap; */ /*----------------------faz diminuir tamanho do card--------------------*/
-  scroll-behavior: smooth;
-  padding: 10px 0;
+  scroll-behavior: smooth;/* Rolagem suave */
+  padding: 10px 0;/* Espaçamento interno de 10px no topo e embaixo */
 }
 
 .cards {
-  display: inline-flex;
-  gap: 20px;
+  display: inline-flex; /* Exibe os cards em linha (como inline-block) mas com propriedades flexíveis */
+  gap: 20px;/* Espaçamento de 20px entre os cards */
 }
 
 .card {
-  /* min-width: 250px; */
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  display: inline-block;
-  text-align: center;
+  /* min-width: 250px; */ /* Comentado aqui, mas se ativado, define uma largura mínima para os cards */
+  background-color: #ffffff;/* Fundo branco */
+  border-radius: 10px;/* Bordas arredondadas */
+  padding: 15px;/* Espaçamento interno de 15px */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);/* Sombra suave ao redor do card */
+  display: inline-block; /* Exibe cada card em linha (semelhante ao inline-flex, mas com comportamento de bloco) */
+  text-align: center; /* Texto centralizado dentro do card */
 }
 
 .card img {
   width: 100%; /* Largura padrão para todas as imagens */
-  border-radius: 6px;
-  margin-bottom: 10px;
+  border-radius: 6px;/* Bordas arredondadas nas imagens */
+  margin-bottom: 10px;/* Espaço abaixo das imagens */
 }
 
 /*================== BOTÃO MOVER "SETINHA" APRESENTADO NOS CARDS ==================*/
@@ -414,11 +419,11 @@ scrollbar-width: none; /*Barra de relagem, retira*/
 
 /*Usado no conteiner do menu para reduzir o tamanho*/
 .menuPequeno {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0px !important;
+  display: flex;/* Define o elemento como um container flexível */
+  align-items: center;/* Alinha os itens verticalmente ao centro */
+  justify-content: space-between;/* Distribui o espaço entre os itens, jogando um para cada lado */
+  width: 100%;  /* Ocupa 100% da largura do contêiner pai */
+  padding: 0px !important;/* Remove o espaçamento interno, com prioridade sobre outras regras */
 }
 
 /* Navbar reduzida ao rolar */
@@ -463,41 +468,41 @@ scrollbar-width: none; /*Barra de relagem, retira*/
 .navbar-toggler {
   /* margin-left: auto; Empurra o botão para a direita */
   /* align-self: center; Garante alinhamento vertical no flex container */
-  transform: translateY(-50%);
-  top: 50%;
-  position: relative;
+  transform: translateY(-50%);/* Move o elemento para cima 50% da sua própria altura (centralização vertical) */
+  top: 50%;/* Posiciona o topo do elemento a 50% da altura do pai */
+  position: relative;/* Permite o uso de propriedades como `top`, mas respeita o fluxo normal do documento */
 
-  transition: all 0.3s ease;
-  border: none; /* remove borda padrão */
-  background-color: transparent;
-  padding: 6px;
-  border-radius: 4px;
-  box-shadow: none !important;
-  outline: none !important;
-  margin-left: auto;
+  transition: all 0.3s ease;/* Suaviza todas as mudanças de estilo em 0.3s */
+  border: none; /* Remove qualquer borda padrão */
+  background-color: transparent;/* Torna o fundo transparente */
+  padding: 6px;/* Espaçamento interno de 6px */
+  border-radius: 4px;/* Arredonda levemente os cantos */
+  box-shadow: none !important;/* Remove qualquer sombra, com prioridade */
+  outline: none !important;/* Remove o contorno ao focar, com prioridade */
+  margin-left: auto;/* Empurra o botão para a direita dentro de um flex container */
 }
 
 /* Remove borda ao clicar */
 .navbar-toggler:focus,
 .navbar-toggler:active {
-  outline: none !important;
-  box-shadow: none !important;
+  outline: none !important;/* Remove contorno ao focar ou ativar */
+  box-shadow: none !important;/* Remove qualquer sombra ao focar ou ativar */
 }
 
 /* Aplica efeito de borda ao passar o mouse */
 .navbar-toggler:hover {
-  border: 2px solid #ffb300; /* ou outro destaque desejado */
-  border-radius: 6px;
-  background-color: rgba(255, 179, 0, 0.15);
-  cursor: pointer;
+  border: 2px solid #ffb300; /* Borda dourada ao passar o mouse */
+  border-radius: 6px;/* Cantos mais arredondados no hover */
+  background-color: rgba(255, 179, 0, 0.15);/* Fundo amarelo-claro translúcido no hover */
+  cursor: pointer;/* Mostra o cursor de clique */
 }
 
 .navbar-toggler-icon {
-  height: 24px;
-  width: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 24px;/* Altura do ícone */
+  width: 24px;/* Largura do ícone */
+  display: flex;/* Usa Flexbox para centralização */
+  align-items: center;/* Alinha o conteúdo verticalmente ao centro */
+  justify-content: center;/* Alinha o conteúdo horizontalmente ao centro */
   background-size: 100% 100%; /* Garante que o ícone se encaixe bem */
   
   /* transition: all 0.3s ease;
@@ -594,107 +599,107 @@ img {
 /*================== USADO PARA MODELAR DO MODAL ==================*/
 
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
+  display: none;/* Esconde o modal por padrão; será exibido via JavaScript */
+  position: fixed;/* Fixa o modal na tela, independentemente do scroll */
+  z-index: 999;/* Coloca o modal acima da maioria dos outros elementos */
   left: 0;
-  top: 0;
+  top: 05px !important;/* Posiciona no canto superior esquerdo da tela */
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0, 0, 0, 0.5);
+  height: 100%;/* Faz o modal cobrir toda a tela */
+  overflow: auto;/* Adiciona rolagem caso o conteúdo ultrapasse a altura */
+  background: rgba(0, 0, 0, 0.5);/* Fundo escuro translúcido para efeito de sobreposição */
 }
 
 .modal-content {
-  background-color: white;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 900px;
+  background-color: white;/* Fundo branco para o conteúdo do modal */
+  margin: 05% auto;/* Centraliza horizontalmente e posiciona 10% do topo */
+  padding: 20px;/* Espaçamento interno */
+  border-radius: 8px;/* Cantos arredondados */
+  width: 80%;/* Largura de até 80% da tela */
+  max-width: 900px;/* Limite máximo de largura */
 }
 
 .close {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
+  float: right;/* Posiciona o botão de fechar no canto superior direito */
+  font-size: 28px;/* Tamanho da fonte do "X" de fechar */
+  cursor: pointer;/* Mostra a mãozinha ao passar o mouse sobre o botão */
 }
 
 /*================== MODAL PARA ASSISTÊNCIA 24HS ==================*/
 
 .modal {
-  display: none; /* Escondido por padrão */
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  display: none; /* Escondido por padrão, será exibido via JavaScript */
+  position: fixed; /* Fixa o modal na tela, mesmo com scroll */
+  z-index: 1000; /* Garante que o modal fique acima da maioria dos elementos */
+  left: 0; top: 0;/* Posiciona o modal no canto superior esquerdo */
+  width: 100%; height: 100%;/* Ocupa toda a largura e altura da tela */
+  background-color: rgba(0, 0, 0, 0.6);/* Fundo escuro semitransparente */
 }
 
 .modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 30px;
-  width: 90%;
-  max-width: 900px;
-  border-radius: 10px;
-  position: relative;
+  background-color: #fff;/* Fundo branco para o conteúdo do modal */
+  margin: 10% auto; /* Centraliza verticalmente (10% do topo) e horizontalmente */
+  padding: 30px;/* Espaçamento interno do conteúdo */
+  width: 90%; /* Largura de até 90% da tela */
+  max-width: 900px;/* Limita a largura máxima a 900px */
+  border-radius: 10px;/* Arredonda os cantos do modal */
+  position: relative;/* Permite posicionar elementos filhos com `absolute` */
 }
 
 .close {
-  position: absolute;
-  top: 10px; right: 15px;
-  font-size: 24px;
-  cursor: pointer;
+  position: absolute;/* Posiciona o botão em relação ao .modal-content */
+  top: 10px; right: 15px;/* Coloca o botão no canto superior direito */
+  font-size: 24px;/* Tamanho da fonte do "X" de fechar */
+  cursor: pointer;/* Mostra a mãozinha ao passar o mouse sobre o botão */
 }
 
 #modal-assistencia .cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+  display: flex;/* Usa Flexbox para alinhar os cards */
+  gap: 20px;/* Espaçamento de 20px entre os cards */
+  flex-wrap: wrap;/* Permite que os cards quebrem linha quando necessário */
+  margin-top: 20px;/* Espaço acima da seção de cards */
 }
 
 #modal-assistencia .card {
-  flex: 1 1 250px;
-  background-color: #f5f5f5;
-  padding: 15px;
-  border-radius: 10px;
+  flex: 1 1 250px; /* Flex-grow: 1 (pode crescer), flex-shrink: 1 (pode encolher), base: 250px */
+  background-color: #f5f5f5;/* Define uma cor de fundo cinza-claro */
+  padding: 15px;/* Espaçamento interno de 15px em todos os lados */
+  border-radius: 10px;/* Arredonda os cantos do card */
   text-align: left; /* Alinha somente esses cards à esquerda */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);/* Adiciona uma sombra suave ao redor do card */
 }
 
 #modal-assistencia .card img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  width: 100%; /* O elemento ocupará 100% da largura do contêiner pai */
+  height: 120px; /* Altura fixa de 120 pixels */
+  object-fit: cover; /* A imagem será cortada para preencher todo o espaço, mantendo proporção */
+  border-radius: 8px;/* Arredonda os cantos do elemento */
+  margin-bottom: 10px;/* Margem inferior de 10px */
 }
 
 #modal-assistencia .card h4 {
-  margin: 10px 0 5px;
-  font-size: 18px;
+  margin: 10px 0 5px;  /* Substitui a margem anterior: 10px em cima, 0 nas laterais, 5px embaixo */
+  font-size: 18px; /* Define o tamanho da fonte como 18px */
 }
 
 #modal-assistencia .card p {
-  margin: 4px 0;
-  font-size: 14px;
+  margin: 4px 0; /* Substitui novamente: 4px em cima e embaixo, 0 nas laterais */
+  font-size: 14px; /* Substitui o valor anterior e define o tamanho da fonte como 14px */
 }
 
 /*================== BOTÃO VOLTAR AO TOPO HOME ==================*/
 
 .botao-topo {
-  display: inline-block;
-  padding: 5px 15px;
-  cursor: pointer;
-  background-color: #ffc107;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block; /* Permite definir largura/altura e se comporta como elemento em linha */
+  padding: 5px 15px; /* Espaçamento interno: 5px verticalmente e 15px horizontalmente */
+  cursor: pointer; /* Altera o cursor para a mãozinha ao passar por cima */
+  background-color: #ffc107; /* Define a cor de fundo (amarelo/dourado) */
+  color: rgb(0, 0, 0); /* Define a cor do texto como preta */
+  text-decoration: none; /* Remove o sublinhado, geralmente de links */
+  border-radius: 6px; /* Arredonda levemente os cantos do elemento */
+  font-weight: bold; /* Deixa o texto em negrito */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adiciona uma sombra suave para dar profundidade */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Suaviza a transição de cor de fundo e transformações */
 }
 
 .botao-topo:hover {
@@ -746,38 +751,38 @@ img {
 
 /*================== MODAL TAMANHO DAS IMAGENS REDES SOCIAIS==================*/
 .redesSociais {
-  width: 40px !important;
-  height: auto !important;
-  margin: 5px 0;
-  vertical-align: middle !important;
+  width: 40px !important; /* Define a largura como 40px, sobrescrevendo outras regras com !important */
+  height: auto !important;/* Ajusta a altura automaticamente para manter a proporção, com prioridade */
+  margin: 5px 0;/* Adiciona margem de 5px em cima e embaixo, e 0 nas laterais */
+  vertical-align: middle !important; /* Alinha verticalmente ao meio, com prioridade */
 }
 
 /*================== ATENDIMENTO POR WHATSAPP - PRECISANDO DE AJUDA ==================*/
 .whatsapp-popup {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  /* background-color: #25d366; */
-  /* color: white; */
-  padding: 50px 0px;
-  border-radius: 50px;
-  /* display: flex; */
-  align-items: center;
-  /* box-shadow: 0 4px 10px rgba(0,0,0,0.2); */
-  text-decoration: none;
-  font-family: sans-serif;
-  z-index: 999;
-  transition: transform 0.3s ease;
+  position: fixed; /* Fixa o elemento na tela, independentemente do scroll */
+  bottom: 20px; /* Posiciona o elemento a 20px da parte inferior da tela */
+  right: 20px; /* Posiciona o elemento a 20px da borda direita da tela */
+  /* background-color: #25d366; */ /* Define a cor de fundo (verde WhatsApp) */
+  /* color: white; */ /* Define a cor do texto como branca */
+  padding: 50px 0px; /* Espaçamento interno: 50px em cima e embaixo, 0 nas laterais */
+  border-radius: 50px; /* Arredonda as bordas, deixando o elemento oval ou circular */
+  /* display: flex; */ /* Usa Flexbox para alinhar conteúdo interno */
+  align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+  /* box-shadow: 0 4px 10px rgba(0,0,0,0.2); */ /* Adiciona sombra ao redor do elemento */
+  text-decoration: none; /* Remove sublinhado de links (se for uma tag <a>) */
+  font-family: sans-serif; /* Define uma fonte sem serifa para o texto */
+  z-index: 999;/* Garante que o elemento fique acima da maioria dos outros elementos */
+  transition: transform 0.3s ease; /* Adiciona uma animação suave para transformações, como hover */
 }
 
 .whatsapp-popup:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho do elemento (efeito de zoom) */
 }
 
 .whatsapp-popup img {
-  width: 50px;
-  height: 50px;
-  margin-right: 8px;
+  width: 50px; /* Define a largura do elemento em 50 pixels */
+  height: 50px; /* Define a altura do elemento em 50 pixels */
+  margin-right: 8px; /* Adiciona um espaço de 8 pixels à direita do elemento */
 }
 
 @keyframes pulse { /*Movimentação do Whatsapp*/
@@ -796,7 +801,6 @@ img {
 }
 
 /*================== Alinhamento do Botão TOP com o Título das Páginas ==================*/
-
 .linha-topo {
   display: flex;
   justify-content: space-between;
@@ -806,7 +810,6 @@ img {
 /*================== PÁGINAS 24HS ==================*/
 /* Área das logos lado a lado */
 .logos-seguradoras {
-
   display: flex;
   align-items: center;
   justify-content: center;
