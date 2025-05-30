@@ -875,3 +875,42 @@ img {
   height: auto;
   margin: 10px;
 }
+
+
+
+
+
+
+/*================== MODAL PARA LOGIN ==================*/
+.modal {
+  display: none; /* Esconde o modal por padrão */
+  position: fixed; /* Fixa o modal em relação à janela (não rola com a página) */
+  z-index: 1000; /* Coloca o modal acima de outros elementos da página */
+  left: 0; top: 0; /* Posiciona o canto superior esquerdo do modal na tela */
+  width: 100%; height: 100%; /* O modal cobre toda a tela */
+  background-color: rgba(0,0,0,0.5); /* Fundo preto semi-transparente para dar efeito de sobreposição */
+}
+
+.modal-conteudo {
+  background-color: #fff; /* Fundo branco para a caixa do conteúdo do modal */
+  margin: 10% auto; /* Margem no topo (10%) e centralizado horizontalmente */
+  padding: 20px; /* Espaçamento interno (distância entre o conteúdo e as bordas) */
+  width: 90%; /* Ocupa 90% da largura da tela em dispositivos pequenos */
+  max-width: 400px; /* Em telas maiores, limita a largura máxima a 400px */
+  border-radius: 10px; /* Borda arredondada para dar suavidade */
+  position: relative; /* Necessário para posicionar o botão de fechar dentro deste bloco */
+  box-sizing: border-box; /* Inclui o padding e a borda no cálculo da largura total */
+}
+
+.fechar {
+  position: absolute; /* Posiciona o botão de fechar em relação ao modal-conteudo */
+  top: 10px; right: 15px; /* Posiciona no canto superior direito */
+  font-size: 24px; /* Tamanho do "x" para fechar */
+  cursor: pointer; /* Muda o cursor para uma mãozinha indicando que é clicável */
+}
+
+.botoes {
+  display: flex; /* Usa o Flexbox para organizar os botões */
+  justify-content: space-between; /* Coloca os botões nas extremidades com espaço entre eles */
+  gap: 10px; /* Espaço entre os botões */
+}

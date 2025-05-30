@@ -32,7 +32,7 @@
             <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
             <li class="nav-item"><a class="nav-link" href="#localizacao">Localização</a></li>
             <li class="nav-item"><a class="nav-link" href="#" id="btn-assistencia">Assistência 24hs</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Área Restrita</a></li>
+            <a class="nav-link" href="#" onclick="abrirLogin(); return false;">Área Restrita</a>
           </ul>
         </div>
       </div>
@@ -120,6 +120,26 @@
       <span class="close">&times;</span>
       <h3 id="modal-title"></h3>
       <p id="modal-texto"></p>
+    </div>
+  </div>
+  <!--================== MODAL PARA LOGIN ==================-->
+  <!-- Modal de Login -->
+  <div id="modalLogin" class="modal">
+    <div class="modal-conteudo">
+      <span class="fechar" onclick="fecharLogin()">&times;</span>
+      <h3>Login</h3>
+      <form id="formLogin">
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <div class="botoes">
+          <button type="submit">Entrar</button>
+          <button type="button" onclick="fecharLogin()">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
   <!--================== ENTRE EM CONTATO ==================-->

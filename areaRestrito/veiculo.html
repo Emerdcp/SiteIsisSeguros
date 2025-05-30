@@ -50,164 +50,68 @@
 <hr>
 
   <section>
-        <div class="container">
-      <div class="linha-topo">
-        <h2><b>Cadastro Veículos</b></h2>
-        <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
-      </div>
-      <form class="container mb-4" id="" action="" method="POST">
-      <table>
-        <thead>
-          <tr>
-            <th style="text-align: left;">
-              <button type="button">Incluir</button>
-            </th>
-          </tr>
-          <tr>
-            <th>Código</th>
-            <th>Descrição</th>
-            <th>Modelo</th>
-          </tr>
-        </thead>
-      </table>
-      </form>
-    </div>
-  </section>
-
-
-
-
-
-  <!--================== CADASTROU CLIENTE ==================-->
-  <hr>
-  <section id="cadastroVeiculos" class="Cliente"><!-- arrumar o id"proposta para contato... arrumar botão que está dando problemas-->
     <div class="container">
       <div class="linha-topo">
         <h2><b>Cadastro Veículos</b></h2>
         <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
       </div>
       <form class="container mb-4" id="" action="" method="POST">
-        <div class="row g-3">
-          <div class="col-md-2">
-            <label class="form-label">Código</label>
-            <input type="number" class="form-control" id="codigo" name="codigo" placeholder="" required disabled />
-          </div>
-          <div class="col-md-6">
-            <label for="nome" class="form-label">Descrição</label>
-            <input type="text" class="form-control" id="descricao" name="descricao" placeholder="" maxlength="150" />
-          </div>
-          <div class="col-md-2">
-            <label class="form-label">Data Cadastro</label>
-            <input type="date" class="form-control" id="dataCadastro" name="dataCadastro" placeholder="" required disabled />
-          </div>
-          <div class="col-md-2">
-            <label class="form-label">Status</label>
-            <select class="form-select" name="status" id="status">
-              <option value="A">Ativo</option>
-              <option value="I">Inatico</option>
-            </select>
-          </div>
-        </div>
-        <div class="row g-3">
-          <div class="col-md-3">
-            <label class="form-label">Marca</label>
-            <select  class="form-select" name="marca" id="marca">
-              <option value=""></option>
-              <option value="BMW">BMW</option>
-              <option value="BYD">BYD</option>
-              <option value="Chevrolet">Chevrolet</option>
-              <option value="Citroen">Citroen</option>
-              <option value="Fiat">Fiat</option>
-              <option value="Ford">Ford</option>
-              <option value="General Motors">General Motors</option>
-              <option value="Honda">Honda</option>
-              <option value="Hyundai">Hyundai</option>
-              <option value="Jaguar">Jaguar</option>
-              <option value="Jeep">Jeep</option>
-              <option value="Kia">Kia</option>
-              <option value="Lexus">Lexus</option>
-              <option value="Mercedes-Benz">Mercedes-Benz</option>
-              <option value="Mitsubishi">Mitsubishi</option>
-              <option value="Montadoral">Montadoral</option>
-              <option value="Nissan">Nissan</option>
-              <option value="Outros">Outros</option>
-              <option value="Peugeot">Peugeot</option>
-              <option value="Porsche">Porsche</option>
-              <option value="Renault">Renault</option>
-              <option value="Stellantis">Stellantis</option>
-              <option value="Toyota">Toyota</option>
-              <option value="Volkswagen">Volkswagen</option>
-              <option value="Volvo">Volvo</option>
-              </select>
-          </div>
-          <div class="col-md-2">
-            <label for="nome" class="form-label">Ano Modelo</label>
-            <input type="number" class="form-control" id="anoModelo" name="AnoModelo" placeholder="Ano" maxlength="4" />
-          </div>
-          <div class="col-md-2">
-            <label for="nome" class="form-label">Ano Fabricação</label>
-            <input type="number" class="form-control" id="anoFabricacao" name="AnoFabricacao" placeholder="Ano" maxlength="4" />
-          </div>
-          <div class="col-md-3">
-            <label class="form-label">Combustível</label>
-            <select class="form-select" name="status" id="status">
-              <option value="F">Flex</option>
-              <option value="G">Gasolina</option>
-              <option value="E">Etanol</option>
-              <option value="D">Diesel</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <label for="nome" class="form-label">Cor</label>
-            <input type="text" class="form-control" id="cor" name="cor" placeholder="cor" maxlength="50" />
-          </div>
-        </div>
-        <div class="row g-3">
-          <div class="col-md-3">
-            <label for="nome" class="form-label">Renavam</label>
-            <input type="text" class="form-control" id="renavam" name="renavam" placeholder="Renavam" maxlength="50" />
-          </div>
-          <div class="col-md-3">
-            <label for="nome" class="form-label">Placa</label>
-            <input type="text" class="form-control" id="placa" name="placa" placeholder="Placa" maxlength="7" />
-          </div>
-          <div class="col-md-3">
-            <label class="form-label">Estado</label>
-            <select class="form-select" id="estado" name="estado" id="status">
-              <option value="PR">Paraná</option>
-              <option value="SC">Santa Catarina</option>
-              <option value="RS">Rio Grando do Sul</option>
-              <option value="SP">São Paulo</option>
-            </select>
-          </div>
-          <div class="col-md-3">
-            <label class="form-label">Tipo Veículo</label>
-            <select class="form-select" id="estado" name="estado" id="status">
-              <option value="A">Automóveis</option>
-              <option value="O">Ônibus</option>
-              <option value="C">Caminhões</option>
-              <option value="R">Reboques</option>
-              <option value="S">Semi-reboques</option>
-              <option value="T">Trator</option>
-              <option value="P">Picape</option>
-              <option value="U">Outros</option>
-            </select>
-          </div>
-        </div>
-        <div class="row g-3">
-          <div class="col-md-12">
-            <label for="observacao" class="form-label">Observação</label>
-            <textarea class="form-control" id="observacao" name="observacao" placeholder="Observação" rows="2"
-              required></textarea>
-          </div>
-        </div>
-        <div class="col-12 text-end">
-          <button type="submit">Enviar</button>
-          <button type="button" class="botao" onclick="limparFormulario()">Cancelar</button>
-        </div>
+        <table>
+          <thead>
+            <button type="button" onclick="abrirModal()">Incluir</button>
+            <tr>
+              <th>Código</th>
+              <th>Descrição</th>
+              <th>Modelo</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaVeiculos">
+            <!-- As linhas vão ser inseridas aqui -->
+          </tbody>
+        </table>
       </form>
     </div>
   </section>
+
+
+
+  <!-- Modal -->
+  <div id="modalCadastro" class="modal">
+    <div class="modal-conteudo">
+      <span class="fechar" onclick="fecharModal()">&times;</span>
+      <h3>Incluir Veículo</h3>
+      <form id="formCadastro">
+
+
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" required><br><br>
+          </div>
+          <div class="col-md-6">
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" name="descricao" required><br><br>
+          </div>
+          <div class="col-md-4">
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required><br><br>
+          </div>
+          <div class="botoes">
+            <button type="submit">Enviar</button>
+            <button type="button" onclick="fecharModal()">Cancelar</button>
+          </div>
+
+
+          
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
 
   <!--================== CHAMADA DO JAVA ==================-->
   <script src="../script.js"></script>

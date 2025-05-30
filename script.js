@@ -308,3 +308,110 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+
+
+
+//================== MODAL PARA LOGIN ==================//
+// Função para abrir o modal de login
+function abrirLogin() {
+  document.getElementById("modalLogin").style.display = "block";
+}
+// Função para fechar o modal de login
+function fecharLogin() {
+  document.getElementById("modalLogin").style.display = "none";
+}
+// Fecha o modal se o usuário clicar fora dele
+window.onclick = function(event) {
+  const modal = document.getElementById("modalLogin");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Simulação de login
+document.getElementById("formLogin").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const usuario = document.getElementById("usuario").value;
+  const senha = document.getElementById("senha").value;
+
+  if (usuario === "admin" && senha === "1234") {
+    alert("Login bem-sucedido!");
+    fecharLogin();// Fechar o formulário de login
+    // Armazenar o estado de login no localStorage ou sessionStorage
+    sessionStorage.setItem("logado", "true");
+    // Redirecionar para home.html
+    window.location.href = "areaRestrito/home.html";
+  } else {
+    alert("Usuário ou senha incorretos.");
+  }
+});
+
+// Verificar se o usuário está logado
+window.onload = function() {
+  // Verifica se o usuário está logado
+  if (sessionStorage.getItem("logado") !== "true") {
+      // Se não estiver logado, redireciona para o login
+      window.location.href = "../index.html";
+  }
+};
+
+// Evento de clique para sair
+document.getElementById("btnSair").addEventListener("click", function() {
+  // Limpar o estado de login
+  sessionStorage.removeItem("logado");
+  // Redirecionar para a página de login
+  window.location.href = "../index.html";
+});
+
+
+
+
+
+
+
+
+
+//================== MODAL PARA CADASTRO DE VEÍCULOS ==================//
+
+
+function abrirModal() {
+  document.getElementById("modalCadastro").style.display = "block";
+}
+
+function fecharModal() {
+  document.getElementById("modalCadastro").style.display = "none";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById("modalCadastro");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+document.getElementById("formCadastro").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+const codigo = document.getElementById("codigo").value;
+  const descricao = document.getElementById("descricao").value;
+  const modelo = document.getElementById("modelo").value;
+
+  const novaLinha = document.createElement("tr");
+  novaLinha.innerHTML = `
+    <td>${codigo}</td>
+    <td>${descricao}</td>
+    <td>${modelo}</td>
+  `;
+
+  document.getElementById("tabelaVeiculos").appendChild(novaLinha);
+  this.reset();
+  fecharModal();
+
+  const placeholder = document.querySelector(".placeholder");
+  if (placeholder) placeholder.remove();
+});
+
+
+
