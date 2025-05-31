@@ -19,8 +19,8 @@
 
 /* Efeito ao passar o mouse sobre o item do submenu */
 .dropdown-item:hover {
-  background-color: rgba(255, 179, 0, 0.15) !important; /* Fundo amarelo translúcido no hover */
-  color: #ffb300 !important;                     /* Cor amarela destacada ao passar o mouse */
+  /*background-color: rgba(255, 179, 0, 0.15) !important; /* Fundo amarelo translúcido no hover */
+  color: #ffb300 !important;                    /* Cor amarela destacada ao passar o mouse
   font-weight: 700 !important;                   /* Negrito ao passar o mouse */
 }
 
@@ -119,4 +119,30 @@ tr:hover {
 
 .alinha-direita {
   text-align: right;
+}
+
+
+
+/* ================== TABELA VEICULO CADASTRO ================== */
+
+.botaoIncluir{
+  width: 100%;/* Largura de 100% (preenche o espaço disponível) */
+  padding: 10px;/* Espaçamento interno de 10px */
+  margin: 5px 0;/* Margem de 10px no topo e embaixo */
+  border-radius: 6px;/* Bordas arredondadas */
+  border: 1px solid #ccc;/* Borda cinza claro */
+}
+
+.botaoIncluir button {
+  background: #ffc107;/* Fundo amarelo */
+  color: #333;/* Texto preto */
+  border: none;/* Sem borda */
+  padding: 10px 20px;/* Espaçamento interno (10px de topo e 20px nas laterais) */
+  cursor: pointer;/* Cursor em forma de mãozinha */
+  border-radius: 6px;/* Bordas arredondadas */
+  font-weight: bold;/* Texto em negrito */
+}
+
+.botaoIncluir button:hover {
+  background-color: #ffb300; /* Cor de fundo amarela mais intensa ao passar o mouse */
 }

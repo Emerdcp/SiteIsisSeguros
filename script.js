@@ -348,22 +348,22 @@ document.getElementById("formLogin").addEventListener("submit", function(e) {
   }
 });
 
-// Verificar se o usuário está logado
-window.onload = function() {
-  // Verifica se o usuário está logado
-  if (sessionStorage.getItem("logado") !== "true") {
-      // Se não estiver logado, redireciona para o login
-      window.location.href = "../index.html";
-  }
-};
+// // Verificar se o usuário está logado
+// window.onload = function() {
+//   // Verifica se o usuário está logado
+//   if (sessionStorage.getItem("logado") !== "true") {
+//       // Se não estiver logado, redireciona para o login
+//       window.location.href = "index.html";
+//   }
+// };
 
-// Evento de clique para sair
-document.getElementById("btnSair").addEventListener("click", function() {
-  // Limpar o estado de login
-  sessionStorage.removeItem("logado");
-  // Redirecionar para a página de login
-  window.location.href = "../index.html";
-});
+// // Evento de clique para sair
+// document.getElementById("btnSair").addEventListener("click", function() {
+//   // Limpar o estado de login
+//   sessionStorage.removeItem("logado");
+//   // Redirecionar para a página de login
+//   window.location.href = "index.html";
+// });
 
 
 
@@ -375,7 +375,6 @@ document.getElementById("btnSair").addEventListener("click", function() {
 
 //================== MODAL PARA CADASTRO DE VEÍCULOS ==================//
 
-
 function abrirModal() {
   document.getElementById("modalCadastro").style.display = "block";
 }
@@ -384,34 +383,66 @@ function fecharModal() {
   document.getElementById("modalCadastro").style.display = "none";
 }
 
-window.onclick = function(event) {
-  const modal = document.getElementById("modalCadastro");
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("formCadastro").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const codigo = document.getElementById("codigo").value.trim();
+    const descricao = document.getElementById("descricao").value.trim();
+    const modelo = document.getElementById("modelo").value.trim();
 
-document.getElementById("formCadastro").addEventListener("submit", function(e) {
-  e.preventDefault();
+    console.log("Capturado:", codigo, descricao, modelo);
 
-const codigo = document.getElementById("codigo").value;
-  const descricao = document.getElementById("descricao").value;
-  const modelo = document.getElementById("modelo").value;
+    const novaLinha = document.createElement("tr");
+    novaLinha.innerHTML = `
+      <td>${codigo}</td>
+      <td>${descricao}</td>
+      <td>${modelo}</td>
+    `;
 
-  const novaLinha = document.createElement("tr");
-  novaLinha.innerHTML = `
-    <td>${codigo}</td>
-    <td>${descricao}</td>
-    <td>${modelo}</td>
-  `;
-
-  document.getElementById("tabelaVeiculos").appendChild(novaLinha);
-  this.reset();
-  fecharModal();
-
-  const placeholder = document.querySelector(".placeholder");
-  if (placeholder) placeholder.remove();
+    document.getElementById("tabelaVeiculos").appendChild(novaLinha);
+    this.reset();
+    fecharModal();
+  });
 });
+
+//Colocar igual o de cima
+
+// function abrirModal() {
+//   document.getElementById("modalCadastro").style.display = "block";
+// }
+
+// function fecharModal() {
+//   document.getElementById("modalCadastro").style.display = "none";
+// }
+
+// window.onclick = function(event) {
+//   const modal = document.getElementById("modalCadastro");
+//   if (event.target === modal) {
+//     modal.style.display = "none";
+//   }
+// }
+
+// document.getElementById("formCadastro").addEventListener("submit", function(e) {
+//   e.preventDefault();
+  
+//   const codigo = document.getElementById("codigo").value.trim();
+//   const descricao = document.getElementById("descricao").value.trim();
+//   const modelo = document.getElementById("modelo").value.trim();
+
+//   const novaLinha = document.createElement("tr");
+//   novaLinha.innerHTML = `
+//     <td>${codigo}</td>
+//     <td>${descricao}</td>
+//     <td>${modelo}</td>
+//   `;
+
+//   document.getElementById("tabelaVeiculos").appendChild(novaLinha);
+//   this.reset();
+//   fecharModal();
+
+//   const placeholder = document.querySelector(".placeholder");
+//   if (placeholder) placeholder.remove();
+// });
 
 
 
