@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="styleRestrito.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <meta name="description" content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados."/>
+  <meta name="description"
+    content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados." />
 </head>
 
 <body>
@@ -18,7 +19,8 @@
     <nav class="navbar navbar-expand-lg bg-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img id="logo" src="../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro" class="logo-imglogo" loading="lazy">
+          <img id="logo" src="../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro"
+            class="logo-imglogo" loading="lazy">
         </a>
         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span id="menu-icon" class="navbar-toggler-icon"></span>
@@ -26,10 +28,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="home.html">Início</a></li>
-            
+
             <!-- Menu com Subitens (Dropdown) -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Cadastro
               </a>
               <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
@@ -49,91 +52,61 @@
 
   <!--================== CADASTROU CLIENTE ==================-->
   <hr>
-  <section id="cadastroCliente" class="Cliente"><!-- arrumar o id"proposta para contato... arrumar botão que está dando problemas-->
+
+  <section>
     <div class="container">
       <div class="linha-topo">
-        <h2><b>Cadastro Cliente</b></h2>
-        <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
+        <h2><b>Cadastro Clientes</b></h2>
       </div>
-      <form class="container mb-4" id="form-proposta" action="enviar-email.php" method="POST">
-        <div class="row g-3">
-          <div class="col-md-4">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required />
-            <small class="form-text text-muted"></small>
-          </div>
-          <div class="col-md-4">
-            <label for="telefone" class="form-label">Telefone</label>
-            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(99)99999-9999" required /> <!-- required
-            pattern="\(\d{2}\) \d{5}-\d{4}" -->
-          </div>
-          <div class="col-md-4">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@dominio.com"
-              required />
-          </div>
-          <div class="col-12">
-            <label for="mensagem" class="form-label">Mensagem</label>
-            <textarea class="form-control" id="mensagem" name="mensagem" placeholder="Sua mensagem" rows="4"
-              required></textarea>
-          </div>
-          <div class="col-12 text-end">
-            <button type="submit">Enviar</button>
-            <button type="button" class="botao" onclick="limparFormulario()">Cancelar</button>
-          </div>
-        </div>
-      </form>
+      <div class="botaoIncluir">
+        <!-- Mover o botão para fora do thead -->
+        <button type="button" onclick="abrirModal()">Incluir</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Nome</th>
+              <th>Cep</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaClientes"></tbody>
+        </table>
+      </div>
     </div>
   </section>
-  <!--================== Contato ==================-->
-  <section id="localizacao">
-    <div class="container">
-      <div class="linha-topo">
-        <h2><b>Localização</b></h2>
-        <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
-      </div>
-      <form class="container mb-4">
+
+  <!-- ================================================================= -->
+
+  <div id="modalCadastroCliente" class="modal">
+    <div class="modal-conteudo">
+      <span onclick="fecharModal()" style="cursor:pointer;">&times;</span>
+      <h3>Incluir Cliente</h3>
+      <form id="formCadastroCliente">
         <div class="row g-3">
-          <div class="col-md-4">
-            <p><b>
-                <h4>ÍSIS Seguros</h4>
-              </b></p>
-            <p>Rua Habib Sarkis, 74 - Aviação</p>
-            <p>São José dos Pinhais/PR</p>
-            <p><b>CEP:</b> 83.045-725</p>
-            <img src="imagens/telefone.png" alt="Telefone"> (41) 3045-1700</P>
-            <img src="imagens/telefone.png" alt="Telefone"> (41) 99195-1640</P>
-            <!-- <img src="imagens/whatsapp.png" alt="telefone"> (41) 3045-1700 -->
-            <p><a href="https://wa.me/554130451700" target="_blank" style="text-decoration: none; color: inherit;">
-                <img src="imagens/whatsapp.png" alt="whatsapp" style="width: 20px; vertical-align: middle;">
-                (41) 3045-1700
-              </a></p>
-            <img src="imagens/emial.png" alt="E-mail"> isisseguros1@gmail.com
+          <div class="col-md-2">
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" required><br><br>
           </div>
-          <!-- Google Maps -->
-          <div class="col-md-8">
-            <div style="margin-top: 20px;">
-              <iframe src="https://www.google.com/maps?q=Rua+Habib+Sarkis,+74,+São+José+dos+Pinhais,+PR&output=embed"
-                width="100%" height="320" style="border:0;" allowfullscreen loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
+          <div class="col-md-6">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br><br>
+          </div>
+          <div class="col-md-4">
+            <label for="cep">Cep:</label>
+            <input type="text" id="cep" name="cep" required><br><br>
           </div>
         </div>
+        <button type="submit">Salvar</button>
+        <button type="button" onclick="fecharModal()">Cancelar</button>
       </form>
     </div>
-  </section>
-  <!--================== INFORMAÇÃO DO REDAPÉ ==================-->
-  <footer>
-    <div class="container">
-      <p style="text-align: center;">&copy; ÍSIS Seguros. Todos os direitos reservados.
-    </div>
-  </footer>
- 
+  </div>
+
   <!--================== CHAMADA DO JAVA ==================-->
-  <script src="../script.js"></script>
+  <script src="../areaRestrito/scriptRestrito.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
     defer></script>
 </body>
+
 </html>
