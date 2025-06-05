@@ -65,11 +65,22 @@
   box-sizing: border-box; /* Inclui padding e borda dentro do tamanho total do elemento */
 }
 
+/** Botão "×" de fechar o modal **/
 .fechar {
-  position: absolute; /* Posiciona o botão em relação ao modal-conteudo */
-  top: 10px; right: 15px; /* Distância do topo e da direita */
-  font-size: 24px; /* Tamanho do “X” */
-  cursor: pointer; /* Cursor tipo mãozinha ao passar o mouse */
+  position: absolute;          /** Posiciona o botão de forma absoluta dentro do modal (em relação ao .modal-content) **/
+  top: 10px;                   /** Distância de 10px do topo do modal **/
+  right: 15px;                 /** Distância de 15px da borda direita do modal **/
+  font-size: 24px;             /** Tamanho da fonte do "×" (maior que o texto normal) **/
+  font-weight: bold;           /** Deixa o "×" em negrito **/
+  color: #000;                 /** Cor preta para o botão de fechar **/
+  cursor: pointer;             /** Mostra a "mãozinha" ao passar o mouse, indicando que é clicável **/
+  transition: all 0.2s ease;  /** Suaviza transição de estilo ao passar o mouse*/
+}
+
+.fechar:hover{
+  color: #ffb300; /*Muda a cor para amarelo*/
+  font-weight: 900; /*Aumenta ainda mais o peso da fonte*/
+  transform: scale(1.2); /*Da um leve zoom no botão*/
 }
 
 .botoes {
@@ -84,9 +95,19 @@
   margin: 5px 1%; /* Margem entre os botões */
 }
 
+.modal-content {
+  position: relative;          /** Define que os elementos filhos com position:absolute serão posicionados em relação a este container **/
+  padding: 20px;               /** Espaçamento interno em todos os lados do conteúdo do modal **/
+  border-radius: 10px;         /** Arredonda os cantos do modal **/
+  background: #fff;            /** Define o fundo branco do modal **/
+  width: 80%;                  /** Largura do modal em relação à tela (80% da largura da janela) **/
+  max-width: 900px;            /** Limita a largura máxima do modal para que não fique muito grande em telas largas **/
+  margin: auto;                /** Centraliza horizontalmente o modal na tela **/
+}
 
 
-/* ================== TABELA VEICULO CADASTRO ================== */
+
+/* ================== TABELA CADASTRO ================== */
 
 table {
   width: 100%; /* Ocupa toda a largura disponível */
@@ -121,9 +142,7 @@ tr:hover {
   text-align: right;
 }
 
-
-
-/* ================== TABELA VEICULO CADASTRO ================== */
+/* ================== TABELA CADASTRO ================== */
 
 .botaoIncluir{
   width: 100%;/* Largura de 100% (preenche o espaço disponível) */
@@ -146,4 +165,10 @@ tr:hover {
 .botaoIncluir button:hover {
   background-color: #ffb300; /* Cor de fundo amarela mais intensa ao passar o mouse */
 }
+
+
+
+
+
+
 

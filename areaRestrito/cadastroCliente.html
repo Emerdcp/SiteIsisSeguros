@@ -60,13 +60,13 @@
       </div>
       <div class="botaoIncluir">
         <!-- Mover o botão para fora do thead -->
-        <button type="button" onclick="abrirModal()">Incluir</button>
+        <button type="button" onclick="abrirModal('modalCadastroCliente')">Incluir</button>
         <table>
           <thead>
             <tr>
               <th>Código</th>
               <th>Nome</th>
-              <th>Cep</th>
+              <th>Física/Jurídica</th>
             </tr>
           </thead>
           <tbody id="tabelaClientes"></tbody>
@@ -79,25 +79,104 @@
 
   <div id="modalCadastroCliente" class="modal">
     <div class="modal-conteudo">
-      <span onclick="fecharModal()" style="cursor:pointer;">&times;</span>
+      <span class="fechar" onclick="fecharModal('modalCadastroCliente')">&times;</span>
       <h3>Incluir Cliente</h3>
-      <form id="formCadastroCliente">
+      <form id="formCadastroCliente" method="get" action=".">
         <div class="row g-3">
-          <div class="col-md-2">
+          <div class="col-md-1">
             <label for="codigo">Código:</label>
-            <input type="text" id="codigo" name="codigo" required><br><br>
+            <input type="text" id="codigo" name="codigo" class="form-control" required>
           </div>
           <div class="col-md-6">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br><br>
+            <input type="text" id="nome" name="nome" class="form-control" required>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <label for="pfjr">Física/Jurídica</label>
+            <select name="pfjr" id="pfjr" class="form-control" onchange="alternarTipoPessoa()">
+              <option value="F">Física</option>
+              <option value="J">Jurídica</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <!-- Campo CPF -->
+            <div id="cpfDiv">
+              <label for="CPF">CPF</label>
+              <input type="text" id="cpf" name="cpf" class="form-control">
+            </div>
+            <!-- Campo CNPJ -->
+            <div id="cnpjDiv" style="display: none;">
+              <label for="CNPJ">CNPJ</label>
+              <input type="text" id="cnpj" name="cnpj" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-2">
             <label for="cep">Cep:</label>
-            <input type="text" id="cep" name="cep" required><br><br>
+            <input type="text" id="cep" name="cep" class="form-control" value="" size="10" maxlength="9" required
+            onblur="pesquisacep(this.value);">
+          </div>
+          <div class="col-md-5">
+            <label for="logradouro">Endereço:</label>
+            <input type="text" id="logradouro" name="logradouro" class="form-control" maxlength="150" required>
+          </div>          
+          <div class="col-md-2">
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" class="form-control" maxlength="20" required>
+          </div>
+          <div class="col-md-3">
+            <label for="complemento">Complemento:</label>
+            <input type="text" id="complemento" name="complemento" class="form-control" maxlength="50">
+          </div>
+          <div class="col-md-3">
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" name="bairro" class="form-control" maxlength="50" required>
+          </div>
+          <div class="col-md-3">
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" class="form-control" maxlength="50" required>
+          </div>
+          <div class="col-md-2">
+            <label for="estado">Estado</label>
+            <select name="estado" id="estado" class="form-control" class="form-control" required>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label for="pfjr">Cliente/Prospect</label>
+            <select name="clienteProspect" id="clienteProspect" class="form-control">
+              <option value="C">Cliente</option>
+              <option value="P">Prospect</option>
+            </select>
           </div>
         </div>
         <button type="submit">Salvar</button>
-        <button type="button" onclick="fecharModal()">Cancelar</button>
+        <button type="button" onclick="fecharModal('modalCadastroCliente')">Cancelar</button>
       </form>
     </div>
   </div>

@@ -57,7 +57,7 @@
       <div class="botaoIncluir">
       <table>
         <thead>
-          <button onclick="abrirModal()">Incluir</button>
+          <button type="button" onclick="abrirModal('modalCadastro')">Incluir</button>
           <tr>
             <th>Código</th>
             <th>Descrição</th>
@@ -74,7 +74,7 @@
 
 <div id="modalCadastro" class="modal">
   <div class="modal-conteudo">
-    <span onclick="fecharModal()" style="cursor:pointer;">&times;</span>
+    <span class="fechar" onclick="fecharModal('modalCadastro')">&times;</span>
     <h3>Incluir Veículo</h3>
     <form id="formCadastro">
       <div class="row g-3">
@@ -92,7 +92,7 @@
         </div>
       </div>
       <button type="submit">Salvar</button>
-      <button type="button" onclick="fecharModal()">Cancelar</button>
+      <button type="button" onclick="fecharModal('modalCadastro')">Cancelar</button>
     </form>
   </div>
 </div>
