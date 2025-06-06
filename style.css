@@ -102,7 +102,7 @@ section {
 
 .sobre, .servicos, .proposta {
   background: #fff;/* Fundo branco */
-  border-bottom: 1px solid #ddd;/* Borda inferior cinza claro */
+  /*border-bottom: 1px solid #ddd;/* Borda inferior cinza claro */
 }
 
 .servicos .cards {
@@ -354,6 +354,20 @@ scrollbar-width: none; /*Barra de relagem, retira*/
   color: #666;
 }
 
+
+
+.contato-card {
+  background: #ffffff; /*Define o fundo dos cards como branco*/
+  border: 1px solid #ddd; /*Adiciona uma borda cinza clara aos cards*/
+  border-radius: 10px; /*Arredonda os cantos do card*/
+  overflow: hidden; /*Garante que nada saia dos limites do card.*/
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Adiciona uma leve sombra para dar profundidade ao card*/
+  width: 100%; /*Define a largura fixa do card*/
+  transition: transform 0.3s ease; /*Cria uma transição suave para qualquer transformação (como o efeito de hover).*/
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
 /*================== COLOCADO PARA PADRONIZAR O TAMANHO DAS IMAGENS DO CARDS ==================*/
 
 .card:hover {
