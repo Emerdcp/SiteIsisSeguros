@@ -329,40 +329,43 @@ window.onclick = function(event) {
   }
 }
 
+//Retorno do feedback
+ window.onload = function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("erro")) {
+      const erro = params.get("erro");
+      let mensagem = "";
+
+      if (erro === "usuario") {
+        mensagem = "Usuário não encontrado!";
+      } else if (erro === "senha") {
+        mensagem = "Senha incorreta!";
+      }
+
+      if (mensagem) {
+        alert(mensagem); // ou insira em uma <div> no modal
+        document.getElementById("modalLogin").style.display = "block";
+      }
+    }
+  };
+
 // Simulação de login
-document.getElementById("formLogin").addEventListener("submit", function(e) {
-  e.preventDefault();
+// document.getElementById("formLogin").addEventListener("submit", function(e) {
+//   e.preventDefault();
 
-  const usuario = document.getElementById("usuario").value;
-  const senha = document.getElementById("senha").value;
+//   const usuario = document.getElementById("usuario").value;
+//   const senha = document.getElementById("senha").value;
 
-  if (usuario === "admin" && senha === "1234") {
-    alert("Login bem-sucedido!");
-    fecharLogin();// Fechar o formulário de login
-    // Armazenar o estado de login no localStorage ou sessionStorage
-    sessionStorage.setItem("logado", "true");
-    // Redirecionar para home.html
-    window.location.href = "areaRestrito/home.html";
-  } else {
-    alert("Usuário ou senha incorretos.");
-  }
-});
-
-// // Verificar se o usuário está logado
-// window.onload = function() {
-//   // Verifica se o usuário está logado
-//   if (sessionStorage.getItem("logado") !== "true") {
-//       // Se não estiver logado, redireciona para o login
-//       window.location.href = "index.html";
+//   if (usuario === "admin" && senha === "1234") {
+//     alert("Login bem-sucedido!");
+//     fecharLogin();// Fechar o formulário de login
+//     // Armazenar o estado de login no localStorage ou sessionStorage
+//     sessionStorage.setItem("logado", "true");
+//     // Redirecionar para home.html
+//     window.location.href = "areaRestrito/home.html";
+//   } else {
+//     alert("Usuário ou senha incorretos.");
 //   }
-// };
-
-// // Evento de clique para sair
-// document.getElementById("btnSair").addEventListener("click", function() {
-//   // Limpar o estado de login
-//   sessionStorage.removeItem("logado");
-//   // Redirecionar para a página de login
-//   window.location.href = "index.html";
 // });
 
 

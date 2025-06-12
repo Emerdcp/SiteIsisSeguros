@@ -50,16 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("formCadastroCliente").addEventListener("submit", function (e) {
     e.preventDefault();
-    
+
     // Corrigido: as variáveis devem corresponder aos IDs no HTML
     const codigo = document.getElementById("codigo").value.trim();
     const nome = document.getElementById("nome").value.trim();
     const tipoPessoa = document.getElementById("pfjr").value.trim();
     let documento = " ";
 
-    if(tipoPessoa === "F"){
+    if (tipoPessoa === "F") {
       documento = document.getElementById("cpf").value.trim();
-    }else{
+    } else {
       documento = document.getElementById("cnpj").value.trim();
     }
 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Inserindo a nova linha no corpo da tabela
     document.getElementById("tabelaClientes").appendChild(novaLinha);
-    
+
     // Resetando o formulário e fechando o modal
     this.reset();
     fecharModal('modalCadastroCliente');
@@ -116,6 +116,123 @@ function editarCliente(botao) {
   abrirModal('modalCadastroCliente');
 }
 
+
+
+//================== MODAL PARA CADASTRO DE USUÁRIO ==================//
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("formCadastroUsuario").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Corrigido: as variáveis devem corresponder aos IDs no HTML
+    const codigo = document.getElementById("codigo").value.trim();
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    console.log("Capturado:", codigo, nome, email);
+
+    // Criando uma nova linha na tabela
+    const novaLinha = document.createElement("tr");
+    novaLinha.innerHTML = `
+      <td>${codigo}</td>
+      <td>${nome}</td>
+      <td>${email}</td>
+      <td>
+        <button type="button" onclick="editarUsuario(this)">Editar</button>
+        <button type="button" onclick="excluirUsuario(this)">Excluir</button>
+      </td>
+    `;
+
+    // Inserindo a nova linha no corpo da tabela
+    document.getElementById("tabelaUsuario").appendChild(novaLinha);
+
+    // Resetando o formulário e fechando o modal
+    this.reset();
+    fecharModal('modalCadastroUsuario');
+  });
+});
+
+//Função editar e excluir
+
+function excluirUsuario(botao) {
+  const linha = botao.closest("tr");
+  const confirmar = confirm("Tem certeza que deseja excluir este Funcionário?");
+  if (confirmar) {
+    linha.remove();
+  }
+}
+
+function editarUsuario(botao) {
+  const linha = botao.closest("tr");
+  const codigo = linha.children[0].innerText;
+  const nome = linha.children[1].innerText;
+  const status = linha.children[2].innerText;
+  const dataCad = linha.children[3].innerText;
+  const email = linha.children[4].innerText;
+  const senha = linha.children[5].innerText;
+  const senhaC = linha.children[6].innerText;
+
+  // Preenche os campos do formulário com os dados da linha
+  document.getElementById("codigo").value = codigo;
+  document.getElementById("nome").value = nome;
+  document.getElementById("status").value = status;
+  document.getElementById("dataCad").value = dataCad;
+  document.getElementById("email").value = email;
+  document.getElementById("senha").value = senha;
+  document.getElementById("senhaC").value = senhaC;
+
+  // Remove a linha antiga (ela será recriada ao salvar novamente)
+  linha.remove();
+
+  // Reabre o modal para edição
+  abrirModal('modalCadastroUsuario');
+}
+
+
+//validação de senha de usuário.
+document.querySelector('form').addEventListener('submit', function (event) {
+  var senha = document.getElementById('senha').value;
+  var senhaC = document.getElementById('senhaC').value;
+  var errorMessage = document.getElementById('error-message');
+
+  // Verifica se as senhas coincidem
+  if (senha !== senhaC) {
+    errorMessage.style.display = 'block'; // Exibe a mensagem de erro
+    event.preventDefault(); // Impede o envio do formulário
+  } else {
+    errorMessage.style.display = 'none'; // Esconde a mensagem de erro
+  }
+});
+
+//trazer usuário na página inicial
+
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('buscar_usuarios.php')
+    .then(response => response.json())
+    .then(data => {
+      const tbody = document.getElementById('tabelaUsuario');
+      tbody.innerHTML = '';
+
+      data.forEach(usuario => {
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+          <td>${usuario.ID_USUARIO}</td>
+          <td>${usuario.USU_NOME}</td>
+          <td>${usuario.USU_EMAIL}</td>
+          <td>
+            <button onclick="editarUsuario(${usuario.ID_USUARIO})">✏️</button>
+            <button onclick="excluirUsuario(${usuario.ID_USUARIO})">🗑️</button>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+    })
+    .catch(error => {
+      console.error('Erro ao buscar usuários:', error);
+    });
+});
 
 
 //================== ALTERAÇÃO DE PESSOA JURÍDICA E FÍSICA ==================//
@@ -159,7 +276,7 @@ function alternarTipoPessoa() {
 function formatarCPF(cpf) {
   cpf = cpf.replace(/\D/g, "");
   if (cpf.length > 11) cpf = cpf.slice(0, 11);
-  return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, function(_, p1, p2, p3, p4) {
+  return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, function (_, p1, p2, p3, p4) {
     return `${p1}.${p2}.${p3}-${p4}`;
   });
 }
@@ -168,7 +285,7 @@ function formatarCPF(cpf) {
 function formatarCNPJ(cnpj) {
   cnpj = cnpj.replace(/\D/g, "");
   if (cnpj.length > 14) cnpj = cnpj.slice(0, 14);
-  return cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{0,2})/, function(_, p1, p2, p3, p4, p5) {
+  return cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{0,2})/, function (_, p1, p2, p3, p4, p5) {
     return `${p1}.${p2}.${p3}/${p4}-${p5}`;
   });
 }
@@ -193,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function formatarCEP(cep) {
   cep = cep.replace(/\D/g, "");
   if (cep.length > 8) cep = cep.slice(0, 8);
-  return cep.replace(/(\d{2})(\d{3})(\d{0,3})/, function(_, p1, p2, p3) {
+  return cep.replace(/(\d{2})(\d{3})(\d{0,3})/, function (_, p1, p2, p3) {
     return `${p1}.${p2}-${p3}`;
   });
 }
@@ -230,16 +347,16 @@ function limpa_formulário_cep() {
 
 function meu_callback(conteudo) {
   if (!("erro" in conteudo)) {
-      //Atualiza os campos com os valores.
-      document.getElementById('logradouro').value = (conteudo.logradouro);
-      document.getElementById('bairro').value = (conteudo.bairro);
-      document.getElementById('cidade').value = (conteudo.localidade);
-      document.getElementById('estado').value = (conteudo.uf);
+    //Atualiza os campos com os valores.
+    document.getElementById('logradouro').value = (conteudo.logradouro);
+    document.getElementById('bairro').value = (conteudo.bairro);
+    document.getElementById('cidade').value = (conteudo.localidade);
+    document.getElementById('estado').value = (conteudo.uf);
   } //end if.
   else {
-      //CEP não Encontrado.
-      limpa_formulário_cep();
-      alert("CEP não encontrado.");
+    //CEP não Encontrado.
+    limpa_formulário_cep();
+    alert("CEP não encontrado.");
   }
 }
 
@@ -251,36 +368,36 @@ function pesquisacep(valor) {
   //Verifica se campo cep possui valor informado.
   if (cep != "") {
 
-      //Expressão regular para validar o CEP.
-      var validacep = /^[0-9]{8}$/;
+    //Expressão regular para validar o CEP.
+    var validacep = /^[0-9]{8}$/;
 
-      //Valida o formato do CEP.
-      if (validacep.test(cep)) {
+    //Valida o formato do CEP.
+    if (validacep.test(cep)) {
 
-          //Preenche os campos com "..." enquanto consulta webservice.
-          document.getElementById('logradouro').value = "...";
-          document.getElementById('bairro').value = "...";
-          document.getElementById('cidade').value = "...";
-          document.getElementById('estado').value = "...";
+      //Preenche os campos com "..." enquanto consulta webservice.
+      document.getElementById('logradouro').value = "...";
+      document.getElementById('bairro').value = "...";
+      document.getElementById('cidade').value = "...";
+      document.getElementById('estado').value = "...";
 
-          //Cria um elemento javascript.
-          var script = document.createElement('script');
+      //Cria um elemento javascript.
+      var script = document.createElement('script');
 
-          //Sincroniza com o callback.
-          script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+      //Sincroniza com o callback.
+      script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
 
-          //Insere script no documento e carrega o conteúdo.
-          document.body.appendChild(script);
+      //Insere script no documento e carrega o conteúdo.
+      document.body.appendChild(script);
 
-      } //end if.
-      else {
-          //cep é inválido.
-          limpa_formulário_cep();
-          alert("Formato de CEP inválido.");
-      }
+    } //end if.
+    else {
+      //cep é inválido.
+      limpa_formulário_cep();
+      alert("Formato de CEP inválido.");
+    }
   } //end if.
   else {
-      //cep sem valor, limpa formulário.
-      limpa_formulário_cep();
+    //cep sem valor, limpa formulário.
+    limpa_formulário_cep();
   }
 };

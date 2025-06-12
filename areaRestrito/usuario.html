@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ÍSIS Seguros</title>
+    <link rel="icon" href="../imagens/isis.png" type="image/png">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="styleRestrito.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <meta name="description"
+        content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados." />
+</head>
+
+<body>
+    <header id="home">
+        <nav class="navbar navbar-expand-lg bg-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img id="logo" src="../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro"
+                        class="logo-imglogo" loading="lazy">
+                </a>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <span id="menu-icon" class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="home.html">Início</a></li>
+
+                        <!-- Menu com Subitens (Dropdown) -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Cadastro
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
+                                <li><a class="dropdown-item" href="cadastroCliente.html">Cliente</a></li>
+                                <li><a class="dropdown-item" href="veiculo.html">Veículos</a></li>
+                                <li><a class="dropdown-item" href="seguradoras.html">Seguradoras</a></li>
+                                <li><a class="dropdown-item" href="usuario.html">Usuário</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Relatório</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--================== CADASTROU CLIENTE ==================-->
+    <hr>
+
+    <section>
+        <div class="container">
+            <div class="linha-topo">
+                <h2><b>Cadastro Usuário</b></h2>
+            </div>
+            <div class="botaoIncluir">
+                <!-- Mover o botão para fora do thead -->
+                <button type="button" onclick="abrirModal('modalCadastroUsuario')">Incluir</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaUsuario"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+
+    <div id="modalCadastroUsuario" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModal('modalCadastroUsuario')">&times;</span>
+            <h3>Incluir Usuário</h3>
+            <form id="formCadastroUsuario" action="inserir.php" method="post" >
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <label for="codigo">Código:</label>
+                        <input type="number" id="codigo" name="codigo" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" class="form-control" maxlength="200" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="pfjr">Status</label>
+                        <select name="status" id="status" name="status" class="form-control">
+                            <option value="A">Ativo</option>
+                            <option value="I">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="nome">Data Cadastro</label>
+                        <input type="date" id="dataCad" name="dataCad" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="logradouro">E-mail</label>
+                        <input type="text" id="email" name="email" class="form-control" maxlength="200" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="numero">Senha</label>
+                        <input type="password" id="senha" name="senha" class="form-control" maxlength="20" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="numero">Confirma Senha</label>
+                        <input type="password" id="senhaC" name="senhaC" class="form-control" maxlength="20" required>
+                    </div>
+                    <div class="col-md-3">
+                        <span id="error-message" style="color: red; display: none;">As senhas não coincidem!</span>
+                    </div>
+                </div>
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="fecharModal('modalCadastroUsuario')">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <!--================== CHAMADA DO JAVA ==================-->
+    <script src="../areaRestrito/scriptRestrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
+        defer></script>
+</body>
+
+</html>
