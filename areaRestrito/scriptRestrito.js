@@ -1,7 +1,16 @@
 //================== MODAL ABRIR E FECHAR ==================//
 
 function abrirModal(id) {
-  document.getElementById(id).style.display = "block";
+  const modal = document.getElementById(id);
+  modal.style.display = "block";
+
+  // Limpa o formulário ao abrir o modal
+  const formulario = document.getElementById("formCadastroCliente");
+  if (formulario) {
+    formulario.reset();
+    alternarTipoPessoa(); // garante que apenas o CPF ou CNPJ apareça corretamente
+  }
+  // document.getElementById(id).style.display = "block";
 }
 
 function fecharModal(id) {
@@ -29,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("tabelaVeiculos").appendChild(novaLinha);
     this.reset();
-    fecharModal();
+    fecharModal('');
   });
 });
 
@@ -74,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Resetando o formulário e fechando o modal
     this.reset();
-    fecharModal();
+    fecharModal('modalCadastroCliente');
     alternarTipoPessoa(); // Garante que o CPF/CNPJ fique certo após reset
   });
 });
