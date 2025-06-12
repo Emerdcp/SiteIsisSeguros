@@ -1,4 +1,7 @@
 <?php 
+
+
+//incluir Funcionário
 include 'config.php';
 
 $nome = $_POST['nome'];
@@ -31,4 +34,30 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
+
+
+
+
+
+//Trazer funcionário na página
+
+$sql = "SELECT ID_USUARIO, USU_NOME, USU_EMAIL FROM CAD_USUARIO ORDER BY ID_USUARIO DESC";
+$result = $conn->query($sql);
+
+$usuarios = [];
+
+while ($row = $result->fetch_assoc()) {
+    $usuarios[] = $row;
+}
+
+header('Content-Type: application/json');
+echo json_encode($usuarios);
 ?>
+
+
+
+?>
+
+
+
+
