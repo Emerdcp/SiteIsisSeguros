@@ -287,6 +287,14 @@ footer {
   vertical-align: middle
 }
 
+/*Botão Home das páginas seguradoras*/
+.botao-home img { 
+  width: 21px;
+  height: auto;
+  margin: 5px 0;
+  vertical-align: middle
+}
+
 /* Esconde a barra de rolagem */
 /* .cards-scroll::-webkit-scrollbar { */
 /* display: none; */
@@ -681,6 +689,30 @@ img {
 
 /*================== BOTÃO VOLTAR AO TOPO HOME ==================*/
 
+.botao-home {
+  display: inline-block; /* Permite definir largura/altura e se comporta como elemento em linha */
+  padding: 5px 15px; /* Espaçamento interno: 5px verticalmente e 15px horizontalmente */
+  cursor: pointer; /* Altera o cursor para a mãozinha ao passar por cima */
+  background-color: #ffffff; /* Define a cor de fundo (amarelo/dourado) */
+  color: #ffc107; /* Define a cor do texto como preta */
+  text-decoration: none; /* Remove o sublinhado, geralmente de links */
+  border-radius: 6px; /* Arredonda levemente os cantos do elemento */
+  font-weight: bold; /* Deixa o texto em negrito */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adiciona uma sombra suave para dar profundidade */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Suaviza a transição de cor de fundo e transformações */
+  border: 1px solid #ffc107; /*borda preta fina*/
+}
+
+.botao-home:hover {
+  background-color: #efdeb6;
+  transform: translateY(-1px);
+  border: 1px solid #ffffff; /*borda preta fina*/
+}
+
+.botao-home:active {
+  transform: scale(0.98);
+}
+
 .botao-topo {
   display: inline-block; /* Permite definir largura/altura e se comporta como elemento em linha */
   padding: 5px 15px; /* Espaçamento interno: 5px verticalmente e 15px horizontalmente */
@@ -889,6 +921,14 @@ img {
   height: auto;
   margin: 10px;
 }
+
+
+/*================== CENTRALIZAÇÃO DOS DADOS DE TABELA ==================*/
+
+th, td {
+  text-align: center !important;
+}
+
 
 
 
