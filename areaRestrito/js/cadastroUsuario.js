@@ -74,46 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-//================== Editar usuários ==================//  
-
-
-function editarUsuario(botao) {
-  const linha = botao.closest("tr");
-  const colunas = linha.getElementsByTagName("td");
-
-  const id = colunas[0].innerText;
-  const nome = colunas[1].innerText;
-  const email = colunas[2].innerText;
-
-  // Buscar dados completos do usuário via AJAX (status, dataCad)
-  fetch(`../controller/cadastroUsuario/buscar_usuario_por_id.php?id=${id}`)
-    .then(response => response.json())
-    .then(usuario => {
-      document.getElementById("codigo").value = usuario.ID_USUARIO;
-      document.getElementById("nome").value = usuario.USU_NOME;
-      document.getElementById("email").value = usuario.USU_EMAIL;
-      document.getElementById("status").value = usuario.USU_STATUS;
-      document.getElementById("dataCad").value = usuario.USU_DATACAD;
-      
-      // limpa senhas (não devem ser preenchidas automaticamente)
-      document.getElementById("senha").value = '';
-      document.getElementById("senhaC").value = '';
-
-      // Altera o action do formulário
-      document.getElementById("formCadastroUsuario").action = "../controller/cadastroUsuario/editar_usuarios.php";
-
-      abrirModal("modalCadastroUsuario");
-    })
-    .catch(error => {
-      console.error("Erro ao buscar dados do usuário:", error);
-      alert("Erro ao buscar dados do usuário.");
-    });
-}
-
-
-
-
 //================== Excluir usuários ==================//  
 
 function excluirUsuario(botao) {
@@ -139,3 +99,34 @@ function excluirUsuario(botao) {
   }
 }
 
+
+//================== Editar usuários ==================//  
+
+function editarUsuario(botao) {
+  const linha = botao.closest("tr");
+  const colunas = linha.getElementsByTagName("td");
+
+  const id = colunas[0].innerText;
+  const nome = colunas[1].innerText;
+  const status = colunas[2].innerText;
+  const email = colunas[2].innerText;
+
+  // Buscar dados completos do usuário via AJAX (status, dataCad)
+  fetch(`../controller/cadastroUsuario/buscar_usuario.php?id=${id}`)
+    .then(response => response.json())
+    .then(usuario => {
+      document.getElementById("codigo").value = usuario.ID_USUARIO;
+      document.getElementById("nome").value = usuario.USU_NOME;
+      document.getElementById("status").value = usuario.USU_STATUS;
+      document.getElementById("email").value = usuario.USU_EMAIL;
+      
+      // Altera o action do formulário
+      document.getElementById("formCadastroUsuarioEditar").action = "../controller/cadastroUsuario/editar_usuarios.php";
+
+      abrirModal("modalCadastroUsuarioEditar");
+    })
+    .catch(error => {
+      console.error("Erro ao buscar dados do usuário:", error);
+      alert("Erro ao buscar dados do usuário.");
+    });
+}
