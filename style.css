@@ -151,6 +151,13 @@ footer {
   padding: 05px;/* Espaçamento interno de 15px */
 }
 
+/*Titulo centralizado*/
+.titulo-centralizado {
+  text-align: center !important;
+  display: block;
+  width: 100%;
+}
+
 /*================== CARDS LADO MOVENDO LATERAL ==================*/
 /* Estilo para rolagem lateral */
 .secao-cards {

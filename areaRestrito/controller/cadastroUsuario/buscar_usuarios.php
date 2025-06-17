@@ -1,27 +1,16 @@
 <?php
-
 include("../../../config.php");
 
-// Obtém os dados do formulário
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-$status = $_POST['status'];
-$dataCad = $_POST['dataCad'];
+$sql = "SELECT ID_USUARIO, USU_NOME, USU_EMAIL FROM CAD_USUARIO ORDER BY ID_USUARIO DESC";
+$result = $conn->query($sql);
 
-// Prepara a consulta SQL
-$sql = "INSERT INTO CAD_USUARIO (USU_NOME, USU_EMAIL, USU_SENHA, STATUS, DATA_CAD) VALUES (?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('sssss', $nome, $email, $senha, $status, $dataCad);
+$usuarios = [];
 
-// Executa a consulta e retorna o resultado
-if ($stmt->execute()) {
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false]);
+while ($row = $result->fetch_assoc()) {
+    $usuarios[] = $row;
 }
 
-$stmt->close();
-$conn->close();
+echo json_encode($usuarios);
 
+$conn->close();
 ?>

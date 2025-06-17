@@ -46,7 +46,7 @@
                         </li>
 
                         <li class="nav-item"><a class="nav-link" href="#">Relatório</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../areaRestrito/logout.php">Sair</a></li>
                     </ul>
                 </div>
             </div>
@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <!-- ================================================================= -->
+    <!-- ============================= INSERIR USUÁRIO ==================================== -->
 
     <div id="modalCadastroUsuario" class="modal">
         <div class="modal-conteudo">
@@ -90,6 +90,7 @@
                     <div class="col-md-2">
                         <label for="codigo">Código:</label>
                         <input type="number" id="codigo" name="codigo" class="form-control" disabled>
+                        <input type="hidden" id="codigo" name="codigo"> <!-- Esse será enviado -->
                     </div>
                     <div class="col-md-6">
                         <label for="nome">Nome:</label>
@@ -97,14 +98,14 @@
                     </div>
                     <div class="col-md-2">
                         <label for="pfjr">Status</label>
-                        <select id="status" name="status" class="form-control">
+                        <select id="status" name="status" class="form-control" required>
                             <option value="A">Ativo</option>
                             <option value="I">Inativo</option>
                         </select>
                     </div>
                     <div class="col-md-2">
                         <label for="nome">Data Cadastro</label>
-                        <input type="date" id="dataCad" name="dataCad" class="form-control" required>
+                        <input type="date" id="dataCad" name="dataCad" class="form-control" disabled>
                     </div>
                     <div class="col-md-6">
                         <label for="logradouro">E-mail</label>
@@ -128,9 +129,10 @@
         </div>
     </div>
 
+  
     <!--================== CHAMADA DO JAVA ==================-->
     <!-- <script src="../areaRestrito/scriptRestrito.js"></script> -->
-    <script src="../js/scriptRestrito.js"></script>
+    <!-- <script src="../js/scriptRestrito.js"></script> -->
     <script src="../js/cadastroUsuario.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"

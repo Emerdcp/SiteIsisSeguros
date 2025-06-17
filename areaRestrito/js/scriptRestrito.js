@@ -1,28 +1,3 @@
-//================== MODAL ABRIR E FECHAR ==================//
-
-function abrirModal(id) {
-  const modal = document.getElementById(id);
-  modal.style.display = "block";
-
-  // Limpa o formulário ao abrir o modal
-  const formulario = document.getElementById("formCadastroCliente");
-  if (formulario) {
-    formulario.reset();
-    alternarTipoPessoa(); // garante que apenas o CPF ou CNPJ apareça corretamente
-  }
-  // document.getElementById(id).style.display = "block";
-}
-
-function fecharModal(id) {
-  document.getElementById(id).style.display = "none";
-}
-
-
-
-
-
-
-
 //================== ALTERAÇÃO DE PESSOA JURÍDICA E FÍSICA ==================//
 
 function alternarTipoPessoa() {
@@ -41,8 +16,6 @@ function alternarTipoPessoa() {
 
 // Chamada inicial para garantir o estado certo se estiver vindo preenchido
 document.addEventListener("DOMContentLoaded", alternarTipoPessoa);
-
-
 
 //================== Mascará para CFP e CNPJ ==================//4
 
@@ -92,8 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-//================== Mascará para CEP ==================//4
+//================== Mascará para CEP ==================//
 
 function formatarCEP(cep) {
   cep = cep.replace(/\D/g, "");
@@ -111,17 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
     this.value = formatarCEP(this.value);
   });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 //================== CHAMADA DE ENDEREÇO POR CEP ==================//
 

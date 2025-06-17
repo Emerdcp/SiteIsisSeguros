@@ -52,7 +52,7 @@
     <div class="container">
       <div class="card contato-card">
         <div class="linha-topo">
-          <h2><b>Quem Somos</b></h2>
+          <h2 class="titulo-centralizado"><b>Quem Somos</b></h2>
           <!-- <a href="#home" class="botao-topo" class="alinha-direita">🔝 Inicio</a> -->
           <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
         </div>
@@ -66,7 +66,7 @@
   <section id="produtos" class="produtos secao-cards"><!--"secao-cards" para cards na laterais-->
     <div class="container carousel-dots">
       <div class="linha-topo">
-        <h2><b>Principais Produtos</b></h2>
+        <h2 class="titulo-centralizado"><b>Principais Produtos</b></h2>
         <!-- <a href="#home" class="botao-topo" class="alinha-direita">🔝 Inicio</a> -->
         <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" class="produtosBotao" alt="Início"></a> -->
       </div>
@@ -130,11 +130,11 @@
       <span class="fechar" onclick="fecharLogin()">&times;</span>
       <h3>Login</h3>
       <form id="formLogin" action="areaRestrito/login.php" method="POST">
-        <label for="usuario">Usuário:</label>
-        <input type="text" id="usuario" name="usuario" required><br><br>
+        <label for="usuario">E-mail:</label>
+        <input type="email" id="usuario" name="usuario" required placeholder="E-mail"><br><br>
 
         <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br><br>
+        <input type="password" id="senha" name="senha" required placeholder="Senha"><br><br>
 
         <div class="botoes">
           <button type="submit">Entrar</button>
@@ -148,7 +148,7 @@
     <div class="container">
       <div class="card contato-card">
         <div class="linha-topo">
-          <h2><b>Entre em Contato</b></h2>
+          <h2 class="titulo-centralizado"><b>Entre em Contato</b></h2>
           <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
         </div>
         <form class="container mb-4" id="form-proposta" action="enviar-email.php" method="POST">
@@ -187,26 +187,24 @@
     <div class="container">
       <div class="card contato-card">
         <div class="linha-topo">
-          <h2><b>Localização</b></h2>
+          <h2 class="titulo-centralizado"><b>Localização</b></h2>
           <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
         </div>
         <form class="container mb-4">
           <div class="row g-3">
             <div class="col-md-4">
-              <p><b>
-                  <h4>ÍSIS Seguros</h4>
-                </b></p>
+              <p><h4  class="titulo-centralizado"><b>ÍSIS Seguros</b></h4></p>
               <p>Rua Habib Sarkis, 74 - Aviação</p>
               <p>São José dos Pinhais/PR</p>
               <p><b>CEP:</b> 83.045-725</p>
-              <img src="imagens/telefone.png" alt="Telefone"> (41) 3045-1700</P>
-              <img src="imagens/telefone.png" alt="Telefone"> (41) 99195-1640</P>
+              <p><img src="imagens/telefone.png" alt="Telefone"> (41) 3045-1700</P>
+              <p><img src="imagens/telefone.png" alt="Telefone"> (41) 99195-1640</P>
               <!-- <img src="imagens/whatsapp.png" alt="telefone"> (41) 3045-1700 -->
               <p><a href="https://wa.me/554130451700" target="_blank" style="text-decoration: none; color: inherit;">
                   <img src="imagens/whatsapp.png" alt="whatsapp" style="width: 20px; vertical-align: middle;">
                   (41) 3045-1700
                 </a></p>
-              <img src="imagens/emial.png" alt="E-mail"> isisseguros1@gmail.com
+              <p><img src="imagens/emial.png" alt="E-mail"> isisseguros1@gmail.com</p>
             </div>
             <!-- Google Maps -->
             <div class="col-md-8">

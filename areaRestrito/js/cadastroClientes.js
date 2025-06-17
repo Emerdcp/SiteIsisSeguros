@@ -1,3 +1,21 @@
+//================== MODAL ABRIR E FECHAR ==================//
+
+function abrirModal(id) {
+  const modal = document.getElementById(id);
+  modal.style.display = "block";
+
+  // Limpa o formulário ao abrir o modal
+  const formulario = document.getElementById("formCadastroCliente");
+  if (formulario) {
+    formulario.reset();
+    alternarTipoPessoa(); // garante que apenas o CPF ou CNPJ apareça corretamente
+  }
+  // document.getElementById(id).style.display = "block";
+}
+
+function fecharModal(id) {
+  document.getElementById(id).style.display = "none";
+}
 
 
 //================== MODAL PARA CADASTRO DE CLIENTES ==================//
