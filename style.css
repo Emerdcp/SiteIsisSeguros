@@ -968,3 +968,46 @@ th, td {
   justify-content: space-between; /* Coloca os botões nas extremidades com espaço entre eles */
   gap: 10px; /* Espaço entre os botões */
 }
+
+
+/*================== BOTÃO X DOS MODAIS PARA FECHAR ==================*/
+.fechar {
+  position: absolute;          /** Posiciona o botão de forma absoluta dentro do modal (em relação ao .modal-content) **/
+  top: 10px;                   /** Distância de 10px do topo do modal **/
+  right: 15px;                 /** Distância de 15px da borda direita do modal **/
+  font-size: 24px;             /** Tamanho da fonte do "×" (maior que o texto normal) **/
+  font-weight: bold;           /** Deixa o "×" em negrito **/
+  color: #000;                 /** Cor preta para o botão de fechar **/
+  cursor: pointer;             /** Mostra a "mãozinha" ao passar o mouse, indicando que é clicável **/
+  transition: all 0.2s ease;  /** Suaviza transição de estilo ao passar o mouse*/
+}
+
+
+
+.fechar:hover{
+  color: #ffb300; /*Muda a cor para amarelo*/
+  font-weight: 900; /*Aumenta ainda mais o peso da fonte*/
+  transform: scale(1.2); /*Da um leve zoom no botão*/
+}
+
+.botoes {
+  margin-top: 20px; /* Espaço entre os inputs e os botões */
+  display: flex; /* Coloca os botões lado a lado */
+  justify-content: space-between; /* Espaço entre os botões */
+  flex-wrap: wrap; /* Permite que os botões quebrem linha se necessário (em telas pequenas) */
+}
+
+.botoes button {
+  flex: 1 1 48%; /* Cada botão ocupa até 48% do espaço com flexibilidade */
+  margin: 5px 1%; /* Margem entre os botões */
+}
+
+.modal-content {
+  position: relative;          /** Define que os elementos filhos com position:absolute serão posicionados em relação a este container **/
+  padding: 20px;               /** Espaçamento interno em todos os lados do conteúdo do modal **/
+  border-radius: 10px;         /** Arredonda os cantos do modal **/
+  background: #fff;            /** Define o fundo branco do modal **/
+  width: 80%;                  /** Largura do modal em relação à tela (80% da largura da janela) **/
+  max-width: 900px;            /** Limita a largura máxima do modal para que não fique muito grande em telas largas **/
+  margin: auto;                /** Centraliza horizontalmente o modal na tela **/
+}

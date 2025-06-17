@@ -85,7 +85,7 @@
         <div class="modal-conteudo">
             <span class="fechar" onclick="fecharModal('modalCadastroUsuario')">&times;</span>
             <h3>Incluir Usuário</h3>
-            <form id="formCadastroUsuario" action="inserir.php" method="post" >
+            <form id="formCadastroUsuario" action="../controller/cadastroUsuario/inserir_usuario.php" method="post" >
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código:</label>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-md-2">
                         <label for="pfjr">Status</label>
-                        <select name="status" id="status" name="status" class="form-control">
+                        <select id="status" name="status" class="form-control">
                             <option value="A">Ativo</option>
                             <option value="I">Inativo</option>
                         </select>
@@ -131,6 +131,7 @@
     <!--================== CHAMADA DO JAVA ==================-->
     <!-- <script src="../areaRestrito/scriptRestrito.js"></script> -->
     <script src="../js/scriptRestrito.js"></script>
+    <script src="../js/cadastroUsuario.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"

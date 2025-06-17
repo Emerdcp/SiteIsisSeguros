@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../config.php';
+include '../areaRestrito/config.php';
 
 $email = $_POST['usuario'];
 $senha = $_POST['senha'];

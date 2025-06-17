@@ -1,116 +1,72 @@
-
-//================== MODAL PARA CADASTRO DE USUÁRIO ==================//
-
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("formCadastroUsuario").addEventListener("submit", function (e) {
-    e.preventDefault();
+  // Validação de senha
+  const form = document.getElementById("formCadastroUsuario");
+  form.addEventListener("submit", function (e) {
+    const senha = document.getElementById('senha').value;
+    const senhaC = document.getElementById('senhaC').value;
+    const errorMessage = document.getElementById('error-message');
 
-    // Corrigido: as variáveis devem corresponder aos IDs no HTML
-    const codigo = document.getElementById("codigo").value.trim();
-    const nome = document.getElementById("nome").value.trim();
-    const email = document.getElementById("email").value.trim();
+    if (senha !== senhaC) {
+      errorMessage.style.display = 'block';
+      e.preventDefault();
+      return;
+    } else {
+      errorMessage.style.display = 'none';
+    }
 
-    console.log("Capturado:", codigo, nome, email);
+    // Aqui você pode enviar normalmente ou com AJAX (se preferir não recarregar)
+    // Se quiser usar AJAX, remova o atributo action do formulário no HTML
+  });
 
-    // Criando uma nova linha na tabela
-    const novaLinha = document.createElement("tr");
-    novaLinha.innerHTML = `
-      <td>${codigo}</td>
-      <td>${nome}</td>
-      <td>${email}</td>
-      <td>
-        <button type="button" onclick="editarUsuario(this)">Editar</button>
-        <button type="button" onclick="excluirUsuario(this)">Excluir</button>
-      </td>
-    `;
+  // Buscar usuários e preencher a tabela
+  // fetch('../../controller/cadastroUsuario/buscar_usuarios.php')
+  fetch('../controller/cadastroUsuario/buscar_usuarios.php')
+  .then(response => response.json())
+  .then(data => {
+    const tbody = document.getElementById('tabelaUsuario');
+    tbody.innerHTML = '';
 
-    // Inserindo a nova linha no corpo da tabela
-    document.getElementById("tabelaUsuario").appendChild(novaLinha);
+    data.forEach(usuario => {
+      const tr = document.createElement('tr');
 
-    // Resetando o formulário e fechando o modal
-    this.reset();
-    fecharModal('modalCadastroUsuario');
+      tr.innerHTML = `
+        <td>${usuario.ID_USUARIO}</td>
+        <td>${usuario.USU_NOME}</td>
+        <td>${usuario.USU_EMAIL}</td>
+        <td>
+          <button type="button" onclick='editarUsuario(this)'>✏️</button>
+          <button type="button" onclick='excluirUsuario(this)'>🗑️</button>
+        </td>
+      `;
+
+      tbody.appendChild(tr);
+    });
+  })
+  .catch(error => {
+    console.error('Erro ao buscar usuários:', error);
   });
 });
 
-//Função editar e excluir
-
+// Excluir linha visualmente
 function excluirUsuario(botao) {
   const linha = botao.closest("tr");
-  const confirmar = confirm("Tem certeza que deseja excluir este Funcionário?");
+  const confirmar = confirm("Tem certeza que deseja excluir este usuário?");
   if (confirmar) {
     linha.remove();
+    // Aqui você pode chamar um PHP para excluir do banco também
   }
 }
 
+// Editar: preenche o modal com os dados da linha
 function editarUsuario(botao) {
   const linha = botao.closest("tr");
-  const codigo = linha.children[0].innerText;
-  const nome = linha.children[1].innerText;
-  const status = linha.children[2].innerText;
-  const dataCad = linha.children[3].innerText;
-  const email = linha.children[4].innerText;
-  const senha = linha.children[5].innerText;
-  const senhaC = linha.children[6].innerText;
+  const colunas = linha.getElementsByTagName("td");
 
-  // Preenche os campos do formulário com os dados da linha
-  document.getElementById("codigo").value = codigo;
-  document.getElementById("nome").value = nome;
-  document.getElementById("status").value = status;
-  document.getElementById("dataCad").value = dataCad;
-  document.getElementById("email").value = email;
-  document.getElementById("senha").value = senha;
-  document.getElementById("senhaC").value = senhaC;
+  document.getElementById("codigo").value = colunas[0].innerText;
+  document.getElementById("nome").value = colunas[1].innerText;
+  document.getElementById("email").value = colunas[2].innerText;
 
-  // Remove a linha antiga (ela será recriada ao salvar novamente)
-  linha.remove();
+  // Os dados de status, data, senha não estão na tabela — devem ser buscados ou mantidos em `data-*` se quiser reutilizar aqui.
 
-  // Reabre o modal para edição
-  abrirModal('modalCadastroUsuario');
+  abrirModal("modalCadastroUsuario");
 }
-
-
-//validação de senha de usuário.
-document.querySelector('form').addEventListener('submit', function (event) {
-  var senha = document.getElementById('senha').value;
-  var senhaC = document.getElementById('senhaC').value;
-  var errorMessage = document.getElementById('error-message');
-
-  // Verifica se as senhas coincidem
-  if (senha !== senhaC) {
-    errorMessage.style.display = 'block'; // Exibe a mensagem de erro
-    event.preventDefault(); // Impede o envio do formulário
-  } else {
-    errorMessage.style.display = 'none'; // Esconde a mensagem de erro
-  }
-});
-
-//trazer usuário na página inicial
-
-document.addEventListener('DOMContentLoaded', function () {
-  fetch('buscar_usuarios.php')
-    .then(response => response.json())
-    .then(data => {
-      const tbody = document.getElementById('tabelaUsuario');
-      tbody.innerHTML = '';
-
-      data.forEach(usuario => {
-        const tr = document.createElement('tr');
-
-        tr.innerHTML = `
-          <td>${usuario.ID_USUARIO}</td>
-          <td>${usuario.USU_NOME}</td>
-          <td>${usuario.USU_EMAIL}</td>
-          <td>
-            <button onclick="editarUsuario(${usuario.ID_USUARIO})">✏️</button>
-            <button onclick="excluirUsuario(${usuario.ID_USUARIO})">🗑️</button>
-          </td>
-        `;
-
-        tbody.appendChild(tr);
-      });
-    })
-    .catch(error => {
-      console.error('Erro ao buscar usuários:', error);
-    });
-});
