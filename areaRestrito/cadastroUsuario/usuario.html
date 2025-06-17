@@ -89,8 +89,7 @@
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código:</label>
-                        <input type="number" id="codigo" name="codigo" class="form-control" disabled>
-                        <input type="hidden" id="codigo" name="codigo"> <!-- Esse será enviado -->
+                        <input type="number" id="codigo_view" class="form-control" disabled>
                     </div>
                     <div class="col-md-6">
                         <label for="nome">Nome:</label>
@@ -125,6 +124,40 @@
                 </div>
                 <button type="submit">Salvar</button>
                 <button type="button" onclick="fecharModal('modalCadastroUsuario')">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+     <!-- ============================= EDITAR USUÁRIO ==================================== -->
+
+    <div id="modalCadastroUsuarioEditar" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModal('modalCadastroUsuario')">&times;</span>
+            <h3>Editar Usuário</h3>
+            <form id="formCadastroUsuarioEditar" action="../controller/cadastroUsuario/editar_usuario.php" method="post" >
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <label for="codigo">Código:</label>
+                        <input type="number" id="codigo" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="editar_nome" name="editar_nome" class="form-control" maxlength="200" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="pfjr">Status</label>
+                        <select id="editar_status" name="editar_status" class="form-control" required>
+                            <option value="A">Ativo</option>
+                            <option value="I">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="logradouro">E-mail</label>
+                        <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200" required>
+                    </div>
+                </div>
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="fecharModal('modalCadastroUsuarioEditar')">Cancelar</button>
             </form>
         </div>
     </div>
