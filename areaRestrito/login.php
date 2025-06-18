@@ -11,6 +11,8 @@ $stmt->bind_param("s", $email);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
+$response = [];
+
 if ($resultado->num_rows === 1) {
     $usuario = $resultado->fetch_assoc();
 
@@ -18,16 +20,20 @@ if ($resultado->num_rows === 1) {
         $_SESSION['id_usuario'] = $usuario['ID_USUARIO'];
         $_SESSION['nome_usuario'] = $usuario['USU_NOME'];
 
-        header("Location: home.html");
-        exit();
+        $response = [
+            'success' => true,
+            'message' => 'Login realizado com sucesso!',
+            'redirect' => 'areaRestrito/home.html' // correto para sua estrutura
+        ];
     } else {
-        header("Location: ../index.html?erro=senha");
-        exit();
+        $response = ['success' => false, 'message' => 'Senha incorreta.'];
     }
 } else {
-    header("Location: ../index.html?erro=usuario");
-    exit();
+    $response = ['success' => false, 'message' => 'Usuário não encontrado.'];
 }
 
 $stmt->close();
 $conn->close();
+
+header('Content-Type: application/json');
+echo json_encode($response);

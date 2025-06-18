@@ -10,15 +10,20 @@
   <link rel="stylesheet" href="styleRestrito.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <meta name="description" content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados."/>
+  <meta name="description"
+    content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados." />
 </head>
 
 <body>
   <header id="home">
+
+     <!-- <div id="menu-container"></div> -->
+     
     <nav class="navbar navbar-expand-lg bg-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img id="logo" src="../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro" class="logo-imglogo" loading="lazy">
+          <img id="logo" src="../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro"
+            class="logo-imglogo" loading="lazy">
         </a>
         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span id="menu-icon" class="navbar-toggler-icon"></span>
@@ -26,10 +31,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="../areaRestrito/home.html">Início</a></li>
-            
+
             <!-- Menu com Subitens (Dropdown) -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Cadastro
               </a>
               <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
@@ -41,9 +47,24 @@
             </li>
 
             <li class="nav-item"><a class="nav-link" href="#">Relatório</a></li>
-            <li class="nav-item"><a class="nav-link" href="../areaRestrito/logout.php">Sair</a></li>
+            <!-- <li class="nav-item"><a class="nav-link" href="../areaRestrito/logout.php">Sair</a></li> -->
+            <li class="nav-item"><a class="nav-link" href="#" onclick="abrirModalLogout()">Sair</a></li>
           </ul>
         </div>
+
+        <!-- Modal de Confirmação de Logout -->
+        <div id="modalLogout" class="modal">
+          <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModalLogout()">&times;</span>
+            <h3>Sair do Sistema</h3>
+            <form id="formCadastroUsuario" method="">
+              <p>Tem certeza que deseja sair?</p>
+              <button type="button" onclick="confirmarLogout()">Sair</button>
+              <button type="button" onclick="fecharModalLogout()">Cancelar</button>
+            </form>
+          </div>
+        </div>
+
       </div>
     </nav>
   </header>
@@ -55,19 +76,20 @@
     <div class="">
       <div class="container">
         <a href=""></a>
-        <img src="../imagens/logoIsisSeguro.png" alt="Logo Isís Seguros"
-        background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;
-        >
+        <img src="../imagens/logoIsisSeguro.png" alt="Logo Isís Seguros" background-attachment: fixed;
+          background-repeat: no-repeat; background-size: 100% 100%;>
 
         <!-- <body  style="background-image: url(../imagens/logoIsisSeguro.png); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;"></body> -->
       </div>
     </div>
   </section>
- 
+
   <!--================== CHAMADA DO JAVA ==================-->
   <script src="../script.js"></script>
+  <script src="../areaRestrito/js/scriptRestrito.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
     defer></script>
 </body>
+
 </html>

@@ -17,40 +17,9 @@
 
 <body>
     <header id="home">
-        <nav class="navbar navbar-expand-lg bg-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img id="logo" src="../../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro"
-                        class="logo-imglogo" loading="lazy">
-                </a>
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav">
-                    <span id="menu-icon" class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="../home.html">Início</a></li>
 
-                        <!-- Menu com Subitens (Dropdown) -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Cadastro
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
-                                <li><a class="dropdown-item" href="../cadastroCliente/cadastroCliente.html">Cliente</a></li>
-                                <li><a class="dropdown-item" href="../cadastroVeiculo/veiculo.html">Veículos</a></li>
-                                <li><a class="dropdown-item" href="../cadastroSeguradoras/seguradoras.html">Seguradoras</a></li>
-                                <li><a class="dropdown-item" href="../cadastroUsuario/usuario.html">Usuário</a></li>
-                            </ul>
-                        </li>
+        <div id="menu-container"></div>
 
-                        <li class="nav-item"><a class="nav-link" href="#">Relatório</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../areaRestrito/logout.php">Sair</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
     </header>
 
     <!--================== CADASTROU CLIENTE ==================-->
@@ -187,7 +156,7 @@
 
     <!--================== CHAMADA DO JAVA ==================-->
     <!-- <script src="../areaRestrito/scriptRestrito.js"></script> -->
-    <!-- <script src="../js/scriptRestrito.js"></script> -->
+    <script src="../js/scriptRestrito.js"></script>
     <script src="../js/cadastroUsuario.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"

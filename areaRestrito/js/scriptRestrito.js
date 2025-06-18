@@ -150,3 +150,28 @@ function pesquisacep(valor) {
     limpa_formulário_cep();
   }
 };
+
+//================== PARA SAIR DA PÁGINA ==================//  
+
+function abrirModalLogout() {
+  document.getElementById('modalLogout').style.display = 'block';
+}
+
+function fecharModalLogout() {
+  document.getElementById('modalLogout').style.display = 'none';
+}
+
+function confirmarLogout() {
+  // Redireciona para logout.php
+  window.location.href = '../logout.php';
+  // window.location.href = location.pathname.includes('/areaRestrito/') ? 'logout.php' : 'areaRestrito/logout.php';
+}
+
+//================== CHAMA MENU ==================//  
+
+ fetch('../menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+    })
+    .catch(error => console.error('Erro ao carregar o menu:', error));
