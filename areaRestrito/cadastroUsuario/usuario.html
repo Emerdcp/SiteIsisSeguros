@@ -104,7 +104,7 @@
                     </div>
                     <div class="col-md-2">
                         <label for="nome">Data Cadastro</label>
-                        <input type="date" id="dataCad" name="dataCad" class="form-control" disabled>
+                        <input type="date" id="dataCad" name="dataCad" class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label for="logradouro">E-mail</label>
@@ -134,7 +134,8 @@
         <div class="modal-conteudo">
             <span class="fechar" onclick="fecharModal('modalCadastroUsuario')">&times;</span>
             <h3>Editar Usuário</h3>
-            <form id="formCadastroUsuarioEditar" action="../controller/cadastroUsuario/editar_usuario.php" method="post" >
+            <form id="formCadastroUsuarioEditar" method="post">
+            <!-- <form id="formCadastroUsuarioEditar" action="../controller/cadastroUsuario/editar_usuario.php" method="post" > -->
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código:</label>

@@ -8,6 +8,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $senha = ""; // SEM senha por padrão no XAMPP
     $banco = "isisseguro";
     $porta = 3080;          // coloque 3080 se realmente alterou a porta do MySQL
+    // $porta = 3306;          // coloque 3080 se realmente alterou a porta do MySQL
 } else {
     // Produção
     $servidor = "sql.seuprovedor.com";
@@ -26,7 +27,7 @@ if ($conn->connect_error) {
 // Proteção contra acesso direto
 if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
     exit("Acesso negado.");
-  }
+}
 
 
 // if ($_SERVER['SERVER_NAME'] == 'localhost') {
@@ -55,6 +56,4 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 // // Proteção contra acesso direto
 // if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 //     exit("Acesso negado.");
-//   }
-?>
-
+// }

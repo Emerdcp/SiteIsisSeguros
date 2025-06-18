@@ -104,24 +104,16 @@ function excluirUsuario(botao) {
 
 function editarUsuario(botao) {
   const linha = botao.closest("tr");
-  const colunas = linha.getElementsByTagName("td");
+  const id = linha.cells[0].innerText;
 
-  const id = colunas[0].innerText;
-  const nome = colunas[1].innerText;
-  const status = colunas[2].innerText;
-  const email = colunas[2].innerText;
-
-  // Buscar dados completos do usuário via AJAX (status, dataCad)
   fetch(`../controller/cadastroUsuario/buscar_usuario.php?id=${id}`)
     .then(response => response.json())
     .then(usuario => {
+      // Altere para os campos do formulário de edição
       document.getElementById("codigo").value = usuario.ID_USUARIO;
-      document.getElementById("nome").value = usuario.USU_NOME;
-      document.getElementById("status").value = usuario.USU_STATUS;
-      document.getElementById("email").value = usuario.USU_EMAIL;
-      
-      // Altera o action do formulário
-      document.getElementById("formCadastroUsuarioEditar").action = "../controller/cadastroUsuario/editar_usuarios.php";
+      document.getElementById("editar_nome").value = usuario.USU_NOME;
+      document.getElementById("editar_status").value = usuario.USU_STATUS;
+      document.getElementById("editar_email").value = usuario.USU_EMAIL;
 
       abrirModal("modalCadastroUsuarioEditar");
     })
@@ -130,3 +122,28 @@ function editarUsuario(botao) {
       alert("Erro ao buscar dados do usuário.");
     });
 }
+
+
+
+
+document.getElementById('formCadastroUsuarioEditar').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch('../controller/cadastroUsuario/editar_usuarios.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      fecharModal('modalCadastroUsuarioEditar');
+      location.reload(); // ou refazer o fetch da tabela
+    } else {
+      alert('Erro ao editar o usuário.');
+    }
+  })
+  .catch(error => console.error('Erro:', error));
+});
