@@ -2,49 +2,47 @@
 
 include("../../../config.php");
 
-$nome = $_POST['nome'];
-$status = $_POST['status'];
-$dataCad = $_POST['dataCad'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-$senhaC = $_POST['senhaC'];
+header('Content-Type: application/json');
 
-// Verificação mínima de senha
+$response = ['success' => false, 'message' => ''];
+
+$nome = $_POST['nome'] ?? '';
+$status = $_POST['status'] ?? '';
+$dataCad = $_POST['dataCad'] ?? '';
+$email = $_POST['email'] ?? '';
+$senha = $_POST['senha'] ?? '';
+$senhaC = $_POST['senhaC'] ?? '';
+
 if ($senha !== $senhaC) {
-    die("Erro: As senhas não coincidem.");
+    $response['message'] = 'As senhas não coincidem.';
+    echo json_encode($response);
+    exit;
 }
 
-// Criptografa a senha
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-// Query usando senha criptografada
-$sql = "INSERT INTO CAD_USUARIO (USU_NOME, USU_STATUS, USU_DATACAD, USU_EMAIL, USU_SENHA) 
-        VALUES (?, ?, ?, ?, ?)";
-
+$sql = "INSERT INTO CAD_USUARIO (USU_NOME, USU_STATUS, USU_DATACAD, USU_EMAIL, USU_SENHA) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
-    die("Erro no prepare: " . $conn->error);
+    $response['message'] = "Erro no prepare: " . $conn->error;
+    echo json_encode($response);
+    exit;
 }
 
 $stmt->bind_param("sssss", $nome, $status, $dataCad, $email, $senhaHash);
 
-
 if ($stmt->execute()) {
-    echo "<script>
-        alert('Usuário cadastrado com sucesso!');
-        window.location.href = '../../cadastroUsuario/Usuario.html';
-    </script>";
+    $response['success'] = true;
+    $response['message'] = 'Usuário cadastrado com sucesso!';
 } else {
-    echo "<script>
-        alert('Erro ao cadastrar: " . addslashes($stmt->error) . "');
-        window.location.href = '../../cadastroUsuario/Usuario.html';
-    </script>";
+    $response['message'] = 'Erro ao cadastrar: ' . $stmt->error;
 }
 
-$conn->set_charset("utf8");
 $stmt->close();
 $conn->close();
+
+echo json_encode($response);
 
 ?>
 

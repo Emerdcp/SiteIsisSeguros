@@ -118,10 +118,13 @@
                         <label for="numero">Confirma Senha</label>
                         <input type="password" id="senhaC" name="senhaC" class="form-control" maxlength="20" required>
                     </div>
-                    <div class="col-md-3">
-                        <span id="error-message" style="color: red; display: none;">As senhas não coincidem!</span>
+                    <div class="col-md-12">
+                        <div id="erro-senha" class="alerta-mensagem alerta-validacao" style="display: none;">
+                            As senhas não coincidem!
+                        </div>
                     </div>
                 </div>
+                <div id="mensagem-inserir" class="alerta-mensagem" style="display:none;"></div>
                 <button type="submit">Salvar</button>
                 <button type="button" onclick="fecharModal('modalCadastroUsuario')">Cancelar</button>
             </form>
@@ -132,14 +135,13 @@
 
     <div id="modalCadastroUsuarioEditar" class="modal">
         <div class="modal-conteudo">
-            <span class="fechar" onclick="fecharModal('modalCadastroUsuario')">&times;</span>
+            <span class="fechar" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">&times;</span>
             <h3>Editar Usuário</h3>
             <form id="formCadastroUsuarioEditar" method="post">
-            <!-- <form id="formCadastroUsuarioEditar" action="../controller/cadastroUsuario/editar_usuario.php" method="post" > -->
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código:</label>
-                        <input type="number" id="codigo" class="form-control" disabled>
+                        <input type="number" id="codigo" name="codigo" class="form-control" readonly> <!--  readonly Permite o campo ser retonado mas não editado-->
                     </div>
                     <div class="col-md-4">
                         <label for="nome">Nome:</label>
@@ -157,13 +159,32 @@
                         <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200" required>
                     </div>
                 </div>
+                <div id="mensagem-editar" class="alerta-mensagem" style="display:none;"></div>
                 <button type="submit">Salvar</button>
-                <button type="button" onclick="fecharModal('modalCadastroUsuarioEditar')">Cancelar</button>
+                <button type="button" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">Cancelar</button>
             </form>
         </div>
     </div>
 
-  
+     <!-- ============================= EXCLUIR USUÁRIO ==================================== -->
+
+    <div id="modalCadastroUsuarioExcluir" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModalExcluir('modalCadastroUsuarioExcluir')">&times;</span>
+            <h3>Excluir Usuário</h3>
+            <form id="formCadastroUsuarioExcluir" method="post">
+                <input type="hidden" id="idUsuarioExcluir" name="id">
+                <div class="row g-12">
+                    <h4>Confirmação</h4>
+                    <p>Tem certeza que deseja excluir este usuário?</p>
+                </div>
+                <div id="mensagem-excluir" class="alerta-mensagem" style="display:none;"></div>
+                <button type="submit">Excluir</button>
+                <button type="button" onclick="fecharModalExcluir('modalCadastroUsuarioExcluir')">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
     <!--================== CHAMADA DO JAVA ==================-->
     <!-- <script src="../areaRestrito/scriptRestrito.js"></script> -->
     <!-- <script src="../js/scriptRestrito.js"></script> -->

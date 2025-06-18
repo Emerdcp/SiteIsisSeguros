@@ -22,27 +22,61 @@ function fecharModal(id) {
   document.getElementById(id).style.display = "none";
 }
 
-
-
-
+//inserir dados
 document.addEventListener("DOMContentLoaded", function () {
-  // Validação de senha
   const form = document.getElementById("formCadastroUsuario");
+
   form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
     const senha = document.getElementById('senha').value;
     const senhaC = document.getElementById('senhaC').value;
     const errorMessage = document.getElementById('error-message');
+    const mensagem = document.getElementById('mensagem-inserir');
+    const erroSenha = document.getElementById('erro-senha');
 
     if (senha !== senhaC) {
-      errorMessage.style.display = 'block';
-      e.preventDefault();
+      // erroSenha.style.display = 'block';
+
+      erroSenha.style.display = 'none';  // garante que será escondido primeiro
+      void erroSenha.offsetWidth;        // força reflow
+      erroSenha.style.display = 'block'; // reaparece com garantia
       return;
-    } else {
-      errorMessage.style.display = 'none';
     }
 
-    // Aqui você pode enviar normalmente ou com AJAX (se preferir não recarregar)
-    // Se quiser usar AJAX, remova o atributo action do formulário no HTML
+    erroSenha.style.display = 'none';
+
+
+    const formData = new FormData(form);
+
+    fetch('../controller/cadastroUsuario/inserir_usuario.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        mensagem.innerText = data.message;
+        mensagem.classList.remove('alerta-sucesso', 'alerta-erro'); // remove classes antigas
+        mensagem.classList.add(data.success ? 'alerta-sucesso' : 'alerta-erro'); // adiciona a correta
+        mensagem.style.display = 'block';
+
+        setTimeout(() => {
+          mensagem.style.display = 'none';
+          if (data.success) {
+            fecharModal('modalCadastroUsuario');
+            location.reload(); // ou atualizar tabela
+          }
+        }, 3000);
+      })
+      .catch(error => {
+        mensagem.innerText = 'Erro ao inserir usuário.';
+        mensagem.classList.remove('alerta-sucesso', 'alerta-erro');
+        mensagem.classList.add('alerta-erro');
+        mensagem.style.display = 'block';
+
+        setTimeout(() => mensagem.style.display = 'none', 3000);
+        console.error('Erro:', error);
+      });
   });
 
   //================== Buscar usuários e preencher a tabela ==================//  
@@ -76,40 +110,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //================== Excluir usuários ==================//  
 
+let idUsuarioParaExcluir = null; // variável global temporária
+
 function excluirUsuario(botao) {
   const linha = botao.closest("tr");
   const id = linha.cells[0].innerText;
+  idUsuarioParaExcluir = id;
 
-  const confirmar = confirm("Tem certeza que deseja excluir este usuário?");
-  if (confirmar) {
-    fetch('../controller/cadastroUsuario/excluir_usuario.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `id=${id}`
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        linha.remove(); // remove visualmente
-      } else {
-        alert("Erro ao excluir usuário.");
-      }
-    })
-    .catch(error => console.error('Erro:', error));
-  }
+  // Coloca o ID no input hidden
+  document.getElementById("idUsuarioExcluir").value = id;
+
+  // Esconde a mensagem anterior (se tiver)
+  document.getElementById("mensagem-excluir").style.display = "none";
+
+  // Abre o modal
+  abrirModal('modalCadastroUsuarioExcluir');
 }
 
+// função auxiliar fechar modar excluir
+
+function fecharModalExcluir(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+//Responsavel pela mensagem de exclusão
+document.getElementById("formCadastroUsuarioExcluir").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const id = document.getElementById("idUsuarioExcluir").value;
+  const mensagemExcluir = document.getElementById("mensagem-excluir");
+
+  fetch('../controller/cadastroUsuario/excluir_usuario.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `id=${id}`
+  })
+    .then(response => response.json())
+    .then(data => {
+      mensagemExcluir.innerText = data.success ? 'Usuário excluído com sucesso!' : 'Erro ao excluir usuário.';
+      mensagemExcluir.classList.remove('alerta-sucesso', 'alerta-erro');
+      mensagemExcluir.classList.add(data.success ? 'alerta-sucesso' : 'alerta-erro');
+      mensagemExcluir.style.display = 'block';
+
+      setTimeout(() => {
+        mensagemExcluir.style.display = 'none';
+        if (data.success) {
+          fecharModalExcluir('modalCadastroUsuarioExcluir');
+          location.reload();
+        }
+      }, 3000);
+    })
+    .catch(error => {
+      mensagemExcluir.innerText = 'Erro ao excluir usuário.';
+      mensagemExcluir.classList.remove('alerta-sucesso', 'alerta-erro');
+      mensagemExcluir.classList.add('alerta-erro');
+      mensagemExcluir.style.display = 'block';
+      console.error('Erro:', error);
+    });
+});
 
 //================== Editar usuários ==================//  
-
+//Traz os dados do usuário
 function editarUsuario(botao) {
   const linha = botao.closest("tr");
   const id = linha.cells[0].innerText;
 
-  fetch(`../controller/cadastroUsuario/buscar_usuario.php?id=${id}`)
+  fetch(`../controller/cadastroUsuario/buscarModal_usuario.php?id=${id}`)
     .then(response => response.json())
     .then(usuario => {
       // Altere para os campos do formulário de edição
+      // console.log(usuario)
       document.getElementById("codigo").value = usuario.ID_USUARIO;
       document.getElementById("editar_nome").value = usuario.USU_NOME;
       document.getElementById("editar_status").value = usuario.USU_STATUS;
@@ -123,10 +193,8 @@ function editarUsuario(botao) {
     });
 }
 
-
-
-
-document.getElementById('formCadastroUsuarioEditar').addEventListener('submit', function(e) {
+//Edita e Atualizar o dados do usuário
+document.getElementById('formCadastroUsuarioEditar').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const form = e.target;
@@ -136,14 +204,30 @@ document.getElementById('formCadastroUsuarioEditar').addEventListener('submit', 
     method: 'POST',
     body: formData
   })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      fecharModal('modalCadastroUsuarioEditar');
-      location.reload(); // ou refazer o fetch da tabela
-    } else {
-      alert('Erro ao editar o usuário.');
-    }
-  })
-  .catch(error => console.error('Erro:', error));
+    .then(response => response.json())
+    .then(data => {
+      const msgDiv = document.getElementById('mensagem-editar');
+      msgDiv.className = 'alerta-mensagem'; // limpa classes anteriores
+      msgDiv.style.display = 'block';
+      msgDiv.textContent = data.message || (data.success ? 'Usuário editado com sucesso.' : 'Erro ao editar o usuário.');
+
+
+      if (data.success) {
+        msgDiv.classList.add('alerta-sucesso');
+        setTimeout(() => {
+          fecharModal('modalCadastroUsuarioEditar');
+          location.reload();
+        }, 3000);
+      } else {
+        msgDiv.classList.add('alerta-erro');
+        setTimeout(() => {
+          msgDiv.style.display = 'none';
+        }, 3000);
+      }
+    })
 });
+
+//fehca modal
+function fecharModalEditar(id) {
+  document.getElementById(id).style.display = "none";
+}
