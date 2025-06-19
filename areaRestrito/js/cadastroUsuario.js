@@ -231,3 +231,21 @@ document.getElementById('formCadastroUsuarioEditar').addEventListener('submit', 
 function fecharModalEditar(id) {
   document.getElementById(id).style.display = "none";
 }
+
+
+//================== FILTRAR UISUÁRIOS ==================//  
+
+function abrirFiltro() {
+  const termo = prompt("Digite o nome ou e-mail para filtrar:");
+  if (termo) {
+    filtrarTabela(termo);
+  }
+}
+
+function filtrarTabela(termo) {
+  const linhas = document.querySelectorAll("#tabelaUsuario tr");
+  linhas.forEach((linha) => {
+    const texto = linha.innerText.toLowerCase();
+    linha.style.display = texto.includes(termo.toLowerCase()) ? "" : "none";
+  });
+}

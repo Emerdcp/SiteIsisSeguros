@@ -1,9 +1,13 @@
 //================== ALTERAÇÃO DE PESSOA JURÍDICA E FÍSICA ==================//
 
 function alternarTipoPessoa() {
-  const tipo = document.getElementById("pfjr").value;
+  const selectTipo = document.getElementById("pfjr");
   const cpfDiv = document.getElementById("cpfDiv");
   const cnpjDiv = document.getElementById("cnpjDiv");
+
+  if (!selectTipo || !cpfDiv || !cnpjDiv) return; // evita erro se ainda não estiver no DOM
+
+  const tipo = selectTipo.value;
 
   if (tipo === "F") {
     cpfDiv.style.display = "block";
@@ -13,25 +17,12 @@ function alternarTipoPessoa() {
     cnpjDiv.style.display = "block";
   }
 }
+
 
 // Chamada inicial para garantir o estado certo se estiver vindo preenchido
 document.addEventListener("DOMContentLoaded", alternarTipoPessoa);
 
 //================== Mascará para CFP e CNPJ ==================//4
-
-function alternarTipoPessoa() {
-  const tipo = document.getElementById("pfjr").value;
-  const cpfDiv = document.getElementById("cpfDiv");
-  const cnpjDiv = document.getElementById("cnpjDiv");
-
-  if (tipo === "F") {
-    cpfDiv.style.display = "block";
-    cnpjDiv.style.display = "none";
-  } else {
-    cpfDiv.style.display = "none";
-    cnpjDiv.style.display = "block";
-  }
-}
 
 // Máscara de CPF
 function formatarCPF(cpf) {
@@ -52,19 +43,35 @@ function formatarCNPJ(cnpj) {
 }
 
 // Aplica as máscaras enquanto digita
+// document.addEventListener("DOMContentLoaded", function () {
+//   const cpfInput = document.getElementById("cpf");
+//   const cnpjInput = document.getElementById("cnpj");
+
+//   cpfInput.addEventListener("input", function () {
+//     this.value = formatarCPF(this.value);
+//   });
+
+//   cnpjInput.addEventListener("input", function () {
+//     this.value = formatarCNPJ(this.value);
+//   });
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
   const cpfInput = document.getElementById("cpf");
   const cnpjInput = document.getElementById("cnpj");
 
-  cpfInput.addEventListener("input", function () {
-    this.value = formatarCPF(this.value);
-  });
+  if (cpfInput) {
+    cpfInput.addEventListener("input", function () {
+      this.value = formatarCPF(this.value);
+    });
+  }
 
-  cnpjInput.addEventListener("input", function () {
-    this.value = formatarCNPJ(this.value);
-  });
+  if (cnpjInput) {
+    cnpjInput.addEventListener("input", function () {
+      this.value = formatarCNPJ(this.value);
+    });
+  }
 });
-
 //================== Mascará para CEP ==================//
 
 function formatarCEP(cep) {
@@ -76,12 +83,21 @@ function formatarCEP(cep) {
 }
 
 // Aplica a máscara de CEP enquanto digita
+// document.addEventListener("DOMContentLoaded", function () {
+//   const cepInput = document.getElementById("cep");
+
+//   cepInput.addEventListener("input", function () {
+//     this.value = formatarCEP(this.value);
+//   });
+// });
 document.addEventListener("DOMContentLoaded", function () {
   const cepInput = document.getElementById("cep");
 
-  cepInput.addEventListener("input", function () {
-    this.value = formatarCEP(this.value);
-  });
+  if (cepInput) {
+    cepInput.addEventListener("input", function () {
+      this.value = formatarCEP(this.value);
+    });
+  }
 });
 
 //================== CHAMADA DE ENDEREÇO POR CEP ==================//

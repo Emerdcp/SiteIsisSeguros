@@ -33,6 +33,8 @@
             <div class="botaoIncluir">
                 <!-- Mover o botão para fora do thead -->
                 <button type="button" onclick="abrirModal('modalCadastroUsuario')">Incluir</button>
+                <button type="button" onclick="abrirFiltro('modalCadastroUsuarioFiltro')">Filtrar</button>             
+
                 <table>
                     <thead>
                         <tr>
@@ -152,6 +154,42 @@
             </form>
         </div>
     </div>
+
+    <!-- ============================= FILTRAR USUÁRIO ==================================== -->
+
+    <div id="modalCadastroUsuarioEditar" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">&times;</span>
+            <h3>Editar Usuário</h3>
+            <form id="formCadastroUsuarioEditar" method="post">
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <label for="codigo">Código:</label>
+                        <input type="number" id="codigo" name="codigo" class="form-control" readonly> <!--  readonly Permite o campo ser retonado mas não editado-->
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="editar_nome" name="editar_nome" class="form-control" maxlength="200" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="pfjr">Status</label>
+                        <select id="editar_status" name="editar_status" class="form-control" required>
+                            <option value="A">Ativo</option>
+                            <option value="I">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="logradouro">E-mail</label>
+                        <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200" required>
+                    </div>
+                </div>
+                <div id="mensagem-editar" class="alerta-mensagem" style="display:none;"></div>
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
 
     <!--================== CHAMADA DO JAVA ==================-->
     <!-- <script src="../areaRestrito/scriptRestrito.js"></script> -->
