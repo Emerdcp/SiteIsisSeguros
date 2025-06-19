@@ -157,35 +157,35 @@
 
     <!-- ============================= FILTRAR USUÁRIO ==================================== -->
 
-    <div id="modalCadastroUsuarioEditar" class="modal">
+    <div id="modalCadastroUsuarioFiltrar" class="modal">
         <div class="modal-conteudo">
-            <span class="fechar" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">&times;</span>
-            <h3>Editar Usuário</h3>
-            <form id="formCadastroUsuarioEditar" method="post">
+            <span class="filtrar" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">&times;</span>
+            <h3>Filtrar Usuário</h3>
+            <form id="formCadastroUsuarioFiltrar" method="post">
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código:</label>
-                        <input type="number" id="codigo" name="codigo" class="form-control" readonly> <!--  readonly Permite o campo ser retonado mas não editado-->
+                        <input type="number" id="codigo" name="codigo" class="form-control"> <!--  readonly Permite o campo ser retonado mas não editado-->
                     </div>
                     <div class="col-md-4">
                         <label for="nome">Nome:</label>
-                        <input type="text" id="editar_nome" name="editar_nome" class="form-control" maxlength="200" required>
+                        <input type="text" id="nome" name="nome" class="form-control" maxlength="200">
                     </div>
                     <div class="col-md-2">
                         <label for="pfjr">Status</label>
-                        <select id="editar_status" name="editar_status" class="form-control" required>
+                        <select id="status" name="status" class="form-control">
                             <option value="A">Ativo</option>
                             <option value="I">Inativo</option>
                         </select>
                     </div>
                     <div class="col-md-4">
                         <label for="logradouro">E-mail</label>
-                        <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200" required>
+                        <input type="text" id="email" name="email" class="form-control" maxlength="200">
                     </div>
                 </div>
-                <div id="mensagem-editar" class="alerta-mensagem" style="display:none;"></div>
-                <button type="submit">Salvar</button>
-                <button type="button" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">Cancelar</button>
+                <div id="mensagem-filtrar" class="alerta-mensagem" style="display:none;"></div>
+                <button type="submit">Filtrar</button>
+                <button type="button" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">Cancelar</button>
             </form>
         </div>
     </div>
