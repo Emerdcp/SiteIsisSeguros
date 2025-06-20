@@ -33,7 +33,7 @@
             <div class="botaoIncluir">
                 <!-- Mover o botão para fora do thead -->
                 <button type="button" onclick="abrirModal('modalCadastroUsuario')">Incluir</button>
-                <button type="button" onclick="abrirFiltro('modalCadastroUsuarioFiltro')">Filtrar</button>             
+                <button type="button" onclick="abrirModal('modalCadastroUsuarioFiltrar')">📋Filtrar</button>  
 
                 <table>
                     <thead>
@@ -41,6 +41,7 @@
                             <th>Código</th>
                             <th>Nome</th>
                             <th>E-mail</th>
+                            <th>Status</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -119,14 +120,14 @@
                         <input type="text" id="editar_nome" name="editar_nome" class="form-control" maxlength="200" required>
                     </div>
                     <div class="col-md-2">
-                        <label for="pfjr">Status</label>
+                        <label for="status">Status</label>
                         <select id="editar_status" name="editar_status" class="form-control" required>
                             <option value="A">Ativo</option>
                             <option value="I">Inativo</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label for="logradouro">E-mail</label>
+                        <label for="email">E-mail</label>
                         <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200" required>
                     </div>
                 </div>
@@ -156,11 +157,11 @@
     </div>
 
     <!-- ============================= FILTRAR USUÁRIO ==================================== -->
-
+    
+    
     <div id="modalCadastroUsuarioFiltrar" class="modal">
         <div class="modal-conteudo">
-            <button type="button" onclick="abrirModal('modalCadastroUsuarioFiltrar')">Filtrar</button>
-            <!-- <span class="filtrar" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">&times;</span> -->
+            <span class="fechar" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">&times;</span>
             <h3>Filtrar Usuário</h3>
             <form id="formCadastroUsuarioFiltrar" method="post">
                 <div class="row g-3">
@@ -173,14 +174,14 @@
                         <input type="text" id="nome" name="nome" class="form-control" maxlength="200">
                     </div>
                     <div class="col-md-2">
-                        <label for="pfjr">Status</label>
+                        <label for="status">Status</label>
                         <select id="status" name="status" class="form-control">
                             <option value="A">Ativo</option>
                             <option value="I">Inativo</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label for="logradouro">E-mail</label>
+                        <label for="email">E-mail</label>
                         <input type="text" id="email" name="email" class="form-control" maxlength="200">
                     </div>
                 </div>

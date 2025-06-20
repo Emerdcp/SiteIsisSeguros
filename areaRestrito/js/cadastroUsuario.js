@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <td>${usuario.ID_USUARIO}</td>
         <td>${usuario.USU_NOME}</td>
         <td>${usuario.USU_EMAIL}</td>
+        <td>${usuario.USU_STATUS}</td>
         <td>
           <button type="button" onclick='editarUsuario(this)'>✏️</button>
           <button type="button" onclick='excluirUsuario(this)'>🗑️</button>
@@ -187,10 +188,22 @@ function editarUsuario(botao) {
 
       abrirModal("modalCadastroUsuarioEditar");
     })
+    // .catch(error => {
+    //   console.error("Erro ao buscar dados do usuário:", error);
+    //   alert("Erro ao buscar dados do usuário.");
+    // });
     .catch(error => {
-      console.error("Erro ao buscar dados do usuário:", error);
-      alert("Erro ao buscar dados do usuário.");
-    });
+  const msgDiv = document.getElementById('mensagem-editar');
+  msgDiv.className = 'alerta-mensagem alerta-erro';
+  msgDiv.textContent = 'Erro na comunicação com o servidor.';
+  msgDiv.style.display = 'block';
+
+  console.error('Erro ao editar usuário:', error);
+
+  setTimeout(() => {
+    msgDiv.style.display = 'none';
+  }, 3000);
+});
 }
 
 //Edita e Atualizar o dados do usuário
@@ -232,26 +245,6 @@ function fecharModalEditar(id) {
   document.getElementById(id).style.display = "none";
 }
 
-
-//================== FILTRAR UISUÁRIOS ==================//  
-
-// function abrirFiltro() {
-//   const termo = prompt("Digite o nome ou e-mail para filtrar:");
-//   if (termo) {
-//     filtrarTabela(termo);
-//   }
-// }
-
-// function filtrarTabela(termo) {
-//   const linhas = document.querySelectorAll("#tabelaUsuario tr");
-//   linhas.forEach((linha) => {
-//     const texto = linha.innerText.toLowerCase();
-//     linha.style.display = texto.includes(termo.toLowerCase()) ? "" : "none";
-//   });
-// }
-
-
-
 //================== FILTRO USUARIO ==================//
 
 document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit", function (e) {
@@ -259,26 +252,38 @@ document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit",
 
   const formData = new FormData(this);
 
-  fetch("../controller/cadastroUsuario/filtrar_usuario.php", {
+  fetch("../controller/cadastroUsuario/filtrar_usuarios.php", {
     method: "POST",
     body: formData,
   })
     .then((res) => res.json())
     .then((usuarios) => {
       const tabela = document.getElementById("tabelaUsuario");
+      const msgDiv = document.getElementById("mensagem-filtrar");
       tabela.innerHTML = "";
+      msgDiv.className = 'alerta-mensagem'; // limpa classes antigas
+      msgDiv.style.display = 'block';
 
       if (usuarios.length === 0) {
-        tabela.innerHTML = "<tr><td colspan='4'>Nenhum usuário encontrado.</td></tr>";
+        msgDiv.classList.add('alerta-erro');
+        msgDiv.textContent = "Nenhum usuário encontrado.";
+        setTimeout(() => msgDiv.style.display = 'none', 3000);
         return;
       }
 
+      msgDiv.classList.add('alerta-sucesso');
+      msgDiv.textContent = "Filtro aplicado com sucesso.";
+      setTimeout(() => msgDiv.style.display = 'none', 3000);
+
       usuarios.forEach((user) => {
+        const statusFormatado = user.USU_STATUS === 'A' ? 'Ativo' : 'Inativo';
+
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td>${user.ID_USUARIO}</td>
           <td>${user.USU_NOME}</td>
           <td>${user.USU_EMAIL}</td>
+          <td>${statusFormatado}</td>
           <td>
             <button onclick="editarUsuario(${user.ID_USUARIO})">Editar</button>
           </td>
@@ -289,7 +294,23 @@ document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit",
       fecharModalFiltrar("modalCadastroUsuarioFiltrar");
     })
     .catch((error) => {
+      const msgDiv = document.getElementById("mensagem-filtrar");
+      msgDiv.className = 'alerta-mensagem alerta-erro';
+      msgDiv.textContent = "Erro ao filtrar usuários.";
+      msgDiv.style.display = 'block';
+      setTimeout(() => msgDiv.style.display = 'none', 3000);
       console.error("Erro ao filtrar usuários:", error);
-      alert("Erro ao filtrar usuários.");
     });
 });
+
+// Função para limpar o formulário de filtro
+function limparFormularioFiltrar() {
+  document.getElementById("formCadastroUsuarioFiltrar").reset();
+}
+
+// Função para fechar o modal
+function fecharModalFiltrar(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+
