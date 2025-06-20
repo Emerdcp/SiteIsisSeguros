@@ -7,8 +7,8 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $usuario = "root";
     $senha = ""; // SEM senha por padrão no XAMPP
     $banco = "isisseguro";
-    $porta = 3080;          // coloque 3080 se realmente alterou a porta do MySQL
-    // $porta = 3306;          // coloque 3080 se realmente alterou a porta do MySQL
+    // $porta = 3080;          // coloque 3080 se realmente alterou a porta do MySQL
+    $porta = 3306;          // coloque 3080 se realmente alterou a porta do MySQL
 } else {
     // Produção
     $servidor = "sql.seuprovedor.com";

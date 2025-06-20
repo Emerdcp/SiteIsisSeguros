@@ -235,17 +235,61 @@ function fecharModalEditar(id) {
 
 //================== FILTRAR UISUÁRIOS ==================//  
 
-function abrirFiltro() {
-  const termo = prompt("Digite o nome ou e-mail para filtrar:");
-  if (termo) {
-    filtrarTabela(termo);
-  }
-}
+// function abrirFiltro() {
+//   const termo = prompt("Digite o nome ou e-mail para filtrar:");
+//   if (termo) {
+//     filtrarTabela(termo);
+//   }
+// }
 
-function filtrarTabela(termo) {
-  const linhas = document.querySelectorAll("#tabelaUsuario tr");
-  linhas.forEach((linha) => {
-    const texto = linha.innerText.toLowerCase();
-    linha.style.display = texto.includes(termo.toLowerCase()) ? "" : "none";
-  });
-}
+// function filtrarTabela(termo) {
+//   const linhas = document.querySelectorAll("#tabelaUsuario tr");
+//   linhas.forEach((linha) => {
+//     const texto = linha.innerText.toLowerCase();
+//     linha.style.display = texto.includes(termo.toLowerCase()) ? "" : "none";
+//   });
+// }
+
+
+
+//================== FILTRO USUARIO ==================//
+
+document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch("../controller/cadastroUsuario/filtrar_usuario.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((usuarios) => {
+      const tabela = document.getElementById("tabelaUsuario");
+      tabela.innerHTML = "";
+
+      if (usuarios.length === 0) {
+        tabela.innerHTML = "<tr><td colspan='4'>Nenhum usuário encontrado.</td></tr>";
+        return;
+      }
+
+      usuarios.forEach((user) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${user.ID_USUARIO}</td>
+          <td>${user.USU_NOME}</td>
+          <td>${user.USU_EMAIL}</td>
+          <td>
+            <button onclick="editarUsuario(${user.ID_USUARIO})">Editar</button>
+          </td>
+        `;
+        tabela.appendChild(tr);
+      });
+
+      fecharModalFiltrar("modalCadastroUsuarioFiltrar");
+    })
+    .catch((error) => {
+      console.error("Erro ao filtrar usuários:", error);
+      alert("Erro ao filtrar usuários.");
+    });
+});
