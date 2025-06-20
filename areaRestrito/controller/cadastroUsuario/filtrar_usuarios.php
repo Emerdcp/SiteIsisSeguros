@@ -3,10 +3,10 @@ include("../../../config.php");
 
 header('Content-Type: application/json; charset=utf-8');
 
-$id     = $_POST['codigo'] ?? null;
-$nome   = $_POST['nome'] ?? null;
-$status = $_POST['status'] ?? null;
-$email  = $_POST['email'] ?? null;
+$id     = $_POST['filtrar_codigo'] ?? null;
+$nome   = $_POST['filtrar_nome'] ?? null;
+$status = $_POST['filtrar_status'] ?? null;
+$email  = $_POST['filtrar_email'] ?? null;
 
 $sql = "SELECT ID_USUARIO, USU_NOME, USU_STATUS, USU_EMAIL FROM CAD_USUARIO WHERE 1=1";
 

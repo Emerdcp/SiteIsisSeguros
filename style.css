@@ -1041,3 +1041,17 @@ th, td {
   margin-top: 10px;
   text-align: center;
 }
+
+/*================== Estilo zebra para a tabela ==================*/
+table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background-color: #d1ecf1;
+  cursor: pointer;
+}

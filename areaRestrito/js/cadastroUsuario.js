@@ -285,7 +285,8 @@ document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit",
           <td>${user.USU_EMAIL}</td>
           <td>${statusFormatado}</td>
           <td>
-            <button onclick="editarUsuario(${user.ID_USUARIO})">Editar</button>
+            <button type="button" onclick="editarUsuario(this)">✏️</button>
+            <button type="button" onclick="excluirUsuario(this)">🗑️</button>
           </td>
         `;
         tabela.appendChild(tr);
@@ -312,5 +313,4 @@ function limparFormularioFiltrar() {
 function fecharModalFiltrar(id) {
   document.getElementById(id).style.display = "none";
 }
-
 
