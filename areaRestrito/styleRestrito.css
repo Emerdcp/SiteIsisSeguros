@@ -212,5 +212,28 @@ tr:hover {
 
 
 
+/* ================== BOTÃO FORMULARIO EDITAR E EXCLUIR ================== */
+/* Define o tamanho padrão dos ícones dentro dos botões */
+.iconeFormulario {
+  width: 20px;/* Largura da imagem do ícone */
+  height: 20px;/* Altura da imagem do ícone */
+  object-fit: contain;/* Garante que a imagem se ajuste sem distorcer */
+  vertical-align: middle;/* Alinha o ícone verticalmente ao centro */
+}
+/* Estilo geral dos botões de ação (Editar / Excluir / pesquisar) */
+.botaoFormulario {
+  background-color: transparent;/* Remove a cor de fundo padrão do botão */
+  border: none;/* Remove a borda do botão */
+  padding: 4px;/* Muda o cursor ao passar por cima do botão */
+  cursor: pointer;/* Espaçamento interno para não deixar apertado */
+}
+/* Efeito visual ao passar o mouse sobre o botão */
+.botaoFormulario:hover .iconeFormulario {
+  opacity: 0.7; /* Deixa o ícone mais "claro" no hover */
+  transition: opacity 0.2s;/* Suaviza o efeito de transição da opacidade */
+}
 
-
+/* Espaçamento entre botões seguidos (ex: editar e excluir) */
+/* .botaoFormulario + .botaoFormulario {
+  margin-left: 8px;/* Distância entre dois botões lado a lado */
+/*}*/

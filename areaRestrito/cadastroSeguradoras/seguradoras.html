@@ -2,97 +2,196 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usuário</title>
-  <link rel="icon" href="../../imagens/isis.png" type="image/png">
-  <link rel="stylesheet" href="../../style.css" />
-  <link rel="stylesheet" href="../styleRestrito.css" />
-  <!-- <link rel="stylesheet" href="styleRestrito.css"> -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <meta name="description"
-    content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seguradoras</title>
+    <link rel="icon" href="../../imagens/isis.png" type="image/png"> 
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../styleRestrito.css" />
+    <!-- <link rel="stylesheet" href="styleRestrito.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <meta name="description"
+        content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados." />
 </head>
 
 <body>
-  <header id="home">
-    <nav class="navbar navbar-expand-lg bg-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img id="logo" src="../../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro"
-            class="logo-imglogo" loading="lazy">
-        </a>
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span id="menu-icon" class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="../home.html">Início</a></li>
+    <header id="home">
 
-            <!-- Menu com Subitens (Dropdown) -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="cadastroDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Cadastro
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
-                <li><a class="dropdown-item" href="../cadastroCliente/cadastroCliente.html">Cliente</a></li>
-                <li><a class="dropdown-item" href="../cadastroVeiculo/veiculo.html">Veículos</a></li>
-                <li><a class="dropdown-item" href="../cadastroSeguradoras/seguradoras.html">Seguradoras</a></li>
-                <li><a class="dropdown-item" href="../cadastroUsuario/usuario.html">Usuário</a></li>
-              </ul>
-            </li>
+        <div id="menu-container"></div>
 
-            <li class="nav-item"><a class="nav-link" href="#">Relatório</a></li>
-            <li class="nav-item"><a class="nav-link" href="../areaRestrito/logout.php">Sair</a></li>
-          </ul>
+    </header>
+
+    <!--================== CADASTROU CLIENTE ==================-->
+    <hr>
+
+    <section>
+        <div class="container">
+            <div class="linha-topo">
+                <h2><b>Cadastro Seguradora</b></h2>
+            </div>
+            <div class="botaoIncluir">
+                <!-- Mover o botão para fora do thead -->
+                <button type="button" onclick="abrirModal('modalSeguradora')">Incluir</button>
+                <button type="button" onclick="abrirModal('modalSeguradoraFiltrar')" style="float: right;">
+                    <img src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>  
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Seguradoras</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaSeguradora"></tbody>
+                </table>
+            </div>
         </div>
-      </div>
-    </nav>
-  </header>
+    </section>
 
-  <!--================== CADASTROU CLIENTE ==================-->
-  <hr>
-  <section id="cadastroVeiculos" class="Cliente">
-    <!-- arrumar o id"proposta para contato... arrumar botão que está dando problemas-->
-    <div class="container">
-      <div class="linha-topo">
-        <h2><b>Cadastro de Seguradoras</b></h2>
-        <!-- <a href="#home" class="botao-topo alinha-direita"><img src="imagens/topo.png" alt="Início"></a> -->
-      </div>
-      <form class="container mb-4" id="form-proposta" action="enviar-email.php" method="POST">
-        <div class="row g-3">
-          <div class="col-md-3">
-            <label for="nome" class="form-label">Código</label>
-            <input type="number" class="form-control" id="codigo" name="codigo" placeholder="" required disabled />
-            <small class="form-text text-muted"></small>
-          </div>
-          <div class="col-md-9">
-            <label for="nome" class="form-label">Seguradora</label>
-            <input type="text" class="form-control" id="seguradora" name="seguradora" placeholder="Seguradora"
-              required />
-            <small class="form-text text-muted"></small>
-          </div>
-          <div class="col-12 text-end">
-            <button type="submit">Salvar</button>
-            <button type="button" class="botao" onclick="limparFormulario()">Cancelar</button>
-          </div>
+    <!-- ============================= INSERIR USUÁRIO ==================================== -->
+
+    <div id="modalSeguradora" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModal('modalSeguradora')">&times;</span>
+            <h3>Incluir Seguradora</h3>
+            <form id="formCadastroSeguradora" action="../controller/cadastroSeguradora/inserir_seguradora.php" method="post" >
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="nome">Seguradora</label>
+                        <input type="text" id="seguradora" name="seguradora" class="form-control" maxlength="200" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pfjr">Status</label>
+                        <select id="status" name="status" class="form-control" required>
+                            <option value="A">Ativo</option>
+                            <option value="I">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="nome">Data Cadastro</label>
+                        <input type="date" id="dataCad" name="dataCad" class="form-control">
+                    </div>
+                </div>
+                <div id="mensagem-inserir" class="alerta-mensagem" style="display:none;"></div>
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="fecharModal('modalSeguradora')">Cancelar</button>
+            </form>
         </div>
-      </form>
     </div>
-  </section>
-  <!--================== INFORMAÇÃO DO REDAPÉ ==================-->
-  <footer1>
-    <div class="container">
-      <p style="text-align: center;">&copy; ÍSIS Seguros. Todos os direitos reservados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- ============================= EDITAR USUÁRIO ==================================== -->
+
+    <div id="modalCadastroUsuarioEditar" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">&times;</span>
+            <h3>Editar Usuário</h3>
+            <form id="formCadastroUsuarioEditar" method="post">
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <label for="codigo">Código:</label>
+                        <input type="number" id="codigo" name="codigo" class="form-control" readonly> <!--  readonly Permite o campo ser retonado mas não editado-->
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="editar_nome" name="editar_nome" class="form-control" maxlength="200" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="status">Status</label>
+                        <select id="editar_status" name="editar_status" class="form-control" required>
+                            <option value="A">Ativo</option>
+                            <option value="I">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email">E-mail</label>
+                        <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200" required>
+                    </div>
+                </div>
+                <div id="mensagem-editar" class="alerta-mensagem" style="display:none;"></div>
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">Cancelar</button>
+            </form>
+        </div>
     </div>
-  </footer1>
-  <!--================== CHAMADA DO JAVA ==================-->
-  <script src="../js/scriptRestrito.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
-    defer></script>
+
+     <!-- ============================= EXCLUIR USUÁRIO ==================================== -->
+
+    <div id="modalCadastroUsuarioExcluir" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModalExcluir('modalCadastroUsuarioExcluir')">&times;</span>
+            <h3>Excluir Usuário</h3>
+            <form id="formCadastroUsuarioExcluir" method="post">
+                <input type="hidden" id="idUsuarioExcluir" name="id">
+                <div class="row g-12">
+                    <p>Tem certeza que deseja excluir este usuário?</p>
+                </div>
+                <div id="mensagem-excluir" class="alerta-mensagem" style="display:none;"></div>
+                <button type="submit">Excluir</button>
+                <button type="button" onclick="fecharModalExcluir('modalCadastroUsuarioExcluir')">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================= FILTRAR USUÁRIO ==================================== -->
+    
+    
+    <div id="modalCadastroUsuarioFiltrar" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">&times;</span>
+            <h3>Filtrar Usuário</h3>
+            <form id="formCadastroUsuarioFiltrar" method="post">
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <label for="codigo">Código:</label>
+                        <input type="number" id="filtrar_codigo" name="filtrar_codigo" class="form-control"> <!--  readonly Permite o campo ser retonado mas não editado-->
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="filtrar_nome" name="filtrar_nome" class="form-control" maxlength="200">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="status">Status</label>
+                        <select id="filtrar_status" name="filtrar_status" class="form-control">
+                            <option value="A">Ativo</option>
+                            <option value="I">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email">E-mail</label>
+                        <input type="text" id="filtrar_email" name="filtrar_email" class="form-control" maxlength="200">
+                    </div>
+                </div>
+                <div id="mensagem-filtrar" class="alerta-mensagem" style="display:none;"></div>
+                <button type="submit">Filtrar</button>
+                <button type="button" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!--================== CHAMADA DO JAVA ==================-->
+    <!-- <script src="../areaRestrito/scriptRestrito.js"></script> -->
+    <script src="../js/scriptRestrito.js"></script>
+    <script src="../js/cadastroUsuario.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
+        defer></script>
 </body>
 
 </html>

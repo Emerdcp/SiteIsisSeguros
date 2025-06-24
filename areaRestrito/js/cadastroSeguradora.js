@@ -5,7 +5,7 @@ function abrirModal(id) {
   modal.style.display = "block";
 
   // Limpa o formulário ao abrir o modal
-  const formulario = document.getElementById("formCadastroUsuario");
+  const formulario = document.getElementById("formCadastroSeguradora");
   if (formulario) {
     formulario.reset();
   }
@@ -24,32 +24,15 @@ function fecharModal(id) {
 
 //inserir dados
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("formCadastroUsuario");
+  const form = document.getElementById("formCadastroSeguradora");
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const senha = document.getElementById('senha').value;
-    const senhaC = document.getElementById('senhaC').value;
-    const errorMessage = document.getElementById('error-message');
-    const mensagem = document.getElementById('mensagem-inserir');
-    const erroSenha = document.getElementById('erro-senha');
-
-    if (senha !== senhaC) {
-      // erroSenha.style.display = 'block';
-
-      erroSenha.style.display = 'none';  // garante que será escondido primeiro
-      void erroSenha.offsetWidth;        // força reflow
-      erroSenha.style.display = 'block'; // reaparece com garantia
-      return;
-    }
-
-    erroSenha.style.display = 'none';
-
-
     const formData = new FormData(form);
+    const mensagem = document.getElementById('mensagem-inserir');
 
-    fetch('../controller/cadastroUsuario/inserir_usuario.php', {
+    fetch('../controller/cadastroSeguradora/inserir_seguradora.php', {
       method: 'POST',
       body: formData
     })
@@ -63,8 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           mensagem.style.display = 'none';
           if (data.success) {
-            fecharModal('modalCadastroUsuario');
-            location.reload(); // ou atualizar tabela
+            fecharModal('modalCadastroSeguradora');
+            // location.reload(); // ou atualizar tabela
+            buscarSeguradoras(); // função que carrega novamente a tabela sem recarregar a página
           }
         }, 3000);
       })
@@ -81,56 +65,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //================== Buscar usuários e preencher a tabela ==================//  
 
-  fetch('../controller/cadastroUsuario/buscar_usuarios.php')
+  
+
+
+function buscarSeguradoras() {
+  fetch('../controller/cadastroSeguradora/buscar_seguradora.php')
     .then(response => response.json())
     .then(data => {
-      const tbody = document.getElementById('tabelaUsuario');
+      const tbody = document.getElementById('tabelaSeguradora');
       tbody.innerHTML = '';
 
-      data.forEach(usuario => {
+      data.forEach(seguradora => {
         const tr = document.createElement('tr');
-        const statusFormatado = usuario.USU_STATUS === 'A' ? 'Ativo' : 'Inativo';
+        const statusFormatado = seguradora.SEG_STATUS === 'A' ? 'Ativo' : 'Inativo';
 
         tr.innerHTML = `
-        <td>${usuario.ID_USUARIO}</td>
-        <td>${usuario.USU_NOME}</td>
-        <td>${usuario.USU_EMAIL}</td>
-        <td>${statusFormatado}</td>
-        <td>
-          <button type="button" onclick="editarUsuario(this)" class="botaoFormulario">
-            <img src="../imagens/lapis.png" alt="Editar" class="iconeFormulario">
-          </button>
-          <button type="button" onclick="excluirUsuario(this)" class="botaoFormulario">
-            <img src="../imagens/x.png" alt="Excluir" class="iconeFormulario">
-          </button>
-        </td>
-      `;
+          <td>${seguradora.ID_SEGURADORA}</td>
+          <td>${seguradora.SEG_SEGURADORA}</td>
+          <td>${statusFormatado}</td>
+          <td>
+            <button type="button" onclick="editarSeguradora(this)" class="botaoFormulario">
+              <img src="../imagens/lapis.png" alt="Editar" class="iconeFormulario">
+            </button>
+            <button type="button" onclick="excluirSeguradora(this)" class="botaoFormulario">
+              <img src="../imagens/x.png" alt="Excluir" class="iconeFormulario">
+            </button>
+          </td>
+        `;
 
         tbody.appendChild(tr);
       });
     })
     .catch(error => {
-      console.error('Erro ao buscar usuários:', error);
+      console.error('Erro ao buscar seguradora:', error);
     });
+}
+
 });
+//================== Excluir Seguradora ==================//  
 
-//================== Excluir usuários ==================//  
+let idSeguradoraParaExcluir = null; // variável global temporária
 
-let idUsuarioParaExcluir = null; // variável global temporária
-
-function excluirUsuario(botao) {
+function excluirSeguradora(botao) {
   const linha = botao.closest("tr");
   const id = linha.cells[0].innerText;
-  idUsuarioParaExcluir = id;
+  idSeguradoraParaExcluir = id;
 
   // Coloca o ID no input hidden
-  document.getElementById("idUsuarioExcluir").value = id;
+  document.getElementById("idSeguradoraExcluir").value = id;
 
   // Esconde a mensagem anterior (se tiver)
   document.getElementById("mensagem-excluir").style.display = "none";
 
   // Abre o modal
-  abrirModal('modalCadastroUsuarioExcluir');
+  abrirModal('modalCadastroSeguradoraExcluir');
 }
 
 // função auxiliar fechar modar excluir
@@ -140,20 +128,20 @@ function fecharModalExcluir(id) {
 }
 
 //Responsavel pela mensagem de exclusão
-document.getElementById("formCadastroUsuarioExcluir").addEventListener("submit", function (e) {
+document.getElementById("formCadastroSeguradoraExcluir").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const id = document.getElementById("idUsuarioExcluir").value;
+  const id = document.getElementById("idSeguradoraExcluir").value;
   const mensagemExcluir = document.getElementById("mensagem-excluir");
 
-  fetch('../controller/cadastroUsuario/excluir_usuario.php', {
+  fetch('../controller/cadastroSeguradora/excluir_seguradora.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: `id=${id}`
   })
     .then(response => response.json())
     .then(data => {
-      mensagemExcluir.innerText = data.success ? 'Usuário excluído com sucesso!' : 'Erro ao excluir usuário.';
+      mensagemExcluir.innerText = data.success ? 'Seguradora excluída com sucesso!' : 'Erro ao excluir seguradora.';
       mensagemExcluir.classList.remove('alerta-sucesso', 'alerta-erro');
       mensagemExcluir.classList.add(data.success ? 'alerta-sucesso' : 'alerta-erro');
       mensagemExcluir.style.display = 'block';
@@ -161,13 +149,13 @@ document.getElementById("formCadastroUsuarioExcluir").addEventListener("submit",
       setTimeout(() => {
         mensagemExcluir.style.display = 'none';
         if (data.success) {
-          fecharModalExcluir('modalCadastroUsuarioExcluir');
+          fecharModalExcluir('modalCadastroSeguradoraExcluir');
           location.reload();
         }
       }, 3000);
     })
     .catch(error => {
-      mensagemExcluir.innerText = 'Erro ao excluir usuário.';
+      mensagemExcluir.innerText = 'Erro ao excluir seguradora.';
       mensagemExcluir.classList.remove('alerta-sucesso', 'alerta-erro');
       mensagemExcluir.classList.add('alerta-erro');
       mensagemExcluir.style.display = 'block';
@@ -175,35 +163,30 @@ document.getElementById("formCadastroUsuarioExcluir").addEventListener("submit",
     });
 });
 
-//================== Editar usuários ==================//  
-//Traz os dados do usuário
-function editarUsuario(botao) {
+//================== Editar Seguradora ==================//  
+//Traz os dados da Seguradora
+function editarSeguradora(botao) {
   const linha = botao.closest("tr");
   const id = linha.cells[0].innerText;
 
-  fetch(`../controller/cadastroUsuario/buscarModal_usuario.php?id=${id}`)
+  fetch(`../controller/cadastroSeguradora/buscarModal_seguradora.php?id=${id}`)
     .then(response => response.json())
-    .then(usuario => {
+    .then(seguradora => {
       // Altere para os campos do formulário de edição
       // console.log(usuario)
-      document.getElementById("codigo").value = usuario.ID_USUARIO;
-      document.getElementById("editar_nome").value = usuario.USU_NOME;
-      document.getElementById("editar_status").value = usuario.USU_STATUS;
-      document.getElementById("editar_email").value = usuario.USU_EMAIL;
+      document.getElementById("codigo").value = usuario.ID_SEGURADORA;
+      document.getElementById("editar_seguradora").value = usuario.SEG_SEGURADORA;
+      document.getElementById("editar_status").value = usuario.SEG_STATUS_STATUS;
 
-      abrirModal("modalCadastroUsuarioEditar");
+      abrirModal("modalCadastroSeguradoraEditar");
     })
-    // .catch(error => {
-    //   console.error("Erro ao buscar dados do usuário:", error);
-    //   alert("Erro ao buscar dados do usuário.");
-    // });
     .catch(error => {
       const msgDiv = document.getElementById('mensagem-editar');
       msgDiv.className = 'alerta-mensagem alerta-erro';
       msgDiv.textContent = 'Erro na comunicação com o servidor.';
       msgDiv.style.display = 'block';
 
-      console.error('Erro ao editar usuário:', error);
+      console.error('Erro ao editar seguradora:', error);
 
       setTimeout(() => {
         msgDiv.style.display = 'none';
@@ -211,14 +194,14 @@ function editarUsuario(botao) {
     });
 }
 
-//Edita e Atualizar o dados do usuário
-document.getElementById('formCadastroUsuarioEditar').addEventListener('submit', function (e) {
+//Edita e Atualizar o dados da seguradora
+document.getElementById('formCadastroSeguradoraEditar').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const form = e.target;
   const formData = new FormData(form);
 
-  fetch('../controller/cadastroUsuario/editar_usuarios.php', {
+  fetch('../controller/cadastroSeguradora/editar_seguradora.php', {
     method: 'POST',
     body: formData
   })
@@ -227,13 +210,13 @@ document.getElementById('formCadastroUsuarioEditar').addEventListener('submit', 
       const msgDiv = document.getElementById('mensagem-editar');
       msgDiv.className = 'alerta-mensagem'; // limpa classes anteriores
       msgDiv.style.display = 'block';
-      msgDiv.textContent = data.message || (data.success ? 'Usuário editado com sucesso.' : 'Erro ao editar o usuário.');
+      msgDiv.textContent = data.message || (data.success ? 'Seguradora editada com sucesso.' : 'Erro ao editar o seguradora.');
 
 
       if (data.success) {
         msgDiv.classList.add('alerta-sucesso');
         setTimeout(() => {
-          fecharModal('modalCadastroUsuarioEditar');
+          fecharModal('modalCadastroSeguradoraEditar');
           location.reload();
         }, 3000);
       } else {
@@ -250,20 +233,20 @@ function fecharModalEditar(id) {
   document.getElementById(id).style.display = "none";
 }
 
-//================== FILTRO USUARIO ==================//
+//================== FILTRO SEGURADORA ==================//
 
-document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit", function (e) {
+document.getElementById("formCadastroSeguradoraFiltrar").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const formData = new FormData(this);
 
-  fetch("../controller/cadastroUsuario/filtrar_usuarios.php", {
+  fetch("../controller/cadastroSeguradora/filtrar_seguradora.php", {
     method: "POST",
     body: formData,
   })
     .then((res) => res.json())
-    .then((usuarios) => {
-      const tabela = document.getElementById("tabelaUsuario");
+    .then((seguradora) => {
+      const tabela = document.getElementById("tabelaSeguradora");
       const msgDiv = document.getElementById("mensagem-filtrar");
       tabela.innerHTML = "";
       msgDiv.className = 'alerta-mensagem'; // limpa classes antigas
@@ -271,7 +254,7 @@ document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit",
 
       if (usuarios.length === 0) {
         msgDiv.classList.add('alerta-erro');
-        msgDiv.textContent = "Nenhum usuário encontrado.";
+        msgDiv.textContent = "Nenhuma seguradora encontrado.";
         setTimeout(() => msgDiv.style.display = 'none', 3000);
         return;
       }
@@ -280,20 +263,19 @@ document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit",
       msgDiv.textContent = "Filtro aplicado com sucesso.";
       setTimeout(() => msgDiv.style.display = 'none', 3000);
 
-      usuarios.forEach((user) => {
-        const statusFormatado = user.USU_STATUS === 'A' ? 'Ativo' : 'Inativo';
+      usuarios.forEach((seguradora) => {
+        const statusFormatado = seguradora.SEG_STATUS === 'A' ? 'Ativo' : 'Inativo';
 
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td>${user.ID_USUARIO}</td>
-          <td>${user.USU_NOME}</td>
-          <td>${user.USU_EMAIL}</td>
+          <td>${user.ID_SEGURADORA}</td>
+          <td>${user.SEG_SEGURADORA}</td>
           <td>${statusFormatado}</td>
           <td>
-            <button type="button" onclick="editarUsuario(this)" class="botaoFormulario">
+            <button type="button" onclick="editarSeguradora(this)" class="botaoFormulario">
               <img src="../imagens/lapis.png" alt="Editar" class="iconeFormulario">
             </button>
-            <button type="button" onclick="excluirUsuario(this)" class="botaoFormulario">
+            <button type="button" onclick="excluirSeguradora(this)" class="botaoFormulario">
               <img src="../imagens/x.png" alt="Excluir" class="iconeFormulario">
             </button>
           </td>
@@ -301,21 +283,21 @@ document.getElementById("formCadastroUsuarioFiltrar").addEventListener("submit",
         tabela.appendChild(tr);
       });
 
-      fecharModalFiltrar("modalCadastroUsuarioFiltrar");
+      fecharModalFiltrar("modalCadastroSeguradoraFiltrar");
     })
     .catch((error) => {
       const msgDiv = document.getElementById("mensagem-filtrar");
       msgDiv.className = 'alerta-mensagem alerta-erro';
-      msgDiv.textContent = "Erro ao filtrar usuários.";
+      msgDiv.textContent = "Erro ao filtrar seguradora.";
       msgDiv.style.display = 'block';
       setTimeout(() => msgDiv.style.display = 'none', 3000);
-      console.error("Erro ao filtrar usuários:", error);
+      console.error("Erro ao filtrar seguradora:", error);
     });
 });
 
 // Função para limpar o formulário de filtro
 function limparFormularioFiltrar() {
-  document.getElementById("formCadastroUsuarioFiltrar").reset();
+  document.getElementById("formCadastroSeguradoraFiltrar").reset();
 }
 
 // Função para fechar o modal
