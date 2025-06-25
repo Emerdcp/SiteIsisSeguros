@@ -18,9 +18,31 @@ function alternarTipoPessoa() {
   }
 }
 
-
 // Chamada inicial para garantir o estado certo se estiver vindo preenchido
 document.addEventListener("DOMContentLoaded", alternarTipoPessoa);
+
+//================== ALTERAÇÃO DE PESSOA IE e RG ==================//
+
+function alternarIerg() {
+  const selectTipo = document.getElementById("ierg");
+  const ieDiv = document.getElementById("ieDiv");
+  const rgDiv = document.getElementById("rgDiv");
+
+  if (!selectTipo || !ieDiv || !rgDiv) return; // evita erro se ainda não estiver no DOM
+
+  const tipo = selectTipo.value;
+
+  if (tipo === "F") {
+    ieDiv.style.display = "block";
+    rgDiv.style.display = "none";
+  } else {
+    ieDiv.style.display = "none";
+    rgDiv.style.display = "block";
+  }
+}
+
+// Chamada inicial para garantir o estado certo se estiver vindo preenchido
+document.addEventListener("DOMContentLoaded", alternarTipoIerg);
 
 //================== Mascará para CFP e CNPJ ==================//4
 
@@ -41,20 +63,6 @@ function formatarCNPJ(cnpj) {
     return `${p1}.${p2}.${p3}/${p4}-${p5}`;
   });
 }
-
-// Aplica as máscaras enquanto digita
-// document.addEventListener("DOMContentLoaded", function () {
-//   const cpfInput = document.getElementById("cpf");
-//   const cnpjInput = document.getElementById("cnpj");
-
-//   cpfInput.addEventListener("input", function () {
-//     this.value = formatarCPF(this.value);
-//   });
-
-//   cnpjInput.addEventListener("input", function () {
-//     this.value = formatarCNPJ(this.value);
-//   });
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
   const cpfInput = document.getElementById("cpf");
@@ -82,14 +90,6 @@ function formatarCEP(cep) {
   });
 }
 
-// Aplica a máscara de CEP enquanto digita
-// document.addEventListener("DOMContentLoaded", function () {
-//   const cepInput = document.getElementById("cep");
-
-//   cepInput.addEventListener("input", function () {
-//     this.value = formatarCEP(this.value);
-//   });
-// });
 document.addEventListener("DOMContentLoaded", function () {
   const cepInput = document.getElementById("cep");
 

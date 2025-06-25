@@ -125,6 +125,29 @@
                 placeholder="00.000.000/0000-00">
             </div>
           </div>
+
+          <div class="col-md-2">
+            <label for="ierg">IE/RG</label>
+            <select name="ierg" id="ierg" class="form-control" onchange="alternarTipoIerg()">
+              <option value="I">I.E.</option>
+              <option value="R">RG</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <!-- Campo IE -->
+            <div id="ieDiv">
+              <label for="ie">I.E.</label>
+              <input type="text" id="ie" name="ie" class="form-control" maxlength="14" placeholder="000.000.000.000">
+            </div>
+            <!-- Campo RG -->
+            <div id="rgDiv" style="display: none;">
+              <label for="rg">RG</label>
+              <input type="text" id="rg" name="rg" class="form-control" maxlength="11"
+                placeholder="00.000.000-0">
+            </div>
+          </div>
+
+
           <div class="col-md-2">
             <label for="cep">Cep:</label>
             <input type="text" id="cep" name="cep" class="form-control" value="" size="10" maxlength="10"

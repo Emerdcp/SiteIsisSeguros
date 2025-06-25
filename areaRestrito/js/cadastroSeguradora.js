@@ -22,10 +22,12 @@ function fecharModal(id) {
   document.getElementById(id).style.display = "none";
 }
 
-//inserir dados
+//================== INSERIR DADOS ==================//
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("formCadastroSeguradora");
 
+  if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           mensagem.style.display = 'none';
           if (data.success) {
-            fecharModal('modalCadastroSeguradora');
+            fecharModal('modalSeguradora');
             // location.reload(); // ou atualizar tabela
             buscarSeguradoras(); // função que carrega novamente a tabela sem recarregar a página
           }
@@ -62,11 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error('Erro:', error);
       });
   });
+  }
+    // Chama no carregamento da página
+    buscarSeguradoras();
+  });
 
-  //================== Buscar usuários e preencher a tabela ==================//  
 
-  
-
+  //================== BUSCAR SEGURADORAS ==================//
 
 function buscarSeguradoras() {
   fetch('../controller/cadastroSeguradora/buscar_seguradora.php')
@@ -99,10 +103,10 @@ function buscarSeguradoras() {
     .catch(error => {
       console.error('Erro ao buscar seguradora:', error);
     });
-}
 
-});
+}
 //================== Excluir Seguradora ==================//  
+
 
 let idSeguradoraParaExcluir = null; // variável global temporária
 
@@ -118,7 +122,7 @@ function excluirSeguradora(botao) {
   document.getElementById("mensagem-excluir").style.display = "none";
 
   // Abre o modal
-  abrirModal('modalCadastroSeguradoraExcluir');
+  abrirModal('modalSeguradoraExcluir');
 }
 
 // função auxiliar fechar modar excluir
@@ -127,44 +131,53 @@ function fecharModalExcluir(id) {
   document.getElementById(id).style.display = "none";
 }
 
-//Responsavel pela mensagem de exclusão
-document.getElementById("formCadastroSeguradoraExcluir").addEventListener("submit", function (e) {
-  e.preventDefault();
+//================== SUBMISSÃO DO FORMULÁRIO DE EXCLUSÃO ==================//
 
-  const id = document.getElementById("idSeguradoraExcluir").value;
-  const mensagemExcluir = document.getElementById("mensagem-excluir");
+document.addEventListener("DOMContentLoaded", function () {
+  const formExcluir = document.getElementById("formSeguradoraExcluir");
 
-  fetch('../controller/cadastroSeguradora/excluir_seguradora.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `id=${id}`
-  })
-    .then(response => response.json())
-    .then(data => {
-      mensagemExcluir.innerText = data.success ? 'Seguradora excluída com sucesso!' : 'Erro ao excluir seguradora.';
-      mensagemExcluir.classList.remove('alerta-sucesso', 'alerta-erro');
-      mensagemExcluir.classList.add(data.success ? 'alerta-sucesso' : 'alerta-erro');
-      mensagemExcluir.style.display = 'block';
+  if (formExcluir) {
+    formExcluir.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-      setTimeout(() => {
-        mensagemExcluir.style.display = 'none';
-        if (data.success) {
-          fecharModalExcluir('modalCadastroSeguradoraExcluir');
-          location.reload();
-        }
-      }, 3000);
-    })
-    .catch(error => {
-      mensagemExcluir.innerText = 'Erro ao excluir seguradora.';
-      mensagemExcluir.classList.remove('alerta-sucesso', 'alerta-erro');
-      mensagemExcluir.classList.add('alerta-erro');
-      mensagemExcluir.style.display = 'block';
-      console.error('Erro:', error);
+      const id = document.getElementById("idSeguradoraExcluir").value;
+      const mensagemExcluir = document.getElementById("mensagem-excluir");
+
+      fetch('../controller/cadastroSeguradora/excluir_seguradora.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `id=${encodeURIComponent(id)}`
+      })
+        .then(response => response.json())
+        .then(data => {
+          mensagemExcluir.innerText = data.success
+            ? 'Seguradora excluída com sucesso!'
+            : (data.message || 'Erro ao excluir seguradora.');
+
+          mensagemExcluir.classList.remove('alerta-sucesso', 'alerta-erro');
+          mensagemExcluir.classList.add(data.success ? 'alerta-sucesso' : 'alerta-erro');
+          mensagemExcluir.style.display = 'block';
+
+          setTimeout(() => {
+            mensagemExcluir.style.display = 'none';
+            if (data.success) {
+              fecharModalExcluir('modalSeguradoraExcluir');
+              buscarSeguradoras(); // Atualiza a tabela sem reload
+            }
+          }, 3000);
+        })
+        .catch(error => {
+          mensagemExcluir.innerText = 'Erro ao excluir seguradora.';
+          mensagemExcluir.classList.remove('alerta-sucesso', 'alerta-erro');
+          mensagemExcluir.classList.add('alerta-erro');
+          mensagemExcluir.style.display = 'block';
+          console.error('Erro:', error);
+        });
     });
+  }
 });
 
 //================== Editar Seguradora ==================//  
-//Traz os dados da Seguradora
 function editarSeguradora(botao) {
   const linha = botao.closest("tr");
   const id = linha.cells[0].innerText;
@@ -172,13 +185,11 @@ function editarSeguradora(botao) {
   fetch(`../controller/cadastroSeguradora/buscarModal_seguradora.php?id=${id}`)
     .then(response => response.json())
     .then(seguradora => {
-      // Altere para os campos do formulário de edição
-      // console.log(usuario)
-      document.getElementById("codigo").value = usuario.ID_SEGURADORA;
-      document.getElementById("editar_seguradora").value = usuario.SEG_SEGURADORA;
-      document.getElementById("editar_status").value = usuario.SEG_STATUS_STATUS;
+      document.getElementById("codigo").value = seguradora.ID_SEGURADORA;
+      document.getElementById("editar_seguradora").value = seguradora.SEG_SEGURADORA;
+      document.getElementById("editar_status").value = seguradora.SEG_STATUS;
 
-      abrirModal("modalCadastroSeguradoraEditar");
+      abrirModal("modalSeguradoraEditar");
     })
     .catch(error => {
       const msgDiv = document.getElementById('mensagem-editar');
@@ -194,8 +205,8 @@ function editarSeguradora(botao) {
     });
 }
 
-//Edita e Atualizar o dados da seguradora
-document.getElementById('formCadastroSeguradoraEditar').addEventListener('submit', function (e) {
+// Edita e atualiza os dados da seguradora
+document.getElementById('formSeguradoraEditar').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const form = e.target;
@@ -208,15 +219,14 @@ document.getElementById('formCadastroSeguradoraEditar').addEventListener('submit
     .then(response => response.json())
     .then(data => {
       const msgDiv = document.getElementById('mensagem-editar');
-      msgDiv.className = 'alerta-mensagem'; // limpa classes anteriores
+      msgDiv.className = 'alerta-mensagem';
       msgDiv.style.display = 'block';
-      msgDiv.textContent = data.message || (data.success ? 'Seguradora editada com sucesso.' : 'Erro ao editar o seguradora.');
-
+      msgDiv.textContent = data.message || (data.success ? 'Seguradora editada com sucesso.' : 'Erro ao editar a seguradora.');
 
       if (data.success) {
         msgDiv.classList.add('alerta-sucesso');
         setTimeout(() => {
-          fecharModal('modalCadastroSeguradoraEditar');
+          fecharModal('modalSeguradoraEditar');
           location.reload();
         }, 3000);
       } else {
@@ -225,17 +235,18 @@ document.getElementById('formCadastroSeguradoraEditar').addEventListener('submit
           msgDiv.style.display = 'none';
         }, 3000);
       }
-    })
+    });
 });
 
-//fehca modal
+// Fechar modal
 function fecharModalEditar(id) {
   document.getElementById(id).style.display = "none";
 }
 
+
 //================== FILTRO SEGURADORA ==================//
 
-document.getElementById("formCadastroSeguradoraFiltrar").addEventListener("submit", function (e) {
+document.getElementById("formSeguradoraFiltrar").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const formData = new FormData(this);
@@ -249,27 +260,27 @@ document.getElementById("formCadastroSeguradoraFiltrar").addEventListener("submi
       const tabela = document.getElementById("tabelaSeguradora");
       const msgDiv = document.getElementById("mensagem-filtrar");
       tabela.innerHTML = "";
-      msgDiv.className = 'alerta-mensagem'; // limpa classes antigas
+      msgDiv.className = 'alerta-mensagem';
       msgDiv.style.display = 'block';
-
-      if (usuarios.length === 0) {
+    
+      if (seguradora.length === 0) {
         msgDiv.classList.add('alerta-erro');
-        msgDiv.textContent = "Nenhuma seguradora encontrado.";
+        msgDiv.textContent = "Nenhuma seguradora encontrada.";
         setTimeout(() => msgDiv.style.display = 'none', 3000);
         return;
       }
-
+    
       msgDiv.classList.add('alerta-sucesso');
       msgDiv.textContent = "Filtro aplicado com sucesso.";
       setTimeout(() => msgDiv.style.display = 'none', 3000);
-
-      usuarios.forEach((seguradora) => {
+    
+      seguradora.forEach((seguradora) => {
         const statusFormatado = seguradora.SEG_STATUS === 'A' ? 'Ativo' : 'Inativo';
-
+    
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td>${user.ID_SEGURADORA}</td>
-          <td>${user.SEG_SEGURADORA}</td>
+          <td>${seguradora.ID_SEGURADORA}</td>
+          <td>${seguradora.SEG_SEGURADORA}</td>
           <td>${statusFormatado}</td>
           <td>
             <button type="button" onclick="editarSeguradora(this)" class="botaoFormulario">
@@ -282,9 +293,10 @@ document.getElementById("formCadastroSeguradoraFiltrar").addEventListener("submi
         `;
         tabela.appendChild(tr);
       });
-
-      fecharModalFiltrar("modalCadastroSeguradoraFiltrar");
+    
+      fecharModalFiltrar("modalSeguradoraFiltrar");
     })
+    
     .catch((error) => {
       const msgDiv = document.getElementById("mensagem-filtrar");
       msgDiv.className = 'alerta-mensagem alerta-erro';
@@ -297,7 +309,7 @@ document.getElementById("formCadastroSeguradoraFiltrar").addEventListener("submi
 
 // Função para limpar o formulário de filtro
 function limparFormularioFiltrar() {
-  document.getElementById("formCadastroSeguradoraFiltrar").reset();
+  document.getElementById("formSeguradoraFiltrar").reset();
 }
 
 // Função para fechar o modal
