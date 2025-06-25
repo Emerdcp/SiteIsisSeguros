@@ -42,7 +42,7 @@ function alternarIerg() {
 }
 
 // Chamada inicial para garantir o estado certo se estiver vindo preenchido
-document.addEventListener("DOMContentLoaded", alternarTipoIerg);
+// document.addEventListener("DOMContentLoaded", alternarTipoIerg);
 
 //================== Mascará para CFP e CNPJ ==================//4
 
@@ -185,9 +185,24 @@ function confirmarLogout() {
 
 //================== CHAMA MENU ==================//  
 
- fetch('../menu.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('menu-container').innerHTML = data;
-    })
-    .catch(error => console.error('Erro ao carregar o menu:', error));
+fetch('../menu.html')
+  // fetch('/SiteIsisSeguros/AreaRestrito/menu.html')
+  .then(response => response.text())
+  .then(data => {
+    console.log(data)
+    document.getElementById('menu-container').innerHTML = data;
+  })
+  .catch(error => console.error('Erro ao carregar o menu:', error));
+
+//     document.addEventListener('DOMContentLoaded', function () {
+//   // fetch('../menu.html')
+//   fetch('/SiteIsisSeguros/AreaRestrito/menu.html')
+//     .then(response => response.text())
+//     .then(data => {
+//       const menuContainer = document.getElementById('menu-container');
+//       if (menuContainer) {
+//         menuContainer.innerHTML = data;
+//       }
+//     })
+//     .catch(error => console.error('Erro ao carregar o menu:', error));
+// });

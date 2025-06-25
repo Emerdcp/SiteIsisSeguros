@@ -12,6 +12,7 @@ $dataCad = $_POST['dataCad'] ?? '';
 $email = $_POST['email'] ?? '';
 $senha = $_POST['senha'] ?? '';
 $senhaC = $_POST['senhaC'] ?? '';
+$registroStatus = 'A';
 
 if ($senha !== $senhaC) {
     $response['message'] = 'As senhas não coincidem.';
@@ -21,7 +22,7 @@ if ($senha !== $senhaC) {
 
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO CAD_USUARIO (USU_NOME, USU_STATUS, USU_DATACAD, USU_EMAIL, USU_SENHA) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO CAD_USUARIO (USU_NOME, USU_STATUS, USU_DATACAD, USU_EMAIL, USU_SENHA, REGISTRO_STATUS) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
@@ -30,7 +31,7 @@ if (!$stmt) {
     exit;
 }
 
-$stmt->bind_param("sssss", $nome, $status, $dataCad, $email, $senhaHash);
+$stmt->bind_param("ssssss", $nome, $status, $dataCad, $email, $senhaHash, $registroStatus);
 
 if ($stmt->execute()) {
     $response['success'] = true;

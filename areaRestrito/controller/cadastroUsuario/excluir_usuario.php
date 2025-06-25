@@ -3,7 +3,7 @@ include("../../../config.php");
 
 $id = $_POST['id'];
 
-$sql = "DELETE FROM CAD_USUARIO WHERE ID_USUARIO = ?";
+$sql = "UPDATE CAD_USUARIO SET REGISTRO_STATUS = 'I' WHERE ID_USUARIO = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 
@@ -16,3 +16,5 @@ if ($stmt->execute()) {
 $stmt->close();
 $conn->close();
 ?>
+
+

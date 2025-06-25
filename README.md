@@ -2,10 +2,15 @@
 
 📁 Estrutura de pastas
 bash
-/meu-seguro/
+SiteIsisSeguros
 ├── index.html
 ├── style.css
+├── AreaRestrito
+    ├── CadastroUsuario
+        ├── Usuario.html
+    ├── menu.html
 └── script.js
+
 
 # 🛡️ ÍSIS Seguros - Página Institucional
 

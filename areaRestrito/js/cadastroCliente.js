@@ -5,7 +5,7 @@ function abrirModal(id) {
   modal.style.display = "block";
 
   // Limpa o formulário ao abrir o modal
-  const formulario = document.getElementById("formCadastroSeguradora");
+  const formulario = document.getElementById("formCadastroCliente");
   if (formulario) {
     formulario.reset();
   }
@@ -25,7 +25,7 @@ function fecharModal(id) {
 //================== INSERIR DADOS ==================//
 
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("formCadastroSeguradora");
+  const form = document.getElementById("formCadastroCliente");
 
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const formData = new FormData(form);
       const mensagem = document.getElementById('mensagem-inserir');
 
-      fetch('../controller/cadastroSeguradora/inserir_seguradora.php', {
+      fetch('../controller/cadastroCliente/inserir_cliente.php', {
         method: 'POST',
         body: formData
       })
@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
           setTimeout(() => {
             mensagem.style.display = 'none';
             if (data.success) {
-              fecharModal('modalSeguradora');
+              fecharModal('modalCliente');
               // location.reload(); // ou atualizar tabela
-              buscarSeguradoras(); // função que carrega novamente a tabela sem recarregar a página
+              buscarCliente(); // função que carrega novamente a tabela sem recarregar a página
             }
           }, 3000);
         })
@@ -66,8 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   // Chama no carregamento da página
-  buscarSeguradoras();
+  buscarCliente();
 });
+
+
+
+
+
+
 
 
 //================== BUSCAR SEGURADORAS ==================//

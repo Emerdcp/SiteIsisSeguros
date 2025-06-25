@@ -81,37 +81,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //================== Buscar usuários e preencher a tabela ==================//  
 
+  let usuarios = [];        // todos os dados vindos do fetch
+  let indiceAtual = 0;      // controla o índice inicial
+  const porPagina = 10;     // quantidade por "lote"
+
   fetch('../controller/cadastroUsuario/buscar_usuarios.php')
     .then(response => response.json())
     .then(data => {
-      const tbody = document.getElementById('tabelaUsuario');
-      tbody.innerHTML = '';
-
-      data.forEach(usuario => {
-        const tr = document.createElement('tr');
-        const statusFormatado = usuario.USU_STATUS === 'A' ? 'Ativo' : 'Inativo';
-
-        tr.innerHTML = `
-        <td>${usuario.ID_USUARIO}</td>
-        <td>${usuario.USU_NOME}</td>
-        <td>${usuario.USU_EMAIL}</td>
-        <td>${statusFormatado}</td>
-        <td>
-          <button type="button" onclick="editarUsuario(this)" class="botaoFormulario">
-            <img src="../imagens/lapis.png" alt="Editar" class="iconeFormulario">
-          </button>
-          <button type="button" onclick="excluirUsuario(this)" class="botaoFormulario">
-            <img src="../imagens/x.png" alt="Excluir" class="iconeFormulario">
-          </button>
-        </td>
-      `;
-
-        tbody.appendChild(tr);
-      });
+      usuarios = data;
+      indiceAtual = 0;
+      document.getElementById('tabelaUsuario').innerHTML = '';
+      carregarMaisUsuarios(); // Carrega os primeiros 10
     })
     .catch(error => {
       console.error('Erro ao buscar usuários:', error);
     });
+
+  //================== Buscar usuários e Carrega Mais ==================//
+  function carregarMaisUsuarios() {
+    const tbody = document.getElementById('tabelaUsuario');
+    const proximoLote = usuarios.slice(indiceAtual, indiceAtual + porPagina);
+
+    proximoLote.forEach(usuario => {
+      const tr = document.createElement('tr');
+      const statusFormatado = usuario.USU_STATUS === 'A' ? 'Ativo' : 'Inativo';
+
+      tr.innerHTML = `
+      <td>${usuario.ID_USUARIO}</td>
+      <td>${usuario.USU_NOME}</td>
+      <td>${usuario.USU_EMAIL}</td>
+      <td>${statusFormatado}</td>
+      <td>
+        <button type="button" onclick="editarUsuario(this)" class="botaoFormulario">
+          <img src="../imagens/lapis.png" alt="Editar" class="iconeFormulario">
+        </button>
+        <button type="button" onclick="excluirUsuario(this)" class="botaoFormulario">
+          <img src="../imagens/x.png" alt="Excluir" class="iconeFormulario">
+        </button>
+      </td>
+    `;
+
+      tbody.appendChild(tr);
+    });
+
+    indiceAtual += porPagina;
+
+// Exibe ou esconde o botão "Carregar mais"
+    const btnCarregarMais = document.getElementById('btnCarregarMais');
+    if (indiceAtual >= usuarios.length) {
+      btnCarregarMais.style.display = 'none';
+    } else {
+      btnCarregarMais.style.display = 'inline-block';
+    }
+  }
+  // Evento de clique do botão "Carregar mais"
+  document.getElementById('btnCarregarMais').addEventListener('click', carregarMaisUsuarios);
 });
 
 //================== Excluir usuários ==================//  

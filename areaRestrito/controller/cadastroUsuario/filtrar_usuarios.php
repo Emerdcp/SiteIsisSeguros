@@ -8,7 +8,7 @@ $nome   = $_POST['filtrar_nome'] ?? null;
 $status = $_POST['filtrar_status'] ?? null;
 $email  = $_POST['filtrar_email'] ?? null;
 
-$sql = "SELECT ID_USUARIO, USU_NOME, USU_STATUS, USU_EMAIL FROM CAD_USUARIO WHERE 1=1";
+$sql = "SELECT ID_USUARIO, USU_NOME, USU_STATUS, USU_EMAIL FROM CAD_USUARIO WHERE 1=1 AND REGISTRO_STATUS = 'A'";
 
 if (!empty($id)) {
     $sql .= " AND ID_USUARIO = " . intval($id);

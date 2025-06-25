@@ -149,7 +149,7 @@ tr:hover {
   padding: 10px;/* Espaçamento interno de 10px */
   margin: 5px 0;/* Margem de 10px no topo e embaixo */
   border-radius: 6px;/* Bordas arredondadas */
-  border: 1px solid #ccc;/* Borda cinza claro */
+  /* border: 1px solid #ccc;Borda cinza claro */
 }
 
 .botaoIncluir button {

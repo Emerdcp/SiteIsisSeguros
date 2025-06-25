@@ -2,7 +2,7 @@
 include("../../../config.php");
 
 $id = $_GET['id'];
-$sql = "SELECT ID_SEGURADORA, SEG_SEGURADORA, SEG_STATUS FROM CAD_SEGURADORA WHERE ID_SEGURADORA = ?";
+$sql = "SELECT ID_SEGURADORA, SEG_SEGURADORA, SEG_STATUS FROM CAD_SEGURADORA WHERE ID_SEGURADORA = ? AND REGISTRO_STATUS = 'A'";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {

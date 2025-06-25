@@ -7,7 +7,7 @@ $id     = $_POST['filtrar_codigo'] ?? null;
 $seguradora   = $_POST['filtrar_seguradora'] ?? null;
 $status = $_POST['filtrar_status'] ?? null;
 
-$sql = "SELECT ID_SEGURADORA, SEG_SEGURADORA, SEG_STATUS FROM CAD_SEGURADORA WHERE 1=1";
+$sql = "SELECT ID_SEGURADORA, SEG_SEGURADORA, SEG_STATUS FROM CAD_SEGURADORA WHERE 1=1 AND REGISTRO_STATUS = 'A'";
 
 if (!empty($id)) {
     $sql .= " AND ID_SEGURADORA = " . intval($id);

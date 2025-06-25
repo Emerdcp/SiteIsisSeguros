@@ -15,7 +15,7 @@ if ($id <= 0) {
 } elseif (empty($seguradora) || empty($status)) {
     $response['message'] = 'Todos os campos obrigatórios devem ser preenchidos.';
 } else {
-    $sql = "UPDATE CAD_SEGURADORA SET SEG_SEGURADORA = ?, SEG_STATUS = ? WHERE ID_SEGURADORA = ?";
+    $sql = "UPDATE CAD_SEGURADORA SET SEG_SEGURADORA = ?, SEG_STATUS = ? WHERE ID_SEGURADORA = ? AND REGISTRO_STATUS = 'A'";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {

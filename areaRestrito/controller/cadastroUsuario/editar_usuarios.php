@@ -16,7 +16,7 @@ if ($id <= 0) {
 } elseif (!$nome || !$email || !$status) {
     $response['message'] = 'Todos os campos obrigatórios devem ser preenchidos.';
 } else {
-    $sql = "UPDATE CAD_USUARIO SET USU_NOME = ?, USU_EMAIL = ?, USU_STATUS = ? WHERE ID_USUARIO = ?";
+    $sql = "UPDATE CAD_USUARIO SET USU_NOME = ?, USU_EMAIL = ?, USU_STATUS = ? WHERE ID_USUARIO = ? AND REGISTRO_STATUS = 'A'";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
