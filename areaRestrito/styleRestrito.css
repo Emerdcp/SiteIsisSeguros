@@ -12,7 +12,7 @@
 
 /* MENU RECOLHIDO */
 .sidebar.collapsed {
-  width: 60px;
+  width: 70px;
 }
 
 /* BOTÃO DE ABRIR/FECHAR */
@@ -95,7 +95,7 @@ main {
 
 /* Ajusta espaço quando recolhido */
 .sidebar.collapsed+main {
-  margin-left: 60px;
+  margin-left: 70px;
 }
 
 .sidebar:not(.collapsed)+main {
@@ -148,9 +148,54 @@ main {
 }
 
 
+/* ===== IMAGENS DOS BOTÃO MENUS ===== */
 
+.img-menu {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
 
+/* Esconde os textos dos links quando a sidebar estiver recolhida */
+.sidebar.collapsed .menu-list > li > a {
+  justify-content: center; /* Centraliza a imagem */
+  padding: 10px 0; /* Reduz o padding lateral */
+}
 
+.sidebar.collapsed .menu-list > li > a span,
+.sidebar.collapsed .menu-list > li > a .arrow {
+  display: none; /* Oculta texto e seta */
+}
+
+.sidebar.collapsed .menu-list > li > a img.img-menu {
+  margin: 0; /* Remove espaçamento do ícone */
+}
+
+/* Oculta texto e setas quando a sidebar estiver recolhida */
+.sidebar.collapsed .menu-text,
+.sidebar.collapsed .arrow {
+  display: none !important;
+}
+
+/* Submenu recolhido: oculta texto e centraliza o ícone */
+.sidebar.collapsed .submenu-item {
+  justify-content: center;
+  padding: 10px 0;
+  text-align: center;
+
+    padding: 10px;         /* Área maior de clique */
+  min-width: 1px;      /* Largura suficiente para o clique */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Centraliza o ícone no submenu */
+.sidebar.collapsed .submenu-item .img-menu {
+  margin: 0 auto;
+  display: block;
+}
 
 
 
