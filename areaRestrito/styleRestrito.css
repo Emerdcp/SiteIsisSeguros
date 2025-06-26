@@ -1,61 +1,3 @@
-/* ================== SUBMENU (DROPDOWN) ================== */
-
-/* Estilo do menu suspenso (dropdown) */
-.dropdown-menu {
-  background-color: #fff;
-  /* Fundo branco para combinar com a navbar */
-  border: 1px solid #ddd;
-  /* Borda suave cinza ao redor do dropdown */
-  border-radius: 8px;
-  /* Cantos arredondados no dropdown */
-  padding: 0.5rem 0;
-  /* Espaçamento interno vertical (topo e base) */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Sombra leve para destacar visualmente */
-}
-
-/* Estilo dos links dentro do dropdown */
-.dropdown-item {
-  color: #333;
-  /* Cor padrão dos textos dos itens do submenu */
-  padding: 0.5rem 1rem;
-  /* Espaçamento interno dos itens */
-  font-weight: 400;
-  /* Peso da fonte normal */
-  transition: all 0.2s ease;
-  /* Transição suave ao passar o mouse */
-}
-
-/* Efeito ao passar o mouse sobre o item do submenu */
-.dropdown-item:hover {
-  /*background-color: rgba(255, 179, 0, 0.15) !important; /* Fundo amarelo translúcido no hover */
-  color: #ffb300 !important;
-  /* Cor amarela destacada ao passar o mouse
-  font-weight: 700 !important;                   /* Negrito ao passar o mouse */
-}
-
-/* ================== OPCIONAL: ABRIR SUBMENU AO PASSAR O MOUSE ================== */
-
-/* Essa regra só se aplica a telas maiores que 992px (modo desktop) */
-@media (min-width: 992px) {
-
-  /* Quando o usuário passa o mouse sobre o item de menu com dropdown... */
-  .navbar-nav .dropdown:hover .dropdown-menu {
-    display: block;
-    /* ...mostra o submenu automaticamente */
-    margin-top: 0;
-    /* Remove espaçamento entre o item e o submenu */
-  }
-}
-
-
-
-
-
-
-
-
-
 /* ================== NOVO MENU ================== */
 
 .sidebar {
@@ -75,11 +17,6 @@
 
 /* BOTÃO DE ABRIR/FECHAR */
 .toggle-btn {
-  margin-top: 10px;
-  /* align-self: flex-end !important; <-- posiciona o botão à direita */
-  /* position: absolute;
-  top: 10px;
-  right: 15px; */
   width: 30px;
   height: 30px;
   background-color: #ffb300;
@@ -91,7 +28,6 @@
   font-weight: bold;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease;
-  margin-top: 8px;        /* Abaixo da imagem */
   align-self: flex-end;   /* Alinha à direita */
 }
 
@@ -103,7 +39,9 @@
 .menu-list {
   list-style: none;
   padding: 0;
-  margin-top: 40px;
+  margin-top: 0px !important;
+
+  /* border: 1px solid red; */
 }
 
 .menu-list>li>a {
@@ -127,6 +65,7 @@
 .submenu {
   display: none;
   padding-left: 15px;
+  list-style: none;
 }
 
 .submenu-wrapper:hover .submenu {
@@ -144,6 +83,7 @@
   background-color: #f0f0f0;
   color: #ffb300;
   font-weight: 600;
+  font-weight: bold; /* ✅ Negrito ao passar o mouse */
 }
 
 /* ===== CONTEÚDO PRINCIPAL ===== */
@@ -166,25 +106,45 @@ main {
 /* ===== LOGO MENU ===== */
 /* Área da logo no topo do menu lateral */
 .logo-area {
-  padding: 15px;
   text-align: center;
   display: flex;
   flex-direction: column; /* empilha logo + botão */
-  /* align-items: center;     centraliza no centro */
-  align-items: flex-end; /* Alinha à direita */
-  padding-bottom: 40px; /* Dá espaço para o botão */
-  margin-bottom: 0 !important; /* Remove margem indesejada */
+  align-items: center;   /*centraliza no centro*/
+  gap: 10px;
+  padding-bottom: 10px; /* Dá espaço para o botão */
+  margin-bottom: 0 !important;
+
+  /* border: 1px solid blue; */
 }
 
 .logo-img-restrito {
   max-width: 160px;
   transition: all 0.3s ease;
-  align-self: center; /* Centraliza apenas a logo */
+  width: auto; 
+  height: auto; /*testar*/
 }
 
 /* Quando o menu está recolhido */
 .sidebar.collapsed .logo-img-restrito {
-  max-width: 50px;
+  max-width: 40px;
+}
+
+/* ===== Setinha indicativa que tem menu ===== */
+.arrow {
+  margin-left: 6px;
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Quando o submenu estiver visível */
+.submenu.show ~ .arrow,
+.submenu.open .arrow {
+  transform: rotate(180deg); /* seta para cima */
+}
+
+.submenu-wrapper:hover .arrow {
+  transform: rotate(180deg);
 }
 
 

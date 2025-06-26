@@ -209,14 +209,6 @@ fetch('../menu.html')
 
 
 //================== NOVO MENU ==================//  
-// function toggleSidebar() {
-//   document.getElementById("sidebar").classList.toggle("collapsed");
-// }
-
-// function toggleSidebar() {
-//   document.body.classList.toggle("menu-fechado");
-// }
-
 function toggleSidebar() {
   document.getElementById("sidebar").classList.toggle("collapsed");
   document.body.classList.toggle("menu-fechado");
@@ -226,3 +218,25 @@ function toggleSidebar() {
 if (window.location.pathname.includes("AreaRestrito")) {
     document.body.classList.add("restrito");
   }
+
+  //================== ALTERANDO SETINHA DIREÇÃO QUANDO PASSANDO O MOUSE ==================//  
+
+  function toggleSubmenu(event) {
+  event.preventDefault();
+
+  const wrapper = event.target.closest(".submenu-wrapper");
+  const submenu = wrapper.querySelector(".submenu");
+  const arrow = wrapper.querySelector(".arrow");
+
+  const isOpen = submenu.classList.contains("show");
+
+  // Fecha todos
+  document.querySelectorAll(".submenu").forEach(el => el.classList.remove("show"));
+  document.querySelectorAll(".arrow").forEach(el => el.style.transform = "rotate(0deg)");
+
+  // Se não estava aberto, abre
+  if (!isOpen) {
+    submenu.classList.add("show");
+    arrow.style.transform = "rotate(180deg)";
+  }
+}
