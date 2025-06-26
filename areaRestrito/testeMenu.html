@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Lateral Recolhível</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+    }
+
+    /* ===== MENU LATERAL ===== */
+    .sidebar {
+      width: 220px;
+      background-color: #f8f9fa;
+      height: 100vh;
+      padding: 20px;
+      transition: width 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* MENU RECOLHIDO */
+    .sidebar.collapsed {
+      width: 60px;
+    }
+
+    /* BOTÃO DE ABRIR/FECHAR */
+    .toggle-btn {
+      position: absolute;
+      top: 10px;
+      right: -15px;
+      width: 30px;
+      height: 30px;
+      background-color: #ffb300;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #e0a800;
+    }
+
+    /* ===== LISTA DO MENU ===== */
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 40px;
+    }
+
+    .menu-list > li > a {
+      display: block;
+      color: #333;
+      text-decoration: none;
+      padding: 10px 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      transition: background 0.2s ease;
+    }
+
+    .menu-list > li > a:hover {
+      background-color: #ffb30020;
+      color: #ffb300;
+      font-weight: 600;
+    }
+
+    /* ===== SUBMENU ===== */
+    .submenu {
+      display: none;
+      padding-left: 15px;
+    }
+
+    .submenu-wrapper:hover .submenu {
+      display: block;
+    }
+
+    .submenu-item {
+      display: block;
+      padding: 6px 12px;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .submenu-item:hover {
+      background-color: #f0f0f0;
+      color: #ffb300;
+      font-weight: 600;
+    }
+
+    /* ===== CONTEÚDO PRINCIPAL ===== */
+    main {
+      flex: 1;
+      padding: 20px;
+      transition: margin-left 0.3s ease;
+    }
+
+    /* Ajusta espaço quando recolhido */
+    .sidebar.collapsed + main {
+      margin-left: 60px;
+    }
+
+    .sidebar:not(.collapsed) + main {
+      margin-left: 220px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu lateral -->
+  <nav class="sidebar" id="sidebar">
+    <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+    <ul class="menu-list">
+      <li><a href="#">Início</a></li>
+
+      <li class="submenu-wrapper">
+        <a href="#">Cadastro</a>
+        <ul class="submenu">
+          <li><a class="submenu-item" href="#">Cliente</a></li>
+          <li><a class="submenu-item" href="#">Veículos</a></li>
+          <li><a class="submenu-item" href="#">Seguradoras</a></li>
+          <li><a class="submenu-item" href="#">Usuário</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Relatório</a></li>
+      <li><a href="#">Sair</a></li>
+    </ul>
+  </nav>
+
+  <!-- Conteúdo da página -->
+  <main>
+    <h1>Bem-vindo</h1>
+    <p>Conteúdo principal da página.</p>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("collapsed");
+    }
+  </script>
+</body>
+</html>
