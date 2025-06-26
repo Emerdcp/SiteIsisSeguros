@@ -15,7 +15,7 @@
         content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados." />
 </head>
 
-<body>
+<body class="restrito">
     <header id="home">
 
         <div id="menu-container"></div>
@@ -23,35 +23,36 @@
     </header>
 
     <!--================== CADASTROU CLIENTE ==================-->
-    <hr>
 
-    <section>
-        <div class="container">
-            <div class="linha-topo">
-                <h2><b>Cadastro Cliente</b></h2>
-            </div>
-            <div class="botaoIncluir">
-                <!-- Mover o botão para fora do thead -->
-                <button type="button" onclick="abrirModal('modalCliente')">Incluir</button>
-                <button type="button" onclick="abrirModal('modalClienteFiltrar')" style="float: right;">
-                    <img src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Cliente</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabelaCliente"></tbody>
-                </table>
-                <div style="text-align: center; margin-top: 20px;">
-                    <button id="btnCarregarMais">Carregar mais</button>
+    <main class="restrito-content">
+        <section>
+            <div class="container">
+                <div class="linha-topo">
+                    <h2><b>Cadastro Cliente</b></h2>
+                </div>
+                <div class="botaoIncluir">
+                    <!-- Mover o botão para fora do thead -->
+                    <button type="button" onclick="abrirModal('modalCliente')">Incluir</button>
+                    <button type="button" onclick="abrirModal('modalClienteFiltrar')" style="float: right;">
+                        <img src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cliente</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaCliente"></tbody>
+                    </table>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button id="btnCarregarMais">Carregar mais</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- ============================= INSERIR USUÁRIO ==================================== -->
 

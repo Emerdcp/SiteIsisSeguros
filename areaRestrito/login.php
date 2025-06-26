@@ -23,7 +23,7 @@ if ($resultado->num_rows === 1) {
         $response = [
             'success' => true,
             'message' => 'Login realizado com sucesso!',
-            'redirect' => 'areaRestrito/home.html' // correto para sua estrutura
+            'redirect' => 'areaRestrito/inicio/home.html' // correto para sua estrutura
         ];
     } else {
         $response = ['success' => false, 'message' => 'Senha incorreta.'];

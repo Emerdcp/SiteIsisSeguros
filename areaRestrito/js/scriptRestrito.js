@@ -206,3 +206,23 @@ fetch('../menu.html')
 //     })
 //     .catch(error => console.error('Erro ao carregar o menu:', error));
 // });
+
+
+//================== NOVO MENU ==================//  
+// function toggleSidebar() {
+//   document.getElementById("sidebar").classList.toggle("collapsed");
+// }
+
+// function toggleSidebar() {
+//   document.body.classList.toggle("menu-fechado");
+// }
+
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("collapsed");
+  document.body.classList.toggle("menu-fechado");
+
+}  
+
+if (window.location.pathname.includes("AreaRestrito")) {
+    document.body.classList.add("restrito");
+  }

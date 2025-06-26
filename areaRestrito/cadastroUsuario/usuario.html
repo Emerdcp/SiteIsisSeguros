@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Usuário</title>
-    <link rel="icon" href="../../imagens/isis.png" type="image/png"> 
+    <link rel="icon" href="../../imagens/isis.png" type="image/png">
     <link rel="stylesheet" href="../../style.css" />
     <link rel="stylesheet" href="../styleRestrito.css" />
     <!-- <link rel="stylesheet" href="styleRestrito.css"> -->
@@ -15,7 +15,7 @@
         content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados." />
 </head>
 
-<body>
+<body class="restrito">
     <header id="home">
 
         <div id="menu-container"></div>
@@ -23,36 +23,38 @@
     </header>
 
     <!--================== CADASTROU USUÁRIO ==================-->
-    <hr>
 
-    <section>
-        <div class="container">
-            <div class="linha-topo">
-                <h2><b>Cadastro Usuário</b></h2>
-            </div>
-            <div class="botaoIncluir">
-                <!-- Mover o botão para fora do thead -->
-                <button type="button" onclick="abrirModal('modalCadastroUsuario')">Incluir</button>
-                <button type="button" onclick="abrirModal('modalCadastroUsuarioFiltrar')" style="float: right;"><img src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>  
+    <main class="restrito-content">
+        <section>
+            <div class="container">
+                <div class="linha-topo">
+                    <h2><b>Cadastro Usuário</b></h2>
+                </div>
+                <div class="botaoIncluir">
+                    <!-- Mover o botão para fora do thead -->
+                    <button type="button" onclick="abrirModal('modalCadastroUsuario')">Incluir</button>
+                    <button type="button" onclick="abrirModal('modalCadastroUsuarioFiltrar')" style="float: right;"><img
+                            src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nome</th>
-                            <th>E-mail</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabelaUsuario"></tbody>
-                </table>
-                <div style="text-align: center; margin-top: 20px;">
-                    <button id="btnCarregarMais">Carregar mais</button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaUsuario"></tbody>
+                    </table>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button id="btnCarregarMais">Carregar mais</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- ============================= INSERIR USUÁRIO ==================================== -->
 
@@ -60,7 +62,7 @@
         <div class="modal-conteudo">
             <span class="fechar" onclick="fecharModal('modalCadastroUsuario')">&times;</span>
             <h3>Incluir Usuário</h3>
-            <form id="formCadastroUsuario" action="../controller/cadastroUsuario/inserir_usuario.php" method="post" >
+            <form id="formCadastroUsuario" action="../controller/cadastroUsuario/inserir_usuario.php" method="post">
                 <div class="row g-3">
                     <!-- <div class="col-md-2">
                         <label for="codigo">Código:</label>
@@ -106,7 +108,7 @@
         </div>
     </div>
 
-     <!-- ============================= EDITAR USUÁRIO ==================================== -->
+    <!-- ============================= EDITAR USUÁRIO ==================================== -->
 
     <div id="modalCadastroUsuarioEditar" class="modal">
         <div class="modal-conteudo">
@@ -116,11 +118,13 @@
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código</label>
-                        <input type="number" id="codigo" name="codigo" class="form-control" readonly> <!--  readonly Permite o campo ser retonado mas não editado-->
+                        <input type="number" id="codigo" name="codigo" class="form-control" readonly>
+                        <!--  readonly Permite o campo ser retonado mas não editado-->
                     </div>
                     <div class="col-md-4">
                         <label for="nome">Nome</label>
-                        <input type="text" id="editar_nome" name="editar_nome" class="form-control" maxlength="200" required>
+                        <input type="text" id="editar_nome" name="editar_nome" class="form-control" maxlength="200"
+                            required>
                     </div>
                     <div class="col-md-2">
                         <label for="status">Status</label>
@@ -131,7 +135,8 @@
                     </div>
                     <div class="col-md-4">
                         <label for="email">E-mail</label>
-                        <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200" required>
+                        <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200"
+                            required>
                     </div>
                 </div>
                 <div id="mensagem-editar" class="alerta-mensagem" style="display:none;"></div>
@@ -141,7 +146,7 @@
         </div>
     </div>
 
-     <!-- ============================= EXCLUIR USUÁRIO ==================================== -->
+    <!-- ============================= EXCLUIR USUÁRIO ==================================== -->
 
     <div id="modalCadastroUsuarioExcluir" class="modal">
         <div class="modal-conteudo">
@@ -160,8 +165,8 @@
     </div>
 
     <!-- ============================= FILTRAR USUÁRIO ==================================== -->
-    
-    
+
+
     <div id="modalCadastroUsuarioFiltrar" class="modal">
         <div class="modal-conteudo">
             <span class="fechar" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">&times;</span>
@@ -170,7 +175,8 @@
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código</label>
-                        <input type="number" id="filtrar_codigo" name="filtrar_codigo" class="form-control"> <!--  readonly Permite o campo ser retonado mas não editado-->
+                        <input type="number" id="filtrar_codigo" name="filtrar_codigo" class="form-control">
+                        <!--  readonly Permite o campo ser retonado mas não editado-->
                     </div>
                     <div class="col-md-4">
                         <label for="nome">Nome</label>

@@ -1,5 +1,5 @@
 <!-- menu.html -->
-<nav class="navbar navbar-expand-lg bg-light fixed-top">
+<!-- <nav class="navbar navbar-expand-lg bg-light fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">
       <img id="logo" src="../../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro"
@@ -28,7 +28,36 @@
       </ul>
     </div>
   </div>
+</nav> -->
+
+
+  <!-- Menu lateral -->
+
+<nav class="sidebar" id="sidebar">
+  <div class="logo-area">
+    <a href="#">
+      <img id="logo_restrico" src="../../imagens/logoIsisSeguro.png" alt="Logo Isis Seguros" title="Isis Seguro"
+        class="logo-img-restrito" loading="lazy">
+    </a>
+    <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+  </div>
+
+  <ul class="menu-list">
+    <li><a href="../inicio/home.html">Início</a></li>
+    <li class="submenu-wrapper">
+      <a href="#">Cadastro</a>
+      <ul class="submenu">
+        <li><a class="submenu-item" href="../cadastroCliente/cadastroCliente.html">Cliente</a></li>
+        <li><a class="submenu-item" href="../cadastroVeiculo/veiculo.html">Veículos</a></li>
+        <li><a class="submenu-item" href="../cadastroSeguradoras/seguradoras.html">Seguradoras</a></li>
+        <li><a class="submenu-item" href="../cadastroUsuario/usuario.html">Usuário</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Relatório</a></li>
+    <li><a href="#" onclick="abrirModalLogout()">Sair</a></li>
+  </ul>
 </nav>
+
 
 
 <!-- Modal de Confirmação de Logout -->

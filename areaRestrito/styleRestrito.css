@@ -2,25 +2,35 @@
 
 /* Estilo do menu suspenso (dropdown) */
 .dropdown-menu {
-  background-color: #fff;             /* Fundo branco para combinar com a navbar */
-  border: 1px solid #ddd;             /* Borda suave cinza ao redor do dropdown */
-  border-radius: 8px;                 /* Cantos arredondados no dropdown */
-  padding: 0.5rem 0;                  /* Espaçamento interno vertical (topo e base) */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra leve para destacar visualmente */
+  background-color: #fff;
+  /* Fundo branco para combinar com a navbar */
+  border: 1px solid #ddd;
+  /* Borda suave cinza ao redor do dropdown */
+  border-radius: 8px;
+  /* Cantos arredondados no dropdown */
+  padding: 0.5rem 0;
+  /* Espaçamento interno vertical (topo e base) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra leve para destacar visualmente */
 }
 
 /* Estilo dos links dentro do dropdown */
 .dropdown-item {
-  color: #333;                        /* Cor padrão dos textos dos itens do submenu */
-  padding: 0.5rem 1rem;               /* Espaçamento interno dos itens */
-  font-weight: 400;                   /* Peso da fonte normal */
-  transition: all 0.2s ease;          /* Transição suave ao passar o mouse */
+  color: #333;
+  /* Cor padrão dos textos dos itens do submenu */
+  padding: 0.5rem 1rem;
+  /* Espaçamento interno dos itens */
+  font-weight: 400;
+  /* Peso da fonte normal */
+  transition: all 0.2s ease;
+  /* Transição suave ao passar o mouse */
 }
 
 /* Efeito ao passar o mouse sobre o item do submenu */
 .dropdown-item:hover {
   /*background-color: rgba(255, 179, 0, 0.15) !important; /* Fundo amarelo translúcido no hover */
-  color: #ffb300 !important;                    /* Cor amarela destacada ao passar o mouse
+  color: #ffb300 !important;
+  /* Cor amarela destacada ao passar o mouse
   font-weight: 700 !important;                   /* Negrito ao passar o mouse */
 }
 
@@ -28,10 +38,13 @@
 
 /* Essa regra só se aplica a telas maiores que 992px (modo desktop) */
 @media (min-width: 992px) {
+
   /* Quando o usuário passa o mouse sobre o item de menu com dropdown... */
   .navbar-nav .dropdown:hover .dropdown-menu {
-    display: block;                  /* ...mostra o submenu automaticamente */
-    margin-top: 0;                   /* Remove espaçamento entre o item e o submenu */
+    display: block;
+    /* ...mostra o submenu automaticamente */
+    margin-top: 0;
+    /* Remove espaçamento entre o item e o submenu */
   }
 }
 
@@ -43,66 +56,317 @@
 
 
 
+/* ================== NOVO MENU ================== */
+
+.sidebar {
+  width: 220px;
+  background-color: #f8f9fa;
+  height: 100vh;
+  padding: 20px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* MENU RECOLHIDO */
+.sidebar.collapsed {
+  width: 60px;
+}
+
+/* BOTÃO DE ABRIR/FECHAR */
+.toggle-btn {
+  margin-top: 10px;
+  /* align-self: flex-end !important; <-- posiciona o botão à direita */
+  /* position: absolute;
+  top: 10px;
+  right: 15px; */
+  width: 30px;
+  height: 30px;
+  background-color: #ffb300;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+  margin-top: 8px;        /* Abaixo da imagem */
+  align-self: flex-end;   /* Alinha à direita */
+}
+
+.toggle-btn:hover {
+  background-color: #e0a800;
+}
+
+/* ===== LISTA DO MENU ===== */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.menu-list>li>a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: background 0.2s ease;
+}
+
+.menu-list>li>a:hover {
+  background-color: #ffb30020;
+  color: #ffb300;
+  font-weight: 600;
+}
+
+/* ===== SUBMENU ===== */
+.submenu {
+  display: none;
+  padding-left: 15px;
+}
+
+.submenu-wrapper:hover .submenu {
+  display: block;
+}
+
+.submenu-item {
+  display: block;
+  padding: 6px 12px;
+  color: #555;
+  text-decoration: none;
+}
+
+.submenu-item:hover {
+  background-color: #f0f0f0;
+  color: #ffb300;
+  font-weight: 600;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+main {
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Ajusta espaço quando recolhido */
+.sidebar.collapsed+main {
+  margin-left: 60px;
+}
+
+.sidebar:not(.collapsed)+main {
+  margin-left: 220px;
+}
+
+
+/* ===== LOGO MENU ===== */
+/* Área da logo no topo do menu lateral */
+.logo-area {
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* empilha logo + botão */
+  /* align-items: center;     centraliza no centro */
+  align-items: flex-end; /* Alinha à direita */
+  padding-bottom: 40px; /* Dá espaço para o botão */
+  margin-bottom: 0 !important; /* Remove margem indesejada */
+}
+
+.logo-img-restrito {
+  max-width: 160px;
+  transition: all 0.3s ease;
+  align-self: center; /* Centraliza apenas a logo */
+}
+
+/* Quando o menu está recolhido */
+.sidebar.collapsed .logo-img-restrito {
+  max-width: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ================== BODY PARA SISTEMA DE GESTÃO ================== */
+
+body.restrito {
+  padding-top: 0 !important;
+}
+
+/* body.restrito .container {
+  margin-left: 250px;
+  padding: 20px;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+}
+
+body.restrito .container {
+  padding: 10px 20px;
+}
+
+/* Espaço padrão para o conteúdo da área restrita */
+body.restrito main,
+body.restrito .restrito-content {
+  padding-left: 250px; /* espaço reservado ao menu lateral fixo */
+  transition: padding-left 0.3s ease;
+}
+
+body.restrito .restrito-content {
+  padding-left: 250px;
+  transition: padding-left 0.3s ease;
+}
+
+/* Quando o menu está recolhido */
+body.menu-fechado .restrito-content {
+  padding-left: 60px; /* ou 0, se quiser colar tudo à esquerda */
+}
+
+/* Menu lateral fixo */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  z-index: 999;
+}
+
+/* Ajuste responsivo para telas menores */
+@media (max-width: 768px) {
+  body.restrito main,
+  body.restrito .restrito-content {
+    padding-left: 0 !important;
+  }
+
+  .sidebar {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+
+
 /* ================== MODAL CADASTRO ================== */
 .modal {
-  display: none; /* Oculta o modal inicialmente */
-  position: fixed; /* Fixa o modal na tela, mesmo ao rolar */
-  z-index: 1000; /* Garante que o modal fique acima dos outros elementos */
-  left: 0; top: 0; /* Posiciona no topo esquerdo da tela */
-  width: 100%; height: 100%; /* Faz o modal ocupar toda a tela */
-  background-color: rgba(0,0,0,0.5); /* Fundo escuro translúcido */
-  overflow: auto; /* Permite rolagem se o conteúdo for maior que a tela */
+  display: none;
+  /* Oculta o modal inicialmente */
+  position: fixed;
+  /* Fixa o modal na tela, mesmo ao rolar */
+  z-index: 1000;
+  /* Garante que o modal fique acima dos outros elementos */
+  left: 0;
+  top: 0;
+  /* Posiciona no topo esquerdo da tela */
+  width: 100%;
+  height: 100%;
+  /* Faz o modal ocupar toda a tela */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fundo escuro translúcido */
+  overflow: auto;
+  /* Permite rolagem se o conteúdo for maior que a tela */
 }
 
 .modal-conteudo {
-  background-color: #fff; /* Fundo branco para o conteúdo do modal */
-  margin: 10% auto; /* Centraliza verticalmente (10% do topo) e horizontalmente */
-  padding: 20px; /* Espaçamento interno do conteúdo */
-  width: 90%; /* Usa 90% da largura da tela, útil para dispositivos pequenos */
-  max-width: 1200px; /* Limita a largura máxima do modal */
-  border-radius: 10px; /* Arredonda os cantos do modal */
-  position: relative; /* Necessário para posicionar elementos filhos como o botão de fechar */
-  box-sizing: border-box; /* Inclui padding e borda dentro do tamanho total do elemento */
+  background-color: #fff;
+  /* Fundo branco para o conteúdo do modal */
+  margin: 10% auto;
+  /* Centraliza verticalmente (10% do topo) e horizontalmente */
+  padding: 20px;
+  /* Espaçamento interno do conteúdo */
+  width: 90%;
+  /* Usa 90% da largura da tela, útil para dispositivos pequenos */
+  max-width: 1200px;
+  /* Limita a largura máxima do modal */
+  border-radius: 10px;
+  /* Arredonda os cantos do modal */
+  position: relative;
+  /* Necessário para posicionar elementos filhos como o botão de fechar */
+  box-sizing: border-box;
+  /* Inclui padding e borda dentro do tamanho total do elemento */
 }
 
 /** Botão "×" de fechar o modal **/
 .fechar {
-  position: absolute;          /** Posiciona o botão de forma absoluta dentro do modal (em relação ao .modal-content) **/
-  top: 10px;                   /** Distância de 10px do topo do modal **/
-  right: 15px;                 /** Distância de 15px da borda direita do modal **/
-  font-size: 24px;             /** Tamanho da fonte do "×" (maior que o texto normal) **/
-  font-weight: bold;           /** Deixa o "×" em negrito **/
-  color: #000;                 /** Cor preta para o botão de fechar **/
-  cursor: pointer;             /** Mostra a "mãozinha" ao passar o mouse, indicando que é clicável **/
-  transition: all 0.2s ease;  /** Suaviza transição de estilo ao passar o mouse*/
+  position: absolute;
+  /** Posiciona o botão de forma absoluta dentro do modal (em relação ao .modal-content) **/
+  top: 10px;
+  /** Distância de 10px do topo do modal **/
+  right: 15px;
+  /** Distância de 15px da borda direita do modal **/
+  font-size: 24px;
+  /** Tamanho da fonte do "×" (maior que o texto normal) **/
+  font-weight: bold;
+  /** Deixa o "×" em negrito **/
+  color: #000;
+  /** Cor preta para o botão de fechar **/
+  cursor: pointer;
+  /** Mostra a "mãozinha" ao passar o mouse, indicando que é clicável **/
+  transition: all 0.2s ease;
+  /** Suaviza transição de estilo ao passar o mouse*/
 }
 
-.fechar:hover{
-  color: #ffb300; /*Muda a cor para amarelo*/
-  font-weight: 900; /*Aumenta ainda mais o peso da fonte*/
-  transform: scale(1.2); /*Da um leve zoom no botão*/
+.fechar:hover {
+  color: #ffb300;
+  /*Muda a cor para amarelo*/
+  font-weight: 900;
+  /*Aumenta ainda mais o peso da fonte*/
+  transform: scale(1.2);
+  /*Da um leve zoom no botão*/
 }
 
 .botoes {
-  margin-top: 20px; /* Espaço entre os inputs e os botões */
-  display: flex; /* Coloca os botões lado a lado */
-  justify-content: space-between; /* Espaço entre os botões */
-  flex-wrap: wrap; /* Permite que os botões quebrem linha se necessário (em telas pequenas) */
+  margin-top: 20px;
+  /* Espaço entre os inputs e os botões */
+  display: flex;
+  /* Coloca os botões lado a lado */
+  justify-content: space-between;
+  /* Espaço entre os botões */
+  flex-wrap: wrap;
+  /* Permite que os botões quebrem linha se necessário (em telas pequenas) */
 }
 
 .botoes button {
-  flex: 1 1 48%; /* Cada botão ocupa até 48% do espaço com flexibilidade */
-  margin: 5px 1%; /* Margem entre os botões */
+  flex: 1 1 48%;
+  /* Cada botão ocupa até 48% do espaço com flexibilidade */
+  margin: 5px 1%;
+  /* Margem entre os botões */
 }
 
 .modal-content {
-  position: relative;          /** Define que os elementos filhos com position:absolute serão posicionados em relação a este container **/
-  padding: 20px;               /** Espaçamento interno em todos os lados do conteúdo do modal **/
-  border-radius: 10px;         /** Arredonda os cantos do modal **/
-  background: #fff;            /** Define o fundo branco do modal **/
-  width: 80%;                  /** Largura do modal em relação à tela (80% da largura da janela) **/
-  max-width: 900px;            /** Limita a largura máxima do modal para que não fique muito grande em telas largas **/
-  margin: auto;                /** Centraliza horizontalmente o modal na tela **/
+  position: relative;
+  /** Define que os elementos filhos com position:absolute serão posicionados em relação a este container **/
+  padding: 20px;
+  /** Espaçamento interno em todos os lados do conteúdo do modal **/
+  border-radius: 10px;
+  /** Arredonda os cantos do modal **/
+  background: #fff;
+  /** Define o fundo branco do modal **/
+  width: 80%;
+  /** Largura do modal em relação à tela (80% da largura da janela) **/
+  max-width: 900px;
+  /** Limita a largura máxima do modal para que não fique muito grande em telas largas **/
+  margin: auto;
+  /** Centraliza horizontalmente o modal na tela **/
 }
 
 
@@ -110,21 +374,29 @@
 /* ================== TABELA CADASTRO ================== */
 
 table {
-  width: 100%; /* Ocupa toda a largura disponível */
-  border-collapse: collapse; /* Remove espaçamento entre bordas das células */
-  margin-top: 20px; /* Espaço acima da tabela */
+  width: 100%;
+  /* Ocupa toda a largura disponível */
+  border-collapse: collapse;
+  /* Remove espaçamento entre bordas das células */
+  margin-top: 20px;
+  /* Espaço acima da tabela */
   font-family: Arial, sans-serif;
   text-align: center;
 }
 
-th, td {
-  padding: 12px 16px; /* Espaçamento interno nas células */
-  text-align: left; /* Alinha texto à esquerda */
-  border-bottom: 1px solid #ccc; /* Linha separando as linhas */
+th,
+td {
+  padding: 12px 16px;
+  /* Espaçamento interno nas células */
+  text-align: left;
+  /* Alinha texto à esquerda */
+  border-bottom: 1px solid #ccc;
+  /* Linha separando as linhas */
 }
 
 th {
-  background-color: #f5f5f5; /* Cor de fundo do cabeçalho */
+  background-color: #f5f5f5;
+  /* Cor de fundo do cabeçalho */
   font-weight: bold;
   font-size: 16px;
 }
@@ -134,7 +406,8 @@ td {
 }
 
 tr:hover {
-  background-color: #f0f8ff; /* Efeito hover: linha azul claro ao passar o mouse */
+  background-color: #f0f8ff;
+  /* Efeito hover: linha azul claro ao passar o mouse */
 }
 
 
@@ -144,26 +417,38 @@ tr:hover {
 
 /* ================== TABELA CADASTRO ================== */
 
-.botaoIncluir{
-  width: 100%;/* Largura de 100% (preenche o espaço disponível) */
-  padding: 10px;/* Espaçamento interno de 10px */
-  margin: 5px 0;/* Margem de 10px no topo e embaixo */
-  border-radius: 6px;/* Bordas arredondadas */
+.botaoIncluir {
+  width: 100%;
+  /* Largura de 100% (preenche o espaço disponível) */
+  padding: 10px;
+  /* Espaçamento interno de 10px */
+  margin: 5px 0;
+  /* Margem de 10px no topo e embaixo */
+  border-radius: 6px;
+  /* Bordas arredondadas */
   /* border: 1px solid #ccc;Borda cinza claro */
 }
 
 .botaoIncluir button {
-  background: #ffc107;/* Fundo amarelo */
-  color: #333;/* Texto preto */
-  border: none;/* Sem borda */
-  padding: 10px 20px;/* Espaçamento interno (10px de topo e 20px nas laterais) */
-  cursor: pointer;/* Cursor em forma de mãozinha */
-  border-radius: 6px;/* Bordas arredondadas */
-  font-weight: bold;/* Texto em negrito */
+  background: #ffc107;
+  /* Fundo amarelo */
+  color: #333;
+  /* Texto preto */
+  border: none;
+  /* Sem borda */
+  padding: 10px 20px;
+  /* Espaçamento interno (10px de topo e 20px nas laterais) */
+  cursor: pointer;
+  /* Cursor em forma de mãozinha */
+  border-radius: 6px;
+  /* Bordas arredondadas */
+  font-weight: bold;
+  /* Texto em negrito */
 }
 
 .botaoIncluir button:hover {
-  background-color: #ffb300; /* Cor de fundo amarela mais intensa ao passar o mouse */
+  background-color: #ffb300;
+  /* Cor de fundo amarela mais intensa ao passar o mouse */
 }
 
 
@@ -191,9 +476,18 @@ tr:hover {
 }
 
 @keyframes fadeOut {
-  0% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; display: none; }
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
 
@@ -215,22 +509,34 @@ tr:hover {
 /* ================== BOTÃO FORMULARIO EDITAR E EXCLUIR ================== */
 /* Define o tamanho padrão dos ícones dentro dos botões */
 .iconeFormulario {
-  width: 20px;/* Largura da imagem do ícone */
-  height: 20px;/* Altura da imagem do ícone */
-  object-fit: contain;/* Garante que a imagem se ajuste sem distorcer */
-  vertical-align: middle;/* Alinha o ícone verticalmente ao centro */
+  width: 20px;
+  /* Largura da imagem do ícone */
+  height: 20px;
+  /* Altura da imagem do ícone */
+  object-fit: contain;
+  /* Garante que a imagem se ajuste sem distorcer */
+  vertical-align: middle;
+  /* Alinha o ícone verticalmente ao centro */
 }
+
 /* Estilo geral dos botões de ação (Editar / Excluir / pesquisar) */
 .botaoFormulario {
-  background-color: transparent;/* Remove a cor de fundo padrão do botão */
-  border: none;/* Remove a borda do botão */
-  padding: 4px;/* Muda o cursor ao passar por cima do botão */
-  cursor: pointer;/* Espaçamento interno para não deixar apertado */
+  background-color: transparent;
+  /* Remove a cor de fundo padrão do botão */
+  border: none;
+  /* Remove a borda do botão */
+  padding: 4px;
+  /* Muda o cursor ao passar por cima do botão */
+  cursor: pointer;
+  /* Espaçamento interno para não deixar apertado */
 }
+
 /* Efeito visual ao passar o mouse sobre o botão */
 .botaoFormulario:hover .iconeFormulario {
-  opacity: 0.7; /* Deixa o ícone mais "claro" no hover */
-  transition: opacity 0.2s;/* Suaviza o efeito de transição da opacidade */
+  opacity: 0.7;
+  /* Deixa o ícone mais "claro" no hover */
+  transition: opacity 0.2s;
+  /* Suaviza o efeito de transição da opacidade */
 }
 
 /* Espaçamento entre botões seguidos (ex: editar e excluir) */

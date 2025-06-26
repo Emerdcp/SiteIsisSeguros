@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seguradoras</title>
-    <link rel="icon" href="../../imagens/isis.png" type="image/png"> 
+    <link rel="icon" href="../../imagens/isis.png" type="image/png">
     <link rel="stylesheet" href="../../style.css" />
     <link rel="stylesheet" href="../styleRestrito.css" />
     <!-- <link rel="stylesheet" href="styleRestrito.css"> -->
@@ -15,7 +15,7 @@
         content="Isis Seguros oferece proteção patrimonial, familiar e profissional com soluções personalizadas para pessoas físicas e empresas. Contamos com profissionais qualificados e parcerias com as melhores seguradoras do mercado para garantir agilidade e excelência nos serviços prestados." />
 </head>
 
-<body>
+<body class="restrito">
     <header id="home">
 
         <div id="menu-container"></div>
@@ -23,35 +23,36 @@
     </header>
 
     <!--================== CADASTROU CLIENTE ==================-->
-    <hr>
 
-    <section>
-        <div class="container">
-            <div class="linha-topo">
-                <h2><b>Cadastro Seguradora</b></h2>
-            </div>
-            <div class="botaoIncluir">
-                <!-- Mover o botão para fora do thead -->
-                <button type="button" onclick="abrirModal('modalSeguradora')">Incluir</button>
-                <button type="button" onclick="abrirModal('modalSeguradoraFiltrar')" style="float: right;">
-                    <img src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>  
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Seguradoras</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabelaSeguradora"></tbody>
-                </table>
-                <div style="text-align: center; margin-top: 20px;">
-                    <button id="btnCarregarMais">Carregar mais</button>
+    <main class="restrito-content">
+        <section>
+            <div class="container">
+                <div class="linha-topo">
+                    <h2><b>Cadastro Seguradora</b></h2>
+                </div>
+                <div class="botaoIncluir">
+                    <!-- Mover o botão para fora do thead -->
+                    <button type="button" onclick="abrirModal('modalSeguradora')">Incluir</button>
+                    <button type="button" onclick="abrirModal('modalSeguradoraFiltrar')" style="float: right;">
+                        <img src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Seguradoras</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaSeguradora"></tbody>
+                    </table>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button id="btnCarregarMais">Carregar mais</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- ============================= INSERIR USUÁRIO ==================================== -->
 
@@ -59,11 +60,13 @@
         <div class="modal-conteudo">
             <span class="fechar" onclick="fecharModal('modalSeguradora')">&times;</span>
             <h3>Incluir Seguradora</h3>
-            <form id="formCadastroSeguradora" action="../controller/cadastroSeguradora/inserir_seguradora.php" method="post" >
+            <form id="formCadastroSeguradora" action="../controller/cadastroSeguradora/inserir_seguradora.php"
+                method="post">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label for="nome">Seguradora</label>
-                        <input type="text" id="seguradora" name="seguradora" class="form-control" maxlength="200" required>
+                        <input type="text" id="seguradora" name="seguradora" class="form-control" maxlength="200"
+                            required>
                     </div>
                     <div class="col-md-3">
                         <label for="pfjr">Status</label>
@@ -84,7 +87,7 @@
         </div>
     </div>
 
-     <!-- ============================= EDITAR USUÁRIO ==================================== -->
+    <!-- ============================= EDITAR USUÁRIO ==================================== -->
 
     <div id="modalSeguradoraEditar" class="modal">
         <div class="modal-conteudo">
@@ -94,11 +97,13 @@
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código</label>
-                        <input type="number" id="codigo" name="codigo" class="form-control" readonly> <!--  readonly Permite o campo ser retonado mas não editado-->
+                        <input type="number" id="codigo" name="codigo" class="form-control" readonly>
+                        <!--  readonly Permite o campo ser retonado mas não editado-->
                     </div>
                     <div class="col-md-7">
                         <label for="seguradora">Seguradora</label>
-                        <input type="text" id="editar_seguradora" name="editar_seguradora" class="form-control" maxlength="200" required>
+                        <input type="text" id="editar_seguradora" name="editar_seguradora" class="form-control"
+                            maxlength="200" required>
                     </div>
                     <div class="col-md-3">
                         <label for="status">Status</label>
@@ -115,7 +120,7 @@
         </div>
     </div>
 
-     <!-- ============================= EXCLUIR USUÁRIO ==================================== -->
+    <!-- ============================= EXCLUIR USUÁRIO ==================================== -->
 
     <div id="modalSeguradoraExcluir" class="modal">
         <div class="modal-conteudo">
@@ -134,7 +139,7 @@
     </div>
 
     <!-- ============================= FILTRAR USUÁRIO ==================================== -->
-    
+
     <div id="modalSeguradoraFiltrar" class="modal">
         <div class="modal-conteudo">
             <span class="fechar" onclick="fecharModalFiltrar('modalSeguradoraFiltrar')">&times;</span>
@@ -143,11 +148,13 @@
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código</label>
-                        <input type="number" id="filtrar_codigo" name="filtrar_codigo" class="form-control"> <!--  readonly Permite o campo ser retonado mas não editado-->
+                        <input type="number" id="filtrar_codigo" name="filtrar_codigo" class="form-control">
+                        <!--  readonly Permite o campo ser retonado mas não editado-->
                     </div>
                     <div class="col-md-7">
                         <label for="seguradora">Seguradora</label>
-                        <input type="text" id="filtrar_seguradora" name="filtrar_seguradora" class="form-control" maxlength="200">
+                        <input type="text" id="filtrar_seguradora" name="filtrar_seguradora" class="form-control"
+                            maxlength="200">
                     </div>
                     <div class="col-md-3">
                         <label for="status">Status</label>
