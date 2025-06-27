@@ -198,50 +198,36 @@ main {
 
 /* ===== MENU SUPERIOR ===== */
 
-/* Barra superior fixa */
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 50px;
-  width: 100%;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1001;
+.sidebar {
+  width: 250px; /* Define a largura fixa da barra lateral em 250 pixels */
 }
 
-.topbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  height: 100%;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
+.topbar-usuario {
+  position: fixed; /* Mantém a barra fixa no topo da janela, mesmo ao rolar a página */
+  top: 0; /* Posiciona a barra no topo da tela (0 pixels do topo) */
+  left: 250px; /* Posiciona a barra 250 pixels da borda esquerda, para ficar ao lado da sidebar */
+  width: calc(100% - 250px); /* Define a largura da barra para preencher o espaço restante, subtraindo a largura da sidebar */
+  height: 60px; /* Altura fixa de 60 pixels para a barra superior */
+  background-color: #f8f9fa; /* Cor de fundo clara para a barra */
+  padding: 10px 30px; /* Espaçamento interno: 10px em cima e baixo, 30px nas laterais */
+  display: flex; /* Usa o modelo Flexbox para organizar os itens da barra */
+  justify-content: flex-end; /* Alinha os itens da barra à direita */
+  align-items: center; /* Centraliza verticalmente os itens dentro da barra */
+  /* border-bottom: 1px solid #ddd; */ /* (Comentado) adicionaria uma linha fina cinza clara na parte inferior da barra */
+  z-index: 1000; /* Garante que a barra fique acima de outros elementos na página */
+  transition: left 0.3s, width 0.3s; /* Anima suavemente mudanças nas propriedades left e width em 0.3 segundos */
 }
 
-/* Botões da barra */
-.topbar-buttons button {
-  background: none;
-  border: none;
-  font-size: 18px;
-  margin-left: 10px;
-  cursor: pointer;
-  color: #333;
-  transition: color 0.2s ease;
+/* Quando o menu lateral está recolhido (classe menu-fechado aplicada no body) */
+.menu-fechado .topbar-usuario {
+  left: 70px; /* Move a barra para 70px da esquerda, que é a largura reduzida da sidebar recolhida */
+  width: calc(100% - 70px); /* Ajusta a largura da barra para o novo espaço disponível */
 }
 
-.topbar-buttons button:hover {
-  color: #ffb300;
+/* Conteúdo principal da página que fica abaixo da topbar e ao lado da sidebar */
+.restrito-content {
+  transition: margin-left 0.3s; /* Anima suavemente mudanças na margem esquerda para ajustar espaço quando a sidebar recolhe ou expande */
 }
-
-/* Ajusta o conteúdo principal para não ficar por baixo */
-main {
-  padding-top: 60px; /* deixa espaço para a barra */
-}
-
-
 
 
 

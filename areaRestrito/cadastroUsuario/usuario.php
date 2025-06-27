@@ -1,20 +1,11 @@
 <?php
-// session_start();
-
-// if (!isset($_SESSION['email'])) {
-//     header("Location: ../index.html"); // Redireciona para a página inicial
-//     exit();
-// }
-
 session_start();
 if (!isset($_SESSION['email'])) {
     header("Location: ../../index.html");
     exit();
 }
-
 $emailUsuario = $_SESSION['email'];
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,7 +25,13 @@ $emailUsuario = $_SESSION['email'];
 </head>
 
 <body class="restrito">
+
+
+
+
     <header id="home">
+
+
 
         <!-- Menu Superior -->
         <?php include_once('../menu.php'); ?>
@@ -42,10 +39,31 @@ $emailUsuario = $_SESSION['email'];
 
     </header>
 
+
     <!--================== CADASTROU USUÁRIO ==================-->
 
     <main class="restrito-content">
+
+        <div class="topbar-usuario">
+            <div class="usuario-info">
+                <span class="nome-usuario">👤 <?php echo $_SESSION['email']; ?></span>
+
+                <a href="../configuracoes/usuario_config.php" class="btn-config" title="Configurações">
+                    <i class="fas fa-cog"></i>
+                </a>
+
+                <a href="#" onclick="abrirModalLogout()" class="btn-sair" title="Sair">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </div>
+
+
+
+
         <section>
+
+
             <div class="container">
                 <div class="linha-topo">
                     <h2><b>Cadastro Usuário</b></h2>
@@ -226,7 +244,6 @@ $emailUsuario = $_SESSION['email'];
     <!--================== CHAMADA DO JAVA ==================-->
     <script src="../js/scriptRestrito.js" defer></script>
     <script src="../js/cadastroUsuario.js"></script>
-    <script src="[YOUR_KIT_CODE]" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
         defer></script>

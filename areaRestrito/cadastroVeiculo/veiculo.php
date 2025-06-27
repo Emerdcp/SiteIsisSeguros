@@ -1,17 +1,9 @@
 <?php
-// session_start();
-
-// if (!isset($_SESSION['email'])) {
-//     header("Location: ../index.html"); // Redireciona para a página inicial
-//     exit();
-// }
-
 session_start();
 if (!isset($_SESSION['email'])) {
   header("Location: ../../index.html");
   exit();
 }
-
 $emailUsuario = $_SESSION['email'];
 ?>
 
@@ -35,7 +27,8 @@ $emailUsuario = $_SESSION['email'];
 <body class="restrito">
   <header id="home">
 
-    <div id="menu-container"></div>
+    <?php include_once('../menu.php'); ?>
+    <!-- <div id="menu-container"></div> -->
 
   </header>
 

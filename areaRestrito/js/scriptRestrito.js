@@ -244,15 +244,15 @@ function toggleSidebar() {
   document.getElementById("sidebar").classList.toggle("collapsed");
   document.body.classList.toggle("menu-fechado");
 
-}  
+}
 
 if (window.location.pathname.includes("AreaRestrito")) {
-    document.body.classList.add("restrito");
-  }
+  document.body.classList.add("restrito");
+}
 
-  //================== ALTERANDO SETINHA DIREÇÃO QUANDO PASSANDO O MOUSE ==================//  
+//================== ALTERANDO SETINHA DIREÇÃO QUANDO PASSANDO O MOUSE ==================//  
 
-  function toggleSubmenu(event) {
+function toggleSubmenu(event) {
   event.preventDefault();
 
   const wrapper = event.target.closest(".submenu-wrapper");
@@ -271,3 +271,4 @@ if (window.location.pathname.includes("AreaRestrito")) {
     arrow.style.transform = "rotate(180deg)";
   }
 }
+
