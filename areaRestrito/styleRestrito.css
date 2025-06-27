@@ -147,7 +147,6 @@ main {
   transform: rotate(180deg);
 }
 
-
 /* ===== IMAGENS DOS BOTÃO MENUS ===== */
 
 .img-menu {
@@ -196,6 +195,68 @@ main {
   margin: 0 auto;
   display: block;
 }
+
+/* ===== MENU SUPERIOR ===== */
+
+/* Barra superior fixa */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Botões da barra */
+.topbar-buttons button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.topbar-buttons button:hover {
+  color: #ffb300;
+}
+
+/* Ajusta o conteúdo principal para não ficar por baixo */
+main {
+  padding-top: 60px; /* deixa espaço para a barra */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

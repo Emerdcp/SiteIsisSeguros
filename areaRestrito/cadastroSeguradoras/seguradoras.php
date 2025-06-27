@@ -1,10 +1,27 @@
+<?php
+// session_start();
+
+// if (!isset($_SESSION['email'])) {
+//     header("Location: ../index.html"); // Redireciona para a página inicial
+//     exit();
+// }
+
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: ../../index.html");
+    exit();
+}
+
+$emailUsuario = $_SESSION['email'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usuário</title>
+    <title>Seguradoras</title>
     <link rel="icon" href="../../imagens/isis.png" type="image/png">
     <link rel="stylesheet" href="../../style.css" />
     <link rel="stylesheet" href="../styleRestrito.css" />
@@ -22,31 +39,29 @@
 
     </header>
 
-    <!--================== CADASTROU USUÁRIO ==================-->
+    <!--================== CADASTROU CLIENTE ==================-->
 
     <main class="restrito-content">
         <section>
             <div class="container">
                 <div class="linha-topo">
-                    <h2><b>Cadastro Usuário</b></h2>
+                    <h2><b>Cadastro Seguradora</b></h2>
                 </div>
                 <div class="botaoIncluir">
                     <!-- Mover o botão para fora do thead -->
-                    <button type="button" onclick="abrirModal('modalCadastroUsuario')">Incluir</button>
-                    <button type="button" onclick="abrirModal('modalCadastroUsuarioFiltrar')" style="float: right;"><img
-                            src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>
-
+                    <button type="button" onclick="abrirModal('modalSeguradora')">Incluir</button>
+                    <button type="button" onclick="abrirModal('modalSeguradoraFiltrar')" style="float: right;">
+                        <img src="../imagens/lupa.png" alt="Pesquisa" class="iconeFormulario"></button>
                     <table>
                         <thead>
                             <tr>
                                 <th>Código</th>
-                                <th>Nome</th>
-                                <th>E-mail</th>
+                                <th>Seguradoras</th>
                                 <th>Status</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody id="tabelaUsuario"></tbody>
+                        <tbody id="tabelaSeguradora"></tbody>
                     </table>
                     <div style="text-align: center; margin-top: 20px;">
                         <button id="btnCarregarMais">Carregar mais</button>
@@ -58,19 +73,17 @@
 
     <!-- ============================= INSERIR USUÁRIO ==================================== -->
 
-    <div id="modalCadastroUsuario" class="modal">
+    <div id="modalSeguradora" class="modal">
         <div class="modal-conteudo">
-            <span class="fechar" onclick="fecharModal('modalCadastroUsuario')">&times;</span>
-            <h3>Incluir Usuário</h3>
-            <form id="formCadastroUsuario" action="../controller/cadastroUsuario/inserir_usuario.php" method="post">
+            <span class="fechar" onclick="fecharModal('modalSeguradora')">&times;</span>
+            <h3>Incluir Seguradora</h3>
+            <form id="formCadastroSeguradora" action="../controller/cadastroSeguradora/inserir_seguradora.php"
+                method="post">
                 <div class="row g-3">
-                    <!-- <div class="col-md-2">
-                        <label for="codigo">Código:</label>
-                        <input type="number" id="codigo_view" class="form-control" disabled>
-                    </div> -->
                     <div class="col-md-6">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="nome" class="form-control" maxlength="200" required>
+                        <label for="nome">Seguradora</label>
+                        <input type="text" id="seguradora" name="seguradora" class="form-control" maxlength="200"
+                            required>
                     </div>
                     <div class="col-md-3">
                         <label for="pfjr">Status</label>
@@ -83,106 +96,84 @@
                         <label for="nome">Data Cadastro</label>
                         <input type="date" id="dataCad" name="dataCad" class="form-control">
                     </div>
-                    <div class="col-md-6">
-                        <label for="logradouro">E-mail</label>
-                        <input type="text" id="email" name="email" class="form-control" maxlength="200" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="numero">Senha</label>
-                        <input type="password" id="senha" name="senha" class="form-control" maxlength="20" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="numero">Confirma Senha</label>
-                        <input type="password" id="senhaC" name="senhaC" class="form-control" maxlength="20" required>
-                    </div>
-                    <div class="col-md-12">
-                        <div id="erro-senha" class="alerta-mensagem alerta-validacao" style="display: none;">
-                            As senhas não coincidem!
-                        </div>
-                    </div>
                 </div>
                 <div id="mensagem-inserir" class="alerta-mensagem" style="display:none;"></div>
                 <button type="submit">Salvar</button>
-                <button type="button" onclick="fecharModal('modalCadastroUsuario')">Cancelar</button>
+                <button type="button" onclick="fecharModal('modalSeguradora')">Cancelar</button>
             </form>
         </div>
     </div>
 
     <!-- ============================= EDITAR USUÁRIO ==================================== -->
 
-    <div id="modalCadastroUsuarioEditar" class="modal">
+    <div id="modalSeguradoraEditar" class="modal">
         <div class="modal-conteudo">
-            <span class="fechar" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">&times;</span>
+            <span class="fechar" onclick="fecharModalEditar('modalSeguradoraEditar')">&times;</span>
             <h3>Editar Usuário</h3>
-            <form id="formCadastroUsuarioEditar" method="post">
+            <form id="formSeguradoraEditar" method="post">
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código</label>
                         <input type="number" id="codigo" name="codigo" class="form-control" readonly>
                         <!--  readonly Permite o campo ser retonado mas não editado-->
                     </div>
-                    <div class="col-md-4">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="editar_nome" name="editar_nome" class="form-control" maxlength="200"
-                            required>
+                    <div class="col-md-7">
+                        <label for="seguradora">Seguradora</label>
+                        <input type="text" id="editar_seguradora" name="editar_seguradora" class="form-control"
+                            maxlength="200" required>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="status">Status</label>
                         <select id="editar_status" name="editar_status" class="form-control" required>
                             <option value="A">Ativo</option>
                             <option value="I">Inativo</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <label for="email">E-mail</label>
-                        <input type="text" id="editar_email" name="editar_email" class="form-control" maxlength="200"
-                            required>
-                    </div>
                 </div>
                 <div id="mensagem-editar" class="alerta-mensagem" style="display:none;"></div>
                 <button type="submit">Salvar</button>
-                <button type="button" onclick="fecharModalEditar('modalCadastroUsuarioEditar')">Cancelar</button>
+                <button type="button" onclick="fecharModalEditar('modalSeguradoraEditar')">Cancelar</button>
             </form>
         </div>
     </div>
 
     <!-- ============================= EXCLUIR USUÁRIO ==================================== -->
 
-    <div id="modalCadastroUsuarioExcluir" class="modal">
+    <div id="modalSeguradoraExcluir" class="modal">
         <div class="modal-conteudo">
-            <span class="fechar" onclick="fecharModalExcluir('modalCadastroUsuarioExcluir')">&times;</span>
-            <h3>Excluir Usuário</h3>
-            <form id="formCadastroUsuarioExcluir" method="post">
-                <input type="hidden" id="idUsuarioExcluir" name="id">
+            <span class="fechar" onclick="fecharModalExcluir('modalSeguradoraExcluir')">&times;</span>
+            <h3>Excluir Seguradora</h3>
+            <form id="formSeguradoraExcluir" method="post">
+                <input type="hidden" id="idSeguradoraExcluir" name="id">
                 <div class="row g-12">
-                    <p>Tem certeza que deseja excluir este usuário?</p>
+                    <p>Tem certeza que deseja excluir esta seguradora?</p>
                 </div>
                 <div id="mensagem-excluir" class="alerta-mensagem" style="display:none;"></div>
                 <button type="submit">Excluir</button>
-                <button type="button" onclick="fecharModalExcluir('modalCadastroUsuarioExcluir')">Cancelar</button>
+                <button type="button" onclick="fecharModalExcluir('modalSeguradoraExcluir')">Cancelar</button>
             </form>
         </div>
     </div>
 
     <!-- ============================= FILTRAR USUÁRIO ==================================== -->
 
-
-    <div id="modalCadastroUsuarioFiltrar" class="modal">
+    <div id="modalSeguradoraFiltrar" class="modal">
         <div class="modal-conteudo">
-            <span class="fechar" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">&times;</span>
+            <span class="fechar" onclick="fecharModalFiltrar('modalSeguradoraFiltrar')">&times;</span>
             <h3>Filtrar Usuário</h3>
-            <form id="formCadastroUsuarioFiltrar" method="post">
+            <form id="formSeguradoraFiltrar" method="post">
                 <div class="row g-3">
                     <div class="col-md-2">
                         <label for="codigo">Código</label>
                         <input type="number" id="filtrar_codigo" name="filtrar_codigo" class="form-control">
                         <!--  readonly Permite o campo ser retonado mas não editado-->
                     </div>
-                    <div class="col-md-4">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="filtrar_nome" name="filtrar_nome" class="form-control" maxlength="200">
+                    <div class="col-md-7">
+                        <label for="seguradora">Seguradora</label>
+                        <input type="text" id="filtrar_seguradora" name="filtrar_seguradora" class="form-control"
+                            maxlength="200">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="status">Status</label>
                         <select id="filtrar_status" name="filtrar_status" class="form-control">
                             <option value=""></option>
@@ -190,23 +181,17 @@
                             <option value="I">Inativo</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <label for="email">E-mail</label>
-                        <input type="text" id="filtrar_email" name="filtrar_email" class="form-control" maxlength="200">
-                    </div>
                 </div>
                 <div id="mensagem-filtrar" class="alerta-mensagem" style="display:none;"></div>
                 <button type="submit">Filtrar</button>
-                <button type="button" onclick="fecharModalFiltrar('modalCadastroUsuarioFiltrar')">Cancelar</button>
+                <button type="button" onclick="fecharModalFiltrar('modalSeguradoraFiltrar')">Cancelar</button>
             </form>
         </div>
     </div>
-
-
     <!--================== CHAMADA DO JAVA ==================-->
-    <script src="../js/scriptRestrito.js" defer></script>
-    <script src="../js/cadastroUsuario.js"></script>
-    <script src="[YOUR_KIT_CODE]" crossorigin="anonymous"></script>
+    <script src="../js/scriptRestrito.js"></script>
+    <script src="../js/cadastroSeguradora.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
         defer></script>

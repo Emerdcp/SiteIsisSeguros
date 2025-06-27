@@ -5,13 +5,52 @@ bash
 SiteIsisSeguros
 ├── index.html
 ├── style.css
-├── AreaRestrito
-    ├── CadastroUsuario
-        ├── Usuario.html
-    ├── menu.html
-    ├── styleRestrito.js
 └── script.js
 └── style.js
+├── AreaRestrito
+    ├── cadastroCliente
+        ├── cadastroCliente.php
+    ├── cadastroSeguradoras
+        ├── seguradoras.php
+    ├── cadastroUsuario
+        ├── usuario.php
+    ├── cadastroVeiculos
+        ├── veiculos.php
+    ├── inicio
+        ├── home.php
+    ├── controller
+        ├── cadastroSeguradora
+            ├── busca_seguradora.php
+            ├── buscaModal_seguradora.php
+            ├── editar_seguradora.php
+            ├── excluir_seguradora.php
+            ├── filtra_seguradora.php
+            ├── iserir_seguradora.php
+        ├── cadastroUsuario
+            ├── busca_usuarios.php
+            ├── buscaModal_usuarios.php
+            ├── editar_usuarios.php
+            ├── excluir_usuarios.php
+            ├── filtra_usuarios.php
+            ├── iserir_usuarios.php
+    ├── js
+        ├── cadastroCliente.js
+        ├── cadastroSeguradora.js
+        ├── cadastroUsuario.js
+        ├── cadastroVeiculo.js
+        ├── scriptRestrito.js
+    ├── sql
+        ├── cad_usuario.js
+        ├── cad_cliente.js
+        ├── cad_seguradora.js
+    ├── login.php
+    ├── logout.php
+    ├── imagens
+    ├── menu.html
+    ├── styleRestrito.js
+└── scriptDescricaoCards.js
+└── config.php
+└── enviar-email.php
 
 
 # 🛡️ ÍSIS Seguros - Página Institucional

@@ -1,3 +1,20 @@
+<?php
+// session_start();
+
+// if (!isset($_SESSION['email'])) {
+//     header("Location: ../index.html"); // Redireciona para a página inicial
+//     exit();
+// }
+
+session_start();
+if (!isset($_SESSION['email'])) {
+  header("Location: ../../index.html");
+  exit();
+}
+
+$emailUsuario = $_SESSION['email'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

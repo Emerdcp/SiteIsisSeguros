@@ -185,14 +185,45 @@ function confirmarLogout() {
 
 //================== CHAMA MENU ==================//  
 
-fetch('../menu.html')
-  // fetch('/SiteIsisSeguros/AreaRestrito/menu.html')
-  .then(response => response.text())
-  .then(data => {
-    console.log(data)
-    document.getElementById('menu-container').innerHTML = data;
-  })
-  .catch(error => console.error('Erro ao carregar o menu:', error));
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.getElementById('menu-container');
+  if (container) {
+    fetch('../menu.php')
+      .then(response => response.text())
+      .then(data => {
+        container.innerHTML = data;
+      })
+      .catch(error => console.error('Erro ao carregar o menu:', error));
+  }
+});
+
+
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   fetch('../menu.php')
+//     .then(response => response.text())
+//     .then(data => {
+//       document.getElementById('menu-container').innerHTML = data;
+//     })
+//     .catch(error => console.error('Erro ao carregar o menu:', error));
+// });
+
+
+
+
+// fetch('../menu.php')
+//   // fetch('/SiteIsisSeguros/AreaRestrito/menu.html')
+//   .then(response => response.text())
+//   .then(data => {
+//     console.log(data)
+//     document.getElementById('menu-container').innerHTML = data;
+//   })
+//   .catch(error => console.error('Erro ao carregar o menu:', error));
+
+
+
+
 
 //     document.addEventListener('DOMContentLoaded', function () {
 //   // fetch('../menu.html')
