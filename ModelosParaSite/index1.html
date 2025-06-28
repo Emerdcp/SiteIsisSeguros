@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Simples com Avatar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .menu-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #ccc;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      margin-top: 10px;
+      background-color: #fff;
+      min-width: 160px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      z-index: 1;
+    }
+
+    .dropdown-content.show {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-container">
+    <div class="dropdown">
+      <img src="https://i.pravatar.cc/40" class="avatar" onclick="toggleMenu()" alt="Avatar">
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#">Configurações</a>
+        <a href="#">Perfil</a>
+        <a href="#">Sair</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Fecha se clicar fora
+    window.onclick = function(event) {
+      if (!event.target.closest('.dropdown')) {
+        document.getElementById("myDropdown").classList.remove("show");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Suspenso com Engrenagem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Container do menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Botão com ícone da engrenagem */
+    .dropbtn {
+      background-color: #ffffff;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    /* Ícone (pode usar um emoji, SVG ou FontAwesome) */
+    .dropbtn i {
+      font-style: normal;
+    }
+
+    /* Conteúdo do menu suspenso */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 5px;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Mostrar o menu quando ativado */
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dropdown">
+    <button onclick="toggleMenu()" class="dropbtn">⚙️</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#">Configurar</a>
+      <a href="#">Perfil</a>
+      <a href="#">Sair</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Fecha o menu se clicar fora dele
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          let openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
