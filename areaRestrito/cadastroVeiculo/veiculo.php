@@ -25,16 +25,15 @@ $emailUsuario = $_SESSION['email'];
 </head>
 
 <body class="restrito">
+  <!--================== MENU ==================-->
   <header id="home">
-
     <?php include_once('../menu.php'); ?>
-    <!-- <div id="menu-container"></div> -->
-
   </header>
 
-  <!--================== CADASTROU VEÍCULO==================-->
-
   <main class="restrito-content">
+    <!--================== MENU SUPERIOR ==================-->
+    <?php include_once('../menuSuperior.php'); ?>
+    <!--================== CADASTROU VEÍCULO==================-->
     <section>
       <div class="container">
         <div class="linha-topo">

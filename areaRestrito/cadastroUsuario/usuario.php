@@ -25,45 +25,16 @@ $emailUsuario = $_SESSION['email'];
 </head>
 
 <body class="restrito">
-
-
-
-
+    <!--================== MENU ==================-->
     <header id="home">
-
-
-
-        <!-- Menu Superior -->
         <?php include_once('../menu.php'); ?>
-        <!-- <div id="menu-container"></div> -->
-
     </header>
 
-
-    <!--================== CADASTROU USUÁRIO ==================-->
-
     <main class="restrito-content">
-
-        <div class="topbar-usuario">
-            <div class="usuario-info">
-                <span class="nome-usuario">👤 <?php echo $_SESSION['email']; ?></span>
-
-                <a href="../configuracoes/usuario_config.php" class="btn-config" title="Configurações">
-                    <i class="fas fa-cog"></i>
-                </a>
-
-                <a href="#" onclick="abrirModalLogout()" class="btn-sair" title="Sair">
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
-            </div>
-        </div>
-
-
-
-
+        <!--================== MENU SUPERIOR ==================-->
+        <?php include_once('../menuSuperior.php'); ?>
+        <!--================== CADASTROU USUÁRIO ==================-->
         <section>
-
-
             <div class="container">
                 <div class="linha-topo">
                     <h2><b>Cadastro Usuário</b></h2>
