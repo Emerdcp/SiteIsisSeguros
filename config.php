@@ -11,11 +11,11 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $porta = 3306;          // coloque 3080 se realmente alterou a porta do MySQL
 } else {
     // Produção
-    $servidor = "sql.seuprovedor.com";
-    $usuario = "usuario_producao";
-    $senha = "senha_producao";
-    $banco = "isisseguro";
-    $porta = 3380; // coloque 3080 se realmente alterou a porta do MySQL
+    $servidor = "sql300.infinityfree.com";
+    $usuario = "if0_39344567";
+    $senha = "mdn3Qp35NEV5Tpb";
+    $banco = "if0_39344567_isisseguro";
+    $porta = 3306; // coloque 3080 se realmente alterou a porta do MySQL
 }
 
 $conn = new mysqli($servidor, $usuario, $senha, $banco, $porta);
